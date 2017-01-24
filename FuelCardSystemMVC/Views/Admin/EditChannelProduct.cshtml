@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "EditChannelProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+<link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+@model FuelCardSystemEntities.Models.Lnk_Products_Channels
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+@if (Model != null)
+{
+    if (Model.Lnk_Products_Channels_id > 0 && _AppContext.HasPermission(Parameters.Can_Edit_ChannelProductPrices))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Define_ChannelProductPrices))
+    {
+        flag = true;
+    }
+}
+else if(_AppContext.HasPermission(Parameters.Can_Define_ChannelProductPrices))
+{
+    flag = true;
+}
+@if (flag==true)
+{  
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-link"></i><span class="margin">@(Model.Lnk_Products_Channels_id > 0 ? "Edit Channel Product of "+ (AdminBAL.GetChannelNameById(Model.Channel_id)) : "Add Channel Product...")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("ProductsChannelList", "Admin")">Channel Products List</a></li>
+                <li class="active">Add or Edit Channel Product</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model.Lnk_Products_Channels_id > 0 ? "Edit Channel Product..." : "Add Channel Product...")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("EditChannelProduct", "Admin", FormMethod.Post, new { @id = "EditChannelProductForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="">@(ViewBag.Product !=null ? ViewBag.Product : "")</label>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="">Price</label>
+                            @Html.TextBoxFor(x => x.Product_Price, new { @placeholder = "Price", @class = "form-control", @type = "number" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Currency</label>
+                            @Html.DropDownListFor(x => x.Product_currency, (SelectList)ViewBag.Currency, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Lnk_Products_Channels_id)
+                            @Html.HiddenFor(x=>x.Channel_id)
+                            @Html.HiddenFor(x=>x.Product_id)
+                            @Html.HiddenFor(x=>x.Price_List_id)
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#Item1_Product_id").change(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/GetProductPrice",
+                        data: "{s:'" + $("#Item1_Product_id").val() + "'}", // passing the parameter 
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            var jsonObj = result.data;
+                            $("#Item1_Product_Price").val(jsonObj[0].Product_Price);
+                            $("#Item1_Product_currency").val(jsonObj[0].Product_currency);
+                        }
+                    });
+                });
+
+                EditChannelProductLoad();
+
+                $("#idAddChannelProducts").closest("li.treeview").addClass("active");
+                $("#idAddChannelProducts").closest("li").addClass("active");
+            });
+        </script>
+    }
+
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

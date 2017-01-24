@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "ProdTypeEditApproval";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.ProductType>
+@using FuelCardSystemMVC.Library
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-cubes"></i><span class="margin">Product Types...</span><small></small></h1>
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Edited Product Types</h3>
+            </div>
+            @*/.box-header*@
+            <div id="divLoading" class="overlay" style="display: none">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Product Type</th>
+                            <th style="text-align: center;">Product Description</th>
+                            <th style="text-align: center;">Is Active</th>
+                            <th style="text-align: center;">Is Deleted</th>
+                            <th style="text-align: center; width: 15%">Action</th>
+                            <th style="text-align: center;">View Original</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.ProductType_Name</td>
+                                <td style="text-align: center;">@item.ProductType_Description</td>
+                                <td style="text-align: center;">@(item.ProductType_IsActive.Equals(true) ? "Active" : "InActive")</td>
+                                <td style="text-align: center;">@(item.ProductType_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted")</td>
+                                <td style="text-align: center;">@Html.ActionLink("Approve", "ProdTypeEditApproval", "Admin", new { id = item.ProductType_id, status = "apv" }, new { @class = "btn btn-success btn-sm", onClick = ("return confirm('Are you sure you want to approve " + (item.ProductType_Name) + "?')") })
+                                    @Html.ActionLink("Reject", "ProdTypeEditApproval", "Admin", new { id = item.ProductType_id, status = "rjt" }, new { @class = "btn btn-danger btn-sm", onClick = ("return confirm('Are you sure you want to reject " + (item.ProductType_Name) + "?')") })</td>
+                                <td style="text-align: center;">
+                                    @Ajax.ActionLink("View Original", "ProdTypeEditApprovalOriginal", new { id = item.ProductType_id }, new AjaxOptions
+                                      {
+                                          HttpMethod = "GET",
+                                          OnBegin = "showLoader",
+                                          OnComplete = "hideLoader",
+                                          UpdateTargetId = "idDetails",
+                                          LoadingElementId = "divLoading",
+                                          OnSuccess = "showModal"
+                                      }, new { @class = "btn btn-success btn-sm" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@*Popup*@
+<div class="modal modal-info" id="detailsModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Original Values...</h4>
+            </div>
+            <div class="modal-body" id="idDetails">
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-outline pull-left" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*Popup end*@
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#idProdTypes").closest("li.treeview").addClass("active");
+            $("#idProdTypes").closest("li").addClass("active");
+        });
+        function showModal() {
+            $("#detailsModel").modal("show");
+        }
+        function showLoader() {
+            $("#divLoading").modal("show");
+        }
+        function hideLoader() {
+            $("#divLoading").modal("hide");
+        }
+    </script>
+}

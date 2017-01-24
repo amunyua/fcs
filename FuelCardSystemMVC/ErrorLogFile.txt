@@ -1,0 +1,1159 @@
+﻿3/10/2016 7:26:16 PM - Admin - TransferAccount_POST - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at FuelCardSystemDAL.Repository`1.SaveChanges() in d:\Surendra Projects\FCS\FuelCardSystemDAL\Generic\Repository.cs:line 152
+   at FuelCardSystemDAL.AdminDAL.AddUpdateCustomerAccTopup(Customer_AccountTopup objAcc) in d:\Surendra Projects\FCS\FuelCardSystemDAL\AdminDAL.cs:line 902
+   at FuelCardSystemBAL.AdminBAL.AddUpdateCustomerAccTopup(Customer_AccountTopup objAcc) in d:\Surendra Projects\FCS\FuelCardSystemBAL\AdminBAL.cs:line 749
+   at FuelCardSystemMVC.Controllers.AdminController.TransferAccount(Customer_Account item1, FormCollection frm) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4566
+----------------------------------------------------------------------------------
+
+3/10/2016 7:27:28 PM - Admin - TransferAccount_GET - System.Reflection.TargetException: Non-static method requires a target.
+   at System.Reflection.RuntimeMethodInfo.CheckConsistency(Object target)
+   at System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryGetFieldOrPropertyValue(MemberExpression me, Object instance, Object& memberValue)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryEvaluatePath(Expression expression, ConstantExpression& constantExpression)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.EvaluateParameter(Object[] arguments)
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.TransferAccount(Nullable`1 id, Nullable`1 accno) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4454
+----------------------------------------------------------------------------------
+
+3/10/2016 7:30:14 PM - Admin - TransferAccount_POST - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at FuelCardSystemDAL.Repository`1.SaveChanges() in d:\Surendra Projects\FCS\FuelCardSystemDAL\Generic\Repository.cs:line 152
+   at FuelCardSystemDAL.AdminDAL.AddUpdateCustomerAccTopup(Customer_AccountTopup objAcc) in d:\Surendra Projects\FCS\FuelCardSystemDAL\AdminDAL.cs:line 902
+   at FuelCardSystemBAL.AdminBAL.AddUpdateCustomerAccTopup(Customer_AccountTopup objAcc) in d:\Surendra Projects\FCS\FuelCardSystemBAL\AdminBAL.cs:line 749
+   at FuelCardSystemMVC.Controllers.AdminController.TransferAccount(Customer_Account item1, FormCollection frm) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4566
+----------------------------------------------------------------------------------
+
+3/12/2016 11:07:50 AM - Admin - Login_POST - System.NotImplementedException: The method or operation is not implemented.
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.get_MaxInvalidPasswordAttempts() in d:\Surendra Projects\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 141
+   at System.Web.Security.Membership.get_MaxInvalidPasswordAttempts()
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 56
+----------------------------------------------------------------------------------
+
+3/12/2016 11:38:55 AM - Admin - Login_POST - System.NullReferenceException: Object reference not set to an instance of an object.
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 63
+----------------------------------------------------------------------------------
+
+4/28/2016 11:42:19 AM - Admin - ViewAllAccounts_GET - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Balance'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.ViewAllAccounts(Nullable`1 accno, String status) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4866
+----------------------------------------------------------------------------------
+
+4/28/2016 11:43:15 AM - Admin - ViewAllAccounts_GET - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Balance'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.ViewAllAccounts(Nullable`1 accno, String status) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4866
+----------------------------------------------------------------------------------
+
+4/28/2016 11:44:17 AM - Admin - ViewAllAccounts_GET - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Balance'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.ViewAllAccounts(Nullable`1 accno, String status) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4866
+----------------------------------------------------------------------------------
+
+4/28/2016 11:47:11 AM - Admin - ViewAllAccounts_GET - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Balance'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.ViewAllAccounts(Nullable`1 accno, String status) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 4866
+----------------------------------------------------------------------------------
+
+4/28/2016 1:28:46 PM - Admin - AddCustomerVehicle_GET - System.NullReferenceException: Object reference not set to an instance of an object.
+   at FuelCardSystemMVC.Controllers.AdminController.AddCustomerVehicle(Customer_Vehicle item1, Lnk_CustomerVehicle_Account item3) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 5539
+----------------------------------------------------------------------------------
+
+4/28/2016 1:34:33 PM - Admin - AddCustomerVehicle_GET - System.NullReferenceException: Object reference not set to an instance of an object.
+   at FuelCardSystemMVC.Controllers.AdminController.AddCustomerVehicle(Customer_Vehicle item1, Lnk_CustomerVehicle_Account item3) in d:\Surendra Projects\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 5539
+----------------------------------------------------------------------------------
+
+10/26/2016 4:55:00 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 5:49:45 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 5:49:55 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 5:50:16 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 5:51:30 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 5:57:50 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 62
+----------------------------------------------------------------------------------
+
+10/26/2016 6:21:38 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:07:01 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:19:46 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:30:03 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:33:46 PM - Admin - Login_POST - System.Data.Entity.Infrastructure.UnintentionalCodeFirstException: Code generated using the T4 templates for Database First and Model First development may not work correctly if used in Code First mode. To continue using Database First or Model First ensure that the Entity Framework connection string is specified in the config file of executing application. To use these classes, that were generated from Database First or Model First, with Code First add any additional configuration using attributes or the DbModelBuilder API and then remove the code that throws this exception.
+   at FuelCardSystemEntities.Models.FuelCardDBEntities.OnModelCreating(DbModelBuilder modelBuilder) in f:\FCS\FCS\FuelCardSystemEntities\Models\Entities.Context.cs:line 25
+   at System.Data.Entity.DbContext.CallOnModelCreating(DbModelBuilder modelBuilder)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:38:06 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:48:25 PM - Admin - Login_POST - System.Data.Entity.Infrastructure.UnintentionalCodeFirstException: Code generated using the T4 templates for Database First and Model First development may not work correctly if used in Code First mode. To continue using Database First or Model First ensure that the Entity Framework connection string is specified in the config file of executing application. To use these classes, that were generated from Database First or Model First, with Code First add any additional configuration using attributes or the DbModelBuilder API and then remove the code that throws this exception.
+   at FuelCardSystemEntities.Models.FuelCardDBEntities.OnModelCreating(DbModelBuilder modelBuilder) in f:\FCS\FCS\FuelCardSystemEntities\Models\Entities.Context.cs:line 26
+   at System.Data.Entity.DbContext.CallOnModelCreating(DbModelBuilder modelBuilder)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 12:50:04 PM - Admin - Login_POST - System.Data.Entity.ModelConfiguration.ModelValidationException: One or more validation errors were detected during model generation:
+
+FuelCardSystemEntities.Models.AccoutingDocTypes: : EntityType 'AccoutingDocTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Activity: : EntityType 'Activity' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ActivityType: : EntityType 'ActivityType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Approval: : EntityType 'Approval' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Cards: : EntityType 'Cards' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CardTopup: : EntityType 'CardTopup' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CardUsageLimit: : EntityType 'CardUsageLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Channel: : EntityType 'Channel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChannelType: : EntityType 'ChannelType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccounts: : EntityType 'ChartofAccounts' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccountsSubTypes: : EntityType 'ChartofAccountsSubTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccountTypes: : EntityType 'ChartofAccountTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CommunicationTemplates: : EntityType 'CommunicationTemplates' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Company: : EntityType 'Company' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Currency: : EntityType 'Currency' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Account: : EntityType 'Customer_Account' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_AccountTopup: : EntityType 'Customer_AccountTopup' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_AccountUsageLimit: : EntityType 'Customer_AccountUsageLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Roles: : EntityType 'Customer_Roles' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_TaxCategory: : EntityType 'Customer_TaxCategory' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Vehicle: : EntityType 'Customer_Vehicle' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CustomerPermissions: : EntityType 'CustomerPermissions' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer: : EntityType 'Customer' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CustomerType: : EntityType 'CustomerType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.DiscountsList: : EntityType 'DiscountsList' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Employee: : EntityType 'Employee' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.EventsTbl: : EntityType 'EventsTbl' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Finance_Transaction: : EntityType 'Finance_Transaction' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.FormulaValueType: : EntityType 'FormulaValueType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Gadget: : EntityType 'Gadget' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.GeneralSetting: : EntityType 'GeneralSetting' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.GLTransactions: : EntityType 'GLTransactions' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Customers_CustomerTypes: : EntityType 'Lnk_Customers_CustomerTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_CustomerVehicle_Account: : EntityType 'Lnk_CustomerVehicle_Account' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Gadgets_Channels: : EntityType 'Lnk_Gadgets_Channels' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Channels: : EntityType 'Lnk_Products_Channels' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Channels_Properties: : EntityType 'Lnk_Products_Channels_Properties' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Properties: : EntityType 'Lnk_Products_Properties' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Role_Permission: : EntityType 'Lnk_Role_Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.LnkCustomer_Role_Permission: : EntityType 'LnkCustomer_Role_Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.MessageTypes: : EntityType 'MessageTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Payment_Terms: : EntityType 'Payment_Terms' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PaymentMode: : EntityType 'PaymentMode' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Periods: : EntityType 'Periods' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Permission: : EntityType 'Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PostpaidCustCreditLimits: : EntityType 'PostpaidCustCreditLimits' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PriceList: : EntityType 'PriceList' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ProductProperty: : EntityType 'ProductProperty' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Product: : EntityType 'Product' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ProductType: : EntityType 'ProductType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Role: : EntityType 'Role' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Schedule: : EntityType 'Schedule' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Schedule_History: : EntityType 'Schedule_History' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Staff: : EntityType 'Staff' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.TaxCategory: : EntityType 'TaxCategory' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.TimeDuration: : EntityType 'TimeDuration' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Vehicle: : EntityType 'Vehicle' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VehicleModel: : EntityType 'VehicleModel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwAccUsageLimit_Products: : EntityType 'VwAccUsageLimit_Products' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwActivity_ActivityType: : EntityType 'VwActivity_ActivityType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCardsCustomers: : EntityType 'VwCardsCustomers' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCardUsageLimit_Products: : EntityType 'VwCardUsageLimit_Products' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelGadgets: : EntityType 'VwChannelGadgets' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelProducts: : EntityType 'VwChannelProducts' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelProductSchedule: : EntityType 'VwChannelProductSchedule' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannels_ChannelTypes: : EntityType 'VwChannels_ChannelTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCreditLimit: : EntityType 'VwCreditLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCustomerEmpAccount: : EntityType 'VwCustomerEmpAccount' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCustomers: : EntityType 'VwCustomers' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwProduct_ProductProperty: : EntityType 'VwProduct_ProductProperty' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwProducts_ProductTypes: : EntityType 'VwProducts_ProductTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwTax: : EntityType 'VwTax' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwTest: : EntityType 'VwTest' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwVehicle_VehicleModel: : EntityType 'VwVehicle_VehicleModel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.WeekDays: : EntityType 'WeekDays' has no key defined. Define the key for this EntityType.
+AccoutingDocTypes: EntityType: EntitySet 'AccoutingDocTypes' is based on type 'AccoutingDocTypes' that has no keys defined.
+Activities: EntityType: EntitySet 'Activities' is based on type 'Activity' that has no keys defined.
+ActivityType: EntityType: EntitySet 'ActivityType' is based on type 'ActivityType' that has no keys defined.
+Approval: EntityType: EntitySet 'Approval' is based on type 'Approval' that has no keys defined.
+Cards: EntityType: EntitySet 'Cards' is based on type 'Cards' that has no keys defined.
+CardTopups: EntityType: EntitySet 'CardTopups' is based on type 'CardTopup' that has no keys defined.
+CardUsageLimits: EntityType: EntitySet 'CardUsageLimits' is based on type 'CardUsageLimit' that has no keys defined.
+Channels: EntityType: EntitySet 'Channels' is based on type 'Channel' that has no keys defined.
+ChannelTypes: EntityType: EntitySet 'ChannelTypes' is based on type 'ChannelType' that has no keys defined.
+ChartofAccounts: EntityType: EntitySet 'ChartofAccounts' is based on type 'ChartofAccounts' that has no keys defined.
+ChartofAccountsSubTypes: EntityType: EntitySet 'ChartofAccountsSubTypes' is based on type 'ChartofAccountsSubTypes' that has no keys defined.
+ChartofAccountTypes: EntityType: EntitySet 'ChartofAccountTypes' is based on type 'ChartofAccountTypes' that has no keys defined.
+CommunicationTemplates: EntityType: EntitySet 'CommunicationTemplates' is based on type 'CommunicationTemplates' that has no keys defined.
+Companies: EntityType: EntitySet 'Companies' is based on type 'Company' that has no keys defined.
+Currencies: EntityType: EntitySet 'Currencies' is based on type 'Currency' that has no keys defined.
+Customer_Account: EntityType: EntitySet 'Customer_Account' is based on type 'Customer_Account' that has no keys defined.
+Customer_AccountTopup: EntityType: EntitySet 'Customer_AccountTopup' is based on type 'Customer_AccountTopup' that has no keys defined.
+Customer_AccountUsageLimit: EntityType: EntitySet 'Customer_AccountUsageLimit' is based on type 'Customer_AccountUsageLimit' that has no keys defined.
+Customer_Roles: EntityType: EntitySet 'Customer_Roles' is based on type 'Customer_Roles' that has no keys defined.
+Customer_TaxCategory: EntityType: EntitySet 'Customer_TaxCategory' is based on type 'Customer_TaxCategory' that has no keys defined.
+Customer_Vehicle: EntityType: EntitySet 'Customer_Vehicle' is based on type 'Customer_Vehicle' that has no keys defined.
+CustomerPermissions: EntityType: EntitySet 'CustomerPermissions' is based on type 'CustomerPermissions' that has no keys defined.
+Customers: EntityType: EntitySet 'Customers' is based on type 'Customer' that has no keys defined.
+CustomerTypes: EntityType: EntitySet 'CustomerTypes' is based on type 'CustomerType' that has no keys defined.
+DiscountsList: EntityType: EntitySet 'DiscountsList' is based on type 'DiscountsList' that has no keys defined.
+Employees: EntityType: EntitySet 'Employees' is based on type 'Employee' that has no keys defined.
+EventsTbl: EntityType: EntitySet 'EventsTbl' is based on type 'EventsTbl' that has no keys defined.
+Finance_Transaction: EntityType: EntitySet 'Finance_Transaction' is based on type 'Finance_Transaction' that has no keys defined.
+FormulaValueType: EntityType: EntitySet 'FormulaValueType' is based on type 'FormulaValueType' that has no keys defined.
+Gadgets: EntityType: EntitySet 'Gadgets' is based on type 'Gadget' that has no keys defined.
+GeneralSettings: EntityType: EntitySet 'GeneralSettings' is based on type 'GeneralSetting' that has no keys defined.
+GLTransactions: EntityType: EntitySet 'GLTransactions' is based on type 'GLTransactions' that has no keys defined.
+Lnk_Customers_CustomerTypes: EntityType: EntitySet 'Lnk_Customers_CustomerTypes' is based on type 'Lnk_Customers_CustomerTypes' that has no keys defined.
+Lnk_CustomerVehicle_Account: EntityType: EntitySet 'Lnk_CustomerVehicle_Account' is based on type 'Lnk_CustomerVehicle_Account' that has no keys defined.
+Lnk_Gadgets_Channels: EntityType: EntitySet 'Lnk_Gadgets_Channels' is based on type 'Lnk_Gadgets_Channels' that has no keys defined.
+Lnk_Products_Channels: EntityType: EntitySet 'Lnk_Products_Channels' is based on type 'Lnk_Products_Channels' that has no keys defined.
+Lnk_Products_Channels_Properties: EntityType: EntitySet 'Lnk_Products_Channels_Properties' is based on type 'Lnk_Products_Channels_Properties' that has no keys defined.
+Lnk_Products_Properties: EntityType: EntitySet 'Lnk_Products_Properties' is based on type 'Lnk_Products_Properties' that has no keys defined.
+Lnk_Role_Permission: EntityType: EntitySet 'Lnk_Role_Permission' is based on type 'Lnk_Role_Permission' that has no keys defined.
+LnkCustomer_Role_Permission: EntityType: EntitySet 'LnkCustomer_Role_Permission' is based on type 'LnkCustomer_Role_Permission' that has no keys defined.
+MessageTypes: EntityType: EntitySet 'MessageTypes' is based on type 'MessageTypes' that has no keys defined.
+Payment_Terms: EntityType: EntitySet 'Payment_Terms' is based on type 'Payment_Terms' that has no keys defined.
+PaymentMode: EntityType: EntitySet 'PaymentMode' is based on type 'PaymentMode' that has no keys defined.
+Periods: EntityType: EntitySet 'Periods' is based on type 'Periods' that has no keys defined.
+Permissions: EntityType: EntitySet 'Permissions' is based on type 'Permission' that has no keys defined.
+PostpaidCustCreditLimits: EntityType: EntitySet 'PostpaidCustCreditLimits' is based on type 'PostpaidCustCreditLimits' that has no keys defined.
+PriceList: EntityType: EntitySet 'PriceList' is based on type 'PriceList' that has no keys defined.
+ProductProperties: EntityType: EntitySet 'ProductProperties' is based on type 'ProductProperty' that has no keys defined.
+Products: EntityType: EntitySet 'Products' is based on type 'Product' that has no keys defined.
+ProductTypes: EntityType: EntitySet 'ProductTypes' is based on type 'ProductType' that has no keys defined.
+Roles: EntityType: EntitySet 'Roles' is based on type 'Role' that has no keys defined.
+Schedule: EntityType: EntitySet 'Schedule' is based on type 'Schedule' that has no keys defined.
+Schedule_History: EntityType: EntitySet 'Schedule_History' is based on type 'Schedule_History' that has no keys defined.
+Staffs: EntityType: EntitySet 'Staffs' is based on type 'Staff' that has no keys defined.
+TaxCategory: EntityType: EntitySet 'TaxCategory' is based on type 'TaxCategory' that has no keys defined.
+TimeDurations: EntityType: EntitySet 'TimeDurations' is based on type 'TimeDuration' that has no keys defined.
+Vehicle: EntityType: EntitySet 'Vehicle' is based on type 'Vehicle' that has no keys defined.
+VehicleModel: EntityType: EntitySet 'VehicleModel' is based on type 'VehicleModel' that has no keys defined.
+VwAccUsageLimit_Products: EntityType: EntitySet 'VwAccUsageLimit_Products' is based on type 'VwAccUsageLimit_Products' that has no keys defined.
+VwActivity_ActivityType: EntityType: EntitySet 'VwActivity_ActivityType' is based on type 'VwActivity_ActivityType' that has no keys defined.
+VwCardsCustomers: EntityType: EntitySet 'VwCardsCustomers' is based on type 'VwCardsCustomers' that has no keys defined.
+VwCardUsageLimit_Products: EntityType: EntitySet 'VwCardUsageLimit_Products' is based on type 'VwCardUsageLimit_Products' that has no keys defined.
+VwChannelGadgets: EntityType: EntitySet 'VwChannelGadgets' is based on type 'VwChannelGadgets' that has no keys defined.
+VwChannelProducts: EntityType: EntitySet 'VwChannelProducts' is based on type 'VwChannelProducts' that has no keys defined.
+VwChannelProductSchedule: EntityType: EntitySet 'VwChannelProductSchedule' is based on type 'VwChannelProductSchedule' that has no keys defined.
+VwChannels_ChannelTypes: EntityType: EntitySet 'VwChannels_ChannelTypes' is based on type 'VwChannels_ChannelTypes' that has no keys defined.
+VwCreditLimit: EntityType: EntitySet 'VwCreditLimit' is based on type 'VwCreditLimit' that has no keys defined.
+VwCustomerEmpAccount: EntityType: EntitySet 'VwCustomerEmpAccount' is based on type 'VwCustomerEmpAccount' that has no keys defined.
+VwCustomers: EntityType: EntitySet 'VwCustomers' is based on type 'VwCustomers' that has no keys defined.
+VwProduct_ProductProperty: EntityType: EntitySet 'VwProduct_ProductProperty' is based on type 'VwProduct_ProductProperty' that has no keys defined.
+VwProducts_ProductTypes: EntityType: EntitySet 'VwProducts_ProductTypes' is based on type 'VwProducts_ProductTypes' that has no keys defined.
+VwTax: EntityType: EntitySet 'VwTax' is based on type 'VwTax' that has no keys defined.
+VwTest: EntityType: EntitySet 'VwTest' is based on type 'VwTest' that has no keys defined.
+VwVehicle_VehicleModel: EntityType: EntitySet 'VwVehicle_VehicleModel' is based on type 'VwVehicle_VehicleModel' that has no keys defined.
+WeekDays: EntityType: EntitySet 'WeekDays' is based on type 'WeekDays' that has no keys defined.
+
+   at System.Data.Entity.Core.Metadata.Edm.EdmModel.Validate()
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 1:09:32 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 1:11:16 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 1:13:47 PM - Admin - Login_POST - System.InvalidOperationException: The entity type Staff is not part of the model for the current context.
+   at System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 1:24:10 PM - Admin - Login_POST - System.Data.Entity.Infrastructure.UnintentionalCodeFirstException: Code generated using the T4 templates for Database First and Model First development may not work correctly if used in Code First mode. To continue using Database First or Model First ensure that the Entity Framework connection string is specified in the config file of executing application. To use these classes, that were generated from Database First or Model First, with Code First add any additional configuration using attributes or the DbModelBuilder API and then remove the code that throws this exception.
+   at FuelCardSystemEntities.Models.FuelCardDBEntities.OnModelCreating(DbModelBuilder modelBuilder) in f:\FCS\FCS\FuelCardSystemEntities\Models\Entities.Context.cs:line 26
+   at System.Data.Entity.DbContext.CallOnModelCreating(DbModelBuilder modelBuilder)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 1:25:09 PM - Admin - Login_POST - System.Data.Entity.ModelConfiguration.ModelValidationException: One or more validation errors were detected during model generation:
+
+FuelCardSystemEntities.Models.AccoutingDocTypes: : EntityType 'AccoutingDocTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Activity: : EntityType 'Activity' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ActivityType: : EntityType 'ActivityType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Approval: : EntityType 'Approval' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Cards: : EntityType 'Cards' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CardTopup: : EntityType 'CardTopup' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CardUsageLimit: : EntityType 'CardUsageLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Channel: : EntityType 'Channel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChannelType: : EntityType 'ChannelType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccounts: : EntityType 'ChartofAccounts' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccountsSubTypes: : EntityType 'ChartofAccountsSubTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ChartofAccountTypes: : EntityType 'ChartofAccountTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CommunicationTemplates: : EntityType 'CommunicationTemplates' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Company: : EntityType 'Company' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Currency: : EntityType 'Currency' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Account: : EntityType 'Customer_Account' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_AccountTopup: : EntityType 'Customer_AccountTopup' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_AccountUsageLimit: : EntityType 'Customer_AccountUsageLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Roles: : EntityType 'Customer_Roles' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_TaxCategory: : EntityType 'Customer_TaxCategory' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer_Vehicle: : EntityType 'Customer_Vehicle' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CustomerPermissions: : EntityType 'CustomerPermissions' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Customer: : EntityType 'Customer' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.CustomerType: : EntityType 'CustomerType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.DiscountsList: : EntityType 'DiscountsList' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Employee: : EntityType 'Employee' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.EventsTbl: : EntityType 'EventsTbl' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Finance_Transaction: : EntityType 'Finance_Transaction' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.FormulaValueType: : EntityType 'FormulaValueType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Gadget: : EntityType 'Gadget' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.GeneralSetting: : EntityType 'GeneralSetting' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.GLTransactions: : EntityType 'GLTransactions' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Customers_CustomerTypes: : EntityType 'Lnk_Customers_CustomerTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_CustomerVehicle_Account: : EntityType 'Lnk_CustomerVehicle_Account' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Gadgets_Channels: : EntityType 'Lnk_Gadgets_Channels' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Channels: : EntityType 'Lnk_Products_Channels' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Channels_Properties: : EntityType 'Lnk_Products_Channels_Properties' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Products_Properties: : EntityType 'Lnk_Products_Properties' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Lnk_Role_Permission: : EntityType 'Lnk_Role_Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.LnkCustomer_Role_Permission: : EntityType 'LnkCustomer_Role_Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.MessageTypes: : EntityType 'MessageTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Payment_Terms: : EntityType 'Payment_Terms' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PaymentMode: : EntityType 'PaymentMode' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Periods: : EntityType 'Periods' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Permission: : EntityType 'Permission' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PostpaidCustCreditLimits: : EntityType 'PostpaidCustCreditLimits' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.PriceList: : EntityType 'PriceList' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ProductProperty: : EntityType 'ProductProperty' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Product: : EntityType 'Product' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.ProductType: : EntityType 'ProductType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Role: : EntityType 'Role' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Schedule: : EntityType 'Schedule' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Schedule_History: : EntityType 'Schedule_History' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Staff: : EntityType 'Staff' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.TaxCategory: : EntityType 'TaxCategory' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.TimeDuration: : EntityType 'TimeDuration' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.Vehicle: : EntityType 'Vehicle' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VehicleModel: : EntityType 'VehicleModel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwAccUsageLimit_Products: : EntityType 'VwAccUsageLimit_Products' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwActivity_ActivityType: : EntityType 'VwActivity_ActivityType' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCardsCustomers: : EntityType 'VwCardsCustomers' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCardUsageLimit_Products: : EntityType 'VwCardUsageLimit_Products' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelGadgets: : EntityType 'VwChannelGadgets' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelProducts: : EntityType 'VwChannelProducts' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannelProductSchedule: : EntityType 'VwChannelProductSchedule' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwChannels_ChannelTypes: : EntityType 'VwChannels_ChannelTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCreditLimit: : EntityType 'VwCreditLimit' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCustomerEmpAccount: : EntityType 'VwCustomerEmpAccount' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwCustomers: : EntityType 'VwCustomers' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwProduct_ProductProperty: : EntityType 'VwProduct_ProductProperty' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwProducts_ProductTypes: : EntityType 'VwProducts_ProductTypes' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwTax: : EntityType 'VwTax' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwTest: : EntityType 'VwTest' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.VwVehicle_VehicleModel: : EntityType 'VwVehicle_VehicleModel' has no key defined. Define the key for this EntityType.
+FuelCardSystemEntities.Models.WeekDays: : EntityType 'WeekDays' has no key defined. Define the key for this EntityType.
+AccoutingDocTypes: EntityType: EntitySet 'AccoutingDocTypes' is based on type 'AccoutingDocTypes' that has no keys defined.
+Activities: EntityType: EntitySet 'Activities' is based on type 'Activity' that has no keys defined.
+ActivityType: EntityType: EntitySet 'ActivityType' is based on type 'ActivityType' that has no keys defined.
+Approval: EntityType: EntitySet 'Approval' is based on type 'Approval' that has no keys defined.
+Cards: EntityType: EntitySet 'Cards' is based on type 'Cards' that has no keys defined.
+CardTopups: EntityType: EntitySet 'CardTopups' is based on type 'CardTopup' that has no keys defined.
+CardUsageLimits: EntityType: EntitySet 'CardUsageLimits' is based on type 'CardUsageLimit' that has no keys defined.
+Channels: EntityType: EntitySet 'Channels' is based on type 'Channel' that has no keys defined.
+ChannelTypes: EntityType: EntitySet 'ChannelTypes' is based on type 'ChannelType' that has no keys defined.
+ChartofAccounts: EntityType: EntitySet 'ChartofAccounts' is based on type 'ChartofAccounts' that has no keys defined.
+ChartofAccountsSubTypes: EntityType: EntitySet 'ChartofAccountsSubTypes' is based on type 'ChartofAccountsSubTypes' that has no keys defined.
+ChartofAccountTypes: EntityType: EntitySet 'ChartofAccountTypes' is based on type 'ChartofAccountTypes' that has no keys defined.
+CommunicationTemplates: EntityType: EntitySet 'CommunicationTemplates' is based on type 'CommunicationTemplates' that has no keys defined.
+Companies: EntityType: EntitySet 'Companies' is based on type 'Company' that has no keys defined.
+Currencies: EntityType: EntitySet 'Currencies' is based on type 'Currency' that has no keys defined.
+Customer_Account: EntityType: EntitySet 'Customer_Account' is based on type 'Customer_Account' that has no keys defined.
+Customer_AccountTopup: EntityType: EntitySet 'Customer_AccountTopup' is based on type 'Customer_AccountTopup' that has no keys defined.
+Customer_AccountUsageLimit: EntityType: EntitySet 'Customer_AccountUsageLimit' is based on type 'Customer_AccountUsageLimit' that has no keys defined.
+Customer_Roles: EntityType: EntitySet 'Customer_Roles' is based on type 'Customer_Roles' that has no keys defined.
+Customer_TaxCategory: EntityType: EntitySet 'Customer_TaxCategory' is based on type 'Customer_TaxCategory' that has no keys defined.
+Customer_Vehicle: EntityType: EntitySet 'Customer_Vehicle' is based on type 'Customer_Vehicle' that has no keys defined.
+CustomerPermissions: EntityType: EntitySet 'CustomerPermissions' is based on type 'CustomerPermissions' that has no keys defined.
+Customers: EntityType: EntitySet 'Customers' is based on type 'Customer' that has no keys defined.
+CustomerTypes: EntityType: EntitySet 'CustomerTypes' is based on type 'CustomerType' that has no keys defined.
+DiscountsList: EntityType: EntitySet 'DiscountsList' is based on type 'DiscountsList' that has no keys defined.
+Employees: EntityType: EntitySet 'Employees' is based on type 'Employee' that has no keys defined.
+EventsTbl: EntityType: EntitySet 'EventsTbl' is based on type 'EventsTbl' that has no keys defined.
+Finance_Transaction: EntityType: EntitySet 'Finance_Transaction' is based on type 'Finance_Transaction' that has no keys defined.
+FormulaValueType: EntityType: EntitySet 'FormulaValueType' is based on type 'FormulaValueType' that has no keys defined.
+Gadgets: EntityType: EntitySet 'Gadgets' is based on type 'Gadget' that has no keys defined.
+GeneralSettings: EntityType: EntitySet 'GeneralSettings' is based on type 'GeneralSetting' that has no keys defined.
+GLTransactions: EntityType: EntitySet 'GLTransactions' is based on type 'GLTransactions' that has no keys defined.
+Lnk_Customers_CustomerTypes: EntityType: EntitySet 'Lnk_Customers_CustomerTypes' is based on type 'Lnk_Customers_CustomerTypes' that has no keys defined.
+Lnk_CustomerVehicle_Account: EntityType: EntitySet 'Lnk_CustomerVehicle_Account' is based on type 'Lnk_CustomerVehicle_Account' that has no keys defined.
+Lnk_Gadgets_Channels: EntityType: EntitySet 'Lnk_Gadgets_Channels' is based on type 'Lnk_Gadgets_Channels' that has no keys defined.
+Lnk_Products_Channels: EntityType: EntitySet 'Lnk_Products_Channels' is based on type 'Lnk_Products_Channels' that has no keys defined.
+Lnk_Products_Channels_Properties: EntityType: EntitySet 'Lnk_Products_Channels_Properties' is based on type 'Lnk_Products_Channels_Properties' that has no keys defined.
+Lnk_Products_Properties: EntityType: EntitySet 'Lnk_Products_Properties' is based on type 'Lnk_Products_Properties' that has no keys defined.
+Lnk_Role_Permission: EntityType: EntitySet 'Lnk_Role_Permission' is based on type 'Lnk_Role_Permission' that has no keys defined.
+LnkCustomer_Role_Permission: EntityType: EntitySet 'LnkCustomer_Role_Permission' is based on type 'LnkCustomer_Role_Permission' that has no keys defined.
+MessageTypes: EntityType: EntitySet 'MessageTypes' is based on type 'MessageTypes' that has no keys defined.
+Payment_Terms: EntityType: EntitySet 'Payment_Terms' is based on type 'Payment_Terms' that has no keys defined.
+PaymentMode: EntityType: EntitySet 'PaymentMode' is based on type 'PaymentMode' that has no keys defined.
+Periods: EntityType: EntitySet 'Periods' is based on type 'Periods' that has no keys defined.
+Permissions: EntityType: EntitySet 'Permissions' is based on type 'Permission' that has no keys defined.
+PostpaidCustCreditLimits: EntityType: EntitySet 'PostpaidCustCreditLimits' is based on type 'PostpaidCustCreditLimits' that has no keys defined.
+PriceList: EntityType: EntitySet 'PriceList' is based on type 'PriceList' that has no keys defined.
+ProductProperties: EntityType: EntitySet 'ProductProperties' is based on type 'ProductProperty' that has no keys defined.
+Products: EntityType: EntitySet 'Products' is based on type 'Product' that has no keys defined.
+ProductTypes: EntityType: EntitySet 'ProductTypes' is based on type 'ProductType' that has no keys defined.
+Roles: EntityType: EntitySet 'Roles' is based on type 'Role' that has no keys defined.
+Schedule: EntityType: EntitySet 'Schedule' is based on type 'Schedule' that has no keys defined.
+Schedule_History: EntityType: EntitySet 'Schedule_History' is based on type 'Schedule_History' that has no keys defined.
+Staffs: EntityType: EntitySet 'Staffs' is based on type 'Staff' that has no keys defined.
+TaxCategory: EntityType: EntitySet 'TaxCategory' is based on type 'TaxCategory' that has no keys defined.
+TimeDurations: EntityType: EntitySet 'TimeDurations' is based on type 'TimeDuration' that has no keys defined.
+Vehicle: EntityType: EntitySet 'Vehicle' is based on type 'Vehicle' that has no keys defined.
+VehicleModel: EntityType: EntitySet 'VehicleModel' is based on type 'VehicleModel' that has no keys defined.
+VwAccUsageLimit_Products: EntityType: EntitySet 'VwAccUsageLimit_Products' is based on type 'VwAccUsageLimit_Products' that has no keys defined.
+VwActivity_ActivityType: EntityType: EntitySet 'VwActivity_ActivityType' is based on type 'VwActivity_ActivityType' that has no keys defined.
+VwCardsCustomers: EntityType: EntitySet 'VwCardsCustomers' is based on type 'VwCardsCustomers' that has no keys defined.
+VwCardUsageLimit_Products: EntityType: EntitySet 'VwCardUsageLimit_Products' is based on type 'VwCardUsageLimit_Products' that has no keys defined.
+VwChannelGadgets: EntityType: EntitySet 'VwChannelGadgets' is based on type 'VwChannelGadgets' that has no keys defined.
+VwChannelProducts: EntityType: EntitySet 'VwChannelProducts' is based on type 'VwChannelProducts' that has no keys defined.
+VwChannelProductSchedule: EntityType: EntitySet 'VwChannelProductSchedule' is based on type 'VwChannelProductSchedule' that has no keys defined.
+VwChannels_ChannelTypes: EntityType: EntitySet 'VwChannels_ChannelTypes' is based on type 'VwChannels_ChannelTypes' that has no keys defined.
+VwCreditLimit: EntityType: EntitySet 'VwCreditLimit' is based on type 'VwCreditLimit' that has no keys defined.
+VwCustomerEmpAccount: EntityType: EntitySet 'VwCustomerEmpAccount' is based on type 'VwCustomerEmpAccount' that has no keys defined.
+VwCustomers: EntityType: EntitySet 'VwCustomers' is based on type 'VwCustomers' that has no keys defined.
+VwProduct_ProductProperty: EntityType: EntitySet 'VwProduct_ProductProperty' is based on type 'VwProduct_ProductProperty' that has no keys defined.
+VwProducts_ProductTypes: EntityType: EntitySet 'VwProducts_ProductTypes' is based on type 'VwProducts_ProductTypes' that has no keys defined.
+VwTax: EntityType: EntitySet 'VwTax' is based on type 'VwTax' that has no keys defined.
+VwTest: EntityType: EntitySet 'VwTest' is based on type 'VwTest' that has no keys defined.
+VwVehicle_VehicleModel: EntityType: EntitySet 'VwVehicle_VehicleModel' is based on type 'VwVehicle_VehicleModel' that has no keys defined.
+WeekDays: EntityType: EntitySet 'WeekDays' is based on type 'WeekDays' that has no keys defined.
+
+   at System.Data.Entity.Core.Metadata.Edm.EdmModel.Validate()
+   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+10/27/2016 4:22:26 PM - Admin - GenSettings_GET - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'ModifiedBy'.
+Invalid column name 'CCEmail'.
+Invalid column name 'IsCCEmail'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__2()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at FuelCardSystemMVC.Controllers.AdminController.GenSettings() in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 216
+----------------------------------------------------------------------------------
+
+11/25/2016 4:43:41 PM - Admin - Login_POST - System.Security.Cryptography.CryptographicException: Specified cipher mode is not valid for this algorithm.
+   at System.Security.Cryptography.SymmetricAlgorithm.set_Mode(CipherMode value)
+   at FuelCardSystemMVC.Library.EncryptDecrypt.Encrypt(String plainText, String saltValue) in f:\FCS\FCS\FuelCardSystemMVC\Library\EncryptDecrypt.cs:line 99
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.MembershipHelper.CreatePassswordHash(String Password, String Salt) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 329
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in f:\FCS\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 40
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in f:\FCS\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:37:50 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:49:31 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:50:34 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:50:43 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:51:00 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 10:52:43 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 11:00:29 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The system cannot find the file specified
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+
+1/19/2017 11:06:54 AM - Admin - Login_POST - System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.InvalidOperationException: Instance failure.
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, Boolean isFirstTransparentAttempt, SqlAuthenticationMethod authType)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover, Boolean isFirstTransparentAttempt)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass3.<GetResults>b__1()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.LazyInitValue()
+   at System.Lazy`1.get_Value()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at FuelCardSystemMVC.Library.CustomAuth.CustomMembershipProvider.ValidateUser(String username, String password) in c:\FCS\FuelCardSystemMVC\Library\CustomAuth\CustomMembershipProvider.cs:line 41
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at FuelCardSystemMVC.Controllers.AdminController.Login(LoginModel model, String returnUrl) in c:\FCS\FuelCardSystemMVC\Controllers\AdminController.cs:line 64
+----------------------------------------------------------------------------------
+

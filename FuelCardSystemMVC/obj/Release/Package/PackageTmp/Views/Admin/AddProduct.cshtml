@@ -1,0 +1,261 @@
+﻿@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model Tuple<FuelCardSystemEntities.Models.Product, List<FuelCardSystemEntities.Models.ProductProperty>>
+@using FuelCardSystemMVC.Library
+@if (Model.Item1 != null)
+{
+    if (Model.Item1.Product_id > 0 && _AppContext.HasPermission(Parameters.Can_Edit_Product))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Create_Product))
+    {
+        flag = true;
+    }
+}
+else if (_AppContext.HasPermission(Parameters.Can_Create_Product))
+{
+    flag = true;
+}
+@if (flag == true)
+{  
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-cubes"></i><span class="margin">@(Model != null ? (Model.Item1.Product_id > 0 ? "Edit Product..." : "Add Product") : "")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("ProductsList", "Admin")">List of products</a></li>
+                <li class="active">Add or Edit Product</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model != null ? (Model.Item1.Product_id > 0 ? "Edit Product..." : "Add Product") : "")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @if (Model != null)
+                {
+                    using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { @id = "AddProductForm", @role = "form" }))
+                    {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="">Product Name</label>
+                            @Html.TextBoxFor(x => x.Item1.Product_Name, new { @placeholder = "Product name", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 85px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Property description</label>
+                            @Html.TextAreaFor(x => x.Item1.Product_Description, new { @placeholder = "Product description", @class = "form-control", @maxlength = 250 })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Type</label>
+                            @Html.DropDownListFor(x => x.Item1.Product_Type, (SelectList)ViewBag.ProdTypes, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Buying Price</label>
+                            @Html.TextBoxFor(x => x.Item1.Product_Price, new { @class = "form-control" })
+                            <label for="">Currency</label>
+                            @Html.DropDownListFor(x => x.Item1.Product_currency, (SelectList)ViewBag.Currency, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tax Category</label>
+                            @Html.DropDownListFor(x => x.Item1.TaxCategoryID, (SelectList)ViewBag.TaxCat, new { @class = "form-control" })
+                        </div>
+                        @foreach (var item in (IEnumerable<FuelCardSystemEntities.Models.CustomTableFields>)ViewBag.tables)
+                        {
+                            if (item.CustomFieldId.Equals("CF1"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF1, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF2"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF2, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF3"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF3, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF4"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF4, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF5"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF5, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF6"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF6, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF7"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF7, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF8"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF8, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF9"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF9, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF10"))
+                            {
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF10, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            }
+                        }
+                        @**************************************************@
+                        <div class="col-md-12 no-padding">
+                            <div class="box box-solid box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Product Properties...</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        @foreach (var itm in Model.Item2)
+                                        {
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="items" value="@itm.ProductProperty_id" id="@itm.ProductProperty_id" @(itm.IsSelected == true ? "checked='checked'" : "") />@itm.ProductProperty_Name
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*************************************************@
+
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Item1.Product_id)
+                            <input type="hidden" id="hdnProp" name="hdnProp" />
+                            <input type="submit" value="Save" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddProductFormLoad();
+                $("#idProductsList").closest("li.treeview").addClass("active");
+                $("#idProductsList").closest("li").addClass("active");
+                $('input[type="checkbox"]').on('change', function () {
+                    Populate()
+                }).change();
+            });
+            function Populate() {
+                vals = $('input[type="checkbox"]:checked').map(function () {
+                    return this.value;
+                }).get().join(',');
+                $('#hdnProp').val(vals);
+            }
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

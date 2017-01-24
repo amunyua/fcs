@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "PostPaidCustomers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.Customer_Account>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-users"></i><span class="margin">Postpaid Customers...</span><small></small></h1>
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Postpaid Customers</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="CustomerTbl" class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Customer/Company Name</th>
+                            <th style="text-align: center">Customer Type</th>
+                            <th style="text-align: center">Post Paid Limit</th>
+                            <th style="text-align: center;">Expiry Date</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Set_CreditLimit_Postpaid_Customers))
+                            {
+                                <th style="text-align: center;">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*@foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@(AdminBAL.GetCustomerNameById(item.Card_Owner))</td>
+                                <td style="text-align: center;">@(AdminBAL.GetPostpaidCustCrLimitByCustId(item.Card_Owner) == null ? "Unassigned" : AdminBAL.GetPostpaidCustCrLimitByCustId(item.Card_Owner).CreditLimit.Value.ToString())</td>
+                                <td style="text-align: center;">@(AdminBAL.GetPostpaidCustCrLimitByCustId(item.Card_Owner) == null ? "Unassigned" : string.Format("{0:MM/dd/yyyy}",AdminBAL.GetPostpaidCustCrLimitByCustId(item.Card_Owner).DateCreated))</td>
+                                <td style="text-align: center;">
+                                    @Html.ActionLink("Set Credit Limit", "CreditLimitPostpaidCust", "Admin", new { id = item.Card_Owner }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }*@
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var oTable = $('#CustomerTbl').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "/Admin/AjaxHandlerPostpaidCustomers",
+                "bProcessing": true,
+                "aoColumns": [
+                                {
+                                    "sName": "NAME",
+                                     "fnRender": function (oObj) {
+                                             return "<td style=\"text-align: center;\" class=\" \">" + oObj.aData[0] + "</td>";
+                                     }
+                                },
+                                {
+                                    "sName": "TYPE",
+                                    "fnRender": function (oObj) {
+                                    return "<td style=\"text-align: center;\" class=\" \">" + oObj.aData[2] + "</td>";
+                                    }
+                                },
+                                {
+                                    "sName": "LIMIT",
+                                    "fnRender": function (oObj) {
+                                        return "<td style=\"text-align: center;\" class=\" \">" + oObj.aData[3] + "</td>";
+                                    }
+                                },
+                                {
+                                    "sName": "DATE",
+                                    "fnRender": function (oObj) {
+                                        return "<td style=\"text-align: center;\" class=\" \">" + oObj.aData[4] + "</td>";
+                                    }
+                                },
+                                @if (_AppContext.HasPermission(Parameters.Can_Set_CreditLimit_Postpaid_Customers))
+                                {
+                                    <text>
+                                {
+                                    "sName": "ACTION",
+                                    "fnRender": function (oObj) {
+                                        return "<td style=\"text-align: center;\" class=\" \"><a href=\"/Admin/CreditLimitPostpaidCust/" + oObj.aData[5] + "\" class=\"btn btn-success btn-sm\">Set Credit Limit</a></td>";
+                                    }
+                                }
+                                    </text>
+                                }
+                ],
+                "aaSorting": [[3, 'asc']]
+            });
+            $("#manageCustomers").addClass("active");
+            $("#idPostpaidCustList").closest("li").addClass("active");
+            $(".alert").delay(2000).fadeOut(1000);
+            $("#CustomerTbl_processing").html("<div class=\"overlay\" style=\"display: block; height: 100%; left: 0; position: absolute; top: 0; width: 100%;\"><i class=\"fa fa-refresh fa-spin\"></i></div>");
+        });
+    </script>
+}

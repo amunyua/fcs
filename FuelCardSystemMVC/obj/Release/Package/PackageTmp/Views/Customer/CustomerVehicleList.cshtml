@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "CustomerVehicleList";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.Customer_Vehicle>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+@using FuelCardSystemMVC.Library.UserAuth
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-truck"></i><span class="margin">@(ViewBag.customer) - Vehicle List</span><small></small></h1>
+        @if (UserContext.Identity.roles[0] == "Admin")
+        {
+            @Html.ActionLink("Add Vehicle", "AddCustomerVehicle", "Customer", new { custid = @ViewBag.custid }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+     @if (TempData["msg"] != null)
+        {
+            if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Success)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Successfully saved.</h4>
+                </div>
+            </div>
+            }
+            else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.AllreadyAssigned)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>This vehicle has already assigned an account.</h4>
+                </div>
+            </div>
+            }
+        }
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Vehicles</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body" style="overflow: auto">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Employee</th>
+                            <th style="text-align: center;">Make</th>
+                            <th style="text-align: center">Model</th>
+                            <th style="text-align: center">Tank Capacity (Litres)</th>
+                            <th style="text-align: center">Fuel Type</th>
+                            <th style="text-align: center">Days to Fuel</th>
+                            <th style="text-align: center">Veh Reg No</th>
+                            <th style="text-align: center">Account No</th>
+                            <th style="text-align: center">Account Mask</th>
+                            @if (UserContext.Identity.roles[0] == "Admin")
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                                <th style="text-align: center;">Action</th>
+                                <th style="text-align: center;">Unassign Account</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@AdminBAL.GetEmployeeNameByAccountNo(AdminBAL.GetCustomerAccountByVehicleId(item.CustomerVehicleId))</td>
+                                <td style="text-align: center;">@AdminBAL.GetVehicleNameById(item.Vehicle_Id)</td>
+                                <td style="text-align: center;">@AdminBAL.GetVehicleModelById(item.VehicleModel_Id)</td>
+                                <td style="text-align: center;">@item.TankCapacity</td>
+                                <td style="text-align: center;">@(item.ProductID != null ? AdminBAL.GetProductNameById(item.ProductID) : "-")</td>
+                                <td style="text-align: center;">@item.DaystoFuel.Replace(",", ", ")<br />@(item.StartTime)-@(item.EndTime)</td>
+                                <td style="text-align: center;">@item.VehicleRegNo</td>
+                                <td style="text-align: center;">@AdminBAL.GetCustomerAccountByVehicleId(item.CustomerVehicleId)</td>
+                                <td style="text-align: center;">@AdminBAL.GetCustomerAccountMaskByVehicleId(item.CustomerVehicleId)</td>
+                                @if (UserContext.Identity.roles[0] == "Admin")
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.IsActive.Equals(true) ? "Active" : "InActive"), "CustomerVehicleList", "Customer", new { custid = item.Customer_Id, id = item.CustomerVehicleId, status = "active" }, new { @class = (item.IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "CustomerVehicleList", "Customer", new { custid = item.Customer_Id, id = item.CustomerVehicleId, status = "delete" }, new { @class = (item.IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete it?')") })</td>
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddCustomerVehicle", "Customer", new { id = item.CustomerVehicleId, @custid = item.Customer_Id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Unassign", "CustomerVehicleList", "Customer", new { id = item.CustomerVehicleId, @custid = item.Customer_Id, @accountnumber=AdminBAL.GetCustomerAccountByVehicleId(item.CustomerVehicleId) }, new { @class = "btn btn-primary btn-sm", onClick = "return confirm('Are you sure you want to unassign account?')" })
+                                    </td> 
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@{
+    var message = Html.Raw(TempData["Msg"]);
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            var msg = '@message';
+            if (msg) {
+                ShowMsg();
+            }
+            $("#manageVeh").addClass("active");
+            $("#CustomerVehicleList").closest("li").addClass("active");
+            $(".alert").delay(2000).fadeOut(1000);
+        });
+        function ShowMsg() {
+            $("#msg").show().delay(1000).fadeOut(1000);
+        }
+    </script>
+}

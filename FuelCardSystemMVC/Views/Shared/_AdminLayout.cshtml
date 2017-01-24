@@ -1,0 +1,277 @@
+﻿@using FuelCardSystemBAL
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemMVC.Library.CustomAuth
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loyalty Portal</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    @Styles.Render("~/bundles/admincss")
+    <link href="~/Content/plugins/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/iconic/css/ionicons.min.css" rel="stylesheet" />
+    @*<link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />*@
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="skin-red">
+    @*Site wrapper*@
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">Admin Portal</a>
+            @*Header Navbar: style can be found in header.less*@
+            <nav class="navbar navbar-static-top" role="navigation">
+                @*Sidebar toggle button*@
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        @*User Account: style can be found in dropdown.less*@
+                        <li class="dropdown messages-menu">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="true">
+                                <i class="fa fa-user"></i>
+                                @UserContext.Identity.userFirstName
+                            </a>
+                            <ul class="dropdown-menu" style="width: 100px">
+                                <li>
+                                    <a href="@Url.Action("ChangePassword", "Admin")">
+                                        <h5>Change Password</h5>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Logoff", "Admin")">
+                                        <h5>Logout</h5>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @*===============================================*@
+        @*Left side column. contains the sidebar*@
+        <aside class="main-sidebar">
+            @*sidebar: style can be found in sidebar.less*@
+            <section class="sidebar">
+                @*sidebar menu: : style can be found in sidebar.less*@
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="@Url.Action("Index", "Admin")" id="idDashboard">
+                            <i class="fa fa-dashboard text-yellow"></i><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-cogs text-teal"></i><span>Settings</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Update_GeneralSettings))
+                            {
+                                <li><a href="@Url.Action("GenSettings", "Admin")" id="idGensettings"><i class="fa fa-angle-double-right"></i><span>General Settings</span></a></li>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Update_Company))
+                            {
+                                <li><a href="@Url.Action("CompanyDetails", "Admin")" id="idCompanydetails"><i class="fa fa-angle-double-right"></i><span>Company Details</span></a></li>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Update_ReceiptSettings))
+                            {
+                                <li><a href="@Url.Action("PrintSettings", "Admin")" id="idPrintSettings"><i class="fa fa-angle-double-right"></i><span>Receipt Settings</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    @if (_AppContext.HasPermission(Parameters.Can_Add_CustomFields))
+                    {
+                        <li class="treeview"><a href="@Url.Action("AddCustomFields", "Admin")" id="AddCustomFields"><i class="fa fa-wrench text-red"></i><span>Manage Custom Fields</span></a>
+                        </li>
+                    }
+                    <li class="treeview"><a href="#"><i class="fa fa-phone-square text-teal"></i><span>Communication</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Comtemplates))
+                            {
+                                <li><a href="@Url.Action("ComTemplateList", "Admin")" id="idComTemplate"><i class="fa fa-angle-double-right"></i><span>Templates</span></a></li>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Send_Message))
+                            {
+                                <li><a href="@Url.Action("SendMessage", "Admin")" id="idSendmessage"><i class="fa fa-angle-double-right"></i><span>Send Message</span></a></li>
+                                <li><a href="@Url.Action("SentMessages", "Admin")" id="idSentmessages"><i class="fa fa-angle-double-right"></i><span>Sent Messages</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    @if (_AppContext.HasPermission(Parameters.Can_Assign_PermissionsToRoles) || _AppContext.HasPermission(Parameters.Can_Create_Role) || _AppContext.HasPermission(Parameters.Can_Delete_Roles))
+                    {
+                        <li class="treeview"><a href="#"><i class="fa fa-user text-teal"></i><span>Manage Roles</span><i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                @if (_AppContext.HasPermission(Parameters.Can_Create_Role))
+                                {
+                                    <li><a href="@Url.Action("AddRole", "Admin")" id="idAddRole"><i class="fa fa-angle-double-right"></i><span>Create Role</span></a></li>
+                                }
+                                <li><a href="@Url.Action("RolePermissionsList", "Admin")" id="idRolePermissionsList"><i class="fa fa-angle-double-right"></i><span>List of Roles</span></a></li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="treeview"><a href="@Url.Action("CurrencyConversionRates", "Admin")" id="idCurrency"><i class="fa fa-money text-green"></i><span>Currency Rates</span></a>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-briefcase text-orange"></i><span>Manage Taxes</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("TaxCategoryList", "Admin")" id="idTaxCategoryList"><i class="fa fa-angle-double-right"></i><span>Tax Category List</span></a></li>
+                            <li><a href="@Url.Action("TaxRateList", "Admin")" id="idTaxRateList"><i class="fa fa-angle-double-right"></i><span>Tax Rate List</span></a></li>
+                            <li><a href="@Url.Action("CustomerTaxCategoryList", "Admin")" id="idCustomerTaxCategoryList"><i class="fa fa-angle-double-right"></i><span>Customer Tax Category List</span></a></li>
+                            <li><a href="@Url.Action("TaxList", "Admin")" id="idTaxList"><i class="fa fa-angle-double-right"></i><span>Tax List</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-wrench text-light-blue"></i><span>Manage Gadgets</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_TerminalGadgets))
+                            {
+                                <li><a href="@Url.Action("AddGadget", "Admin")" id="idAddGadget"><i class="fa fa-angle-double-right"></i><span>Add Gadget</span></a></li>
+                            }
+                            <li><a href="@Url.Action("GadgetsList", "Admin")" id="idListofGadgets"><i class="fa fa-angle-double-right"></i><span>List of Gadgets</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-cubes text-maroon"></i><span>Manage Products</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ProdTypes", "Admin")" id="idProdTypes"><i class="fa fa-angle-double-right"></i><span>Product Types</span></a></li>
+                            <li><a href="@Url.Action("ProdProperties", "Admin")" id="idProdProperties"><i class="fa fa-angle-double-right"></i><span>Product Properties</span></a></li>
+                            <li><a href="@Url.Action("ProductsList", "Admin")" id="idProductsList"><i class="fa fa-angle-double-right"></i><span>List of Products</span></a></li>
+                            <li><a href="@Url.Action("AllPriceLists", "Admin")" id="idAllPriceLists"><i class="fa fa-angle-double-right"></i><span>Price Lists</span></a></li>
+                            <li><a href="@Url.Action("AllDiscounts", "Admin")" id="idAllDiscounts"><i class="fa fa-angle-double-right"></i><span>Discounts</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="managechannels"><a href="#"><i class="fa fa-link text-gray"></i><span>Manage Channels</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ChannelTypesList", "Admin")" id="idChannelTypesList"><i class="fa fa-angle-double-right"></i><span>Channel Types</span></a></li>
+                            <li><a href="@Url.Action("ChannelsList", "Admin")" id="idChannelsList"><i class="fa fa-angle-double-right"></i><span>List of Channels</span></a></li>
+                            <li><a href="@Url.Action("ScheduleList", "Admin")" id="ScheduleList"><i class="fa fa-angle-double-right"></i><span>Schedules List</span></a></li>
+                            <li><a href="@Url.Action("ChannelProductSchedulesList", "Admin")" id="ChannelProductSchedulesList"><i class="fa fa-angle-double-right"></i><span>Scheduled Prices</span></a></li>
+                            <li><a href="@Url.Action("ChannelProductScheduleHistory", "Admin")" id="ChannelProductScheduleHistory"><i class="fa fa-angle-double-right"></i><span>Scheduled Prices History</span></a></li>
+                            @*<li><a href="@Url.Action("ProductsChannelList", "Admin")" id="idProductsChannelList"><i class="fa fa-angle-double-right"></i><span>Channel Products</span></a></li>*@
+                            <li><a href="@Url.Action("GadgetsChannelList", "Admin")" id="idGadgetsChannelList"><i class="fa fa-angle-double-right"></i><span>Channel Gadgets</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageAccount"><a href="#"><i class="fa fa-dollar text-orange"></i><span>Manage Accounts</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_Account_Type))
+                            {
+                                <li><a href="@Url.Action("AddAccountType", "Admin")" id="AddAccountType"><i class="fa fa-angle-double-right"></i><span>Add Account Types</span></a></li>
+                            }
+                            <li><a href="@Url.Action("AccountTypeList", "Admin")" id="AccountTypeList"><i class="fa fa-angle-double-right"></i><span>Account Types</span></a></li>
+                            <li><a href="@Url.Action("ViewAllAccounts", "Admin")" id="ViewAllAccounts"><i class="fa fa-angle-double-right"></i><span>View all accounts</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageCustomers"><a href="#"><i class="fa fa-users text-olive"></i><span>Manage Customers</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Add_Vehicle_Make))
+                            {
+                                <li><a href="@Url.Action("AddVehicle", "Admin")" id="idAddVehicle"><i class="fa fa-angle-double-right"></i><span>Add Vehicle Make</span></a></li>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Add_Vehicle_Model))
+                            {
+                                <li><a href="@Url.Action("AddVehicleModel", "Admin")" id="idAddVehicleModel"><i class="fa fa-angle-double-right"></i><span>Add Vehicle Model</span></a></li>
+                            }
+                            <li><a href="@Url.Action("VehicleModelsList", "Admin")" id="idVehicleModelList"><i class="fa fa-angle-double-right"></i><span>List of Vehicle Models</span></a></li>
+                            <li><a href="@Url.Action("CustomerTypesList", "Admin")" id="idCustType"><i class="fa fa-angle-double-right"></i><span>Customer Types</span></a></li>
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_Customer))
+                            {
+                                <li><a href="@Url.Action("AddCustomer", "Admin", new { type = "Individual" })" id="idCustReg"><i class="fa fa-angle-double-right"></i><span>Add Individual Customer</span></a></li>
+                                <li><a href="@Url.Action("AddCustomer", "Admin", new { type = "Corporate" })" id="idCorCustReg"><i class="fa fa-angle-double-right"></i><span>Add Corporate Customer</span></a></li>
+                            }
+                            <li><a href="@Url.Action("CustomersList", "Admin")" id="idCustList"><i class="fa fa-angle-double-right"></i><span>List of Customers</span></a></li>
+
+                            <li><a href="@Url.Action("PostPaidCustomers", "Admin")" id="idPostpaidCustList"><i class="fa fa-angle-double-right"></i><span>List of Postpaid Customers</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageCards"><a href="#"><i class="fa fa-credit-card text-orange"></i><span>Card Management</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ListofCards", "Admin")" id="idListofCards"><i class="fa fa-angle-double-right"></i><span>List of Cards</span></a></li>
+                            @if (_AppContext.HasPermission(Parameters.Can_upload_Card_Data))
+                            {
+                                <li><a href="@Url.Action("UploadCards", "Admin")" id="idUploadCards"><i class="fa fa-angle-double-right"></i><span>Upload Cards</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageStaff"><a href="#"><i class="fa fa-users text-purple"></i><span>Manage Staff</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_Staff))
+                            {
+                                <li><a href="@Url.Action("AddStaff", "Admin")" id="idAddStaff"><i class="fa fa-angle-double-right"></i><span>Register Staff</span></a></li>
+                            }
+                            <li><a href="@Url.Action("StaffList", "Admin")" id="idStaffList"><i class="fa fa-angle-double-right"></i><span>List of Staff</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageActivity"><a href="#"><i class="fa fa-tasks text-teal"></i><span>Manage Activities</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_ActivityType))
+                            {
+                                <li><a href="@Url.Action("AddActivityType", "Admin")" id="idAddActivityType"><i class="fa fa-angle-double-right"></i><span>Add Activity Types</span></a></li>
+                            }
+                            <li><a href="@Url.Action("ActivityTypeList", "Admin")" id="idActivityTypes"><i class="fa fa-angle-double-right"></i><span>Activity Types</span></a></li>
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_Activity))
+                            {
+                                <li><a href="@Url.Action("AddActivity", "Admin")" id="idAddActivity"><i class="fa fa-angle-double-right"></i><span>Add Activity</span></a></li>
+                            }
+                            <li><a href="@Url.Action("ActivityList", "Admin")" id="idActivityList"><i class="fa fa-angle-double-right"></i><span>List of Activities</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageEvents"><a href="#"><i class="fa fa-bell text-olive"></i><span>Manage Events</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            @if (_AppContext.HasPermission(Parameters.Can_Create_Event))
+                            {
+                                <li><a href="@Url.Action("AddEvent", "Admin")" id="idEventAdd"><i class="fa fa-angle-double-right"></i><span>Add Events</span></a></li>
+                            }
+                            <li><a href="@Url.Action("EventList", "Admin")" id="idEvent"><i class="fa fa-angle-double-right"></i><span>Events</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="programActions"><a href="#"><i class="fa fa-rocket text-orange"></i><span>Program Actions</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ActionItemList", "Admin")" id="ActionItemList"><i class="fa fa-angle-double-right"></i><span>Reward Items List</span></a></li>
+                            @if (_AppContext.HasPermission(Parameters.Can_Add_Action_Items))
+                            {
+                                <li><a href="@Url.Action("AddActionItem", "Admin")" id="AddActionItem"><i class="fa fa-angle-double-right"></i><span>Add Reward Item</span></a></li>
+                            }
+                            <li><a href="@Url.Action("ActionList", "Admin")" id="idAction"><i class="fa fa-angle-double-right"></i><span>Reward Actions</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview" id="manageLtyProg"><a href="#"><i class="fa fa-calculator text-yellow"></i><span>Manage Loyalty Programs</span><i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("FormulaList", "Admin")" id="idFormula"><i class="fa fa-angle-double-right"></i><span>Formula</span></a></li>
+
+                            <li><a href="@Url.Action("LoyaltyClassificationList", "Admin")" id="idClassification"><i class="fa fa-angle-double-right"></i><span>Loyalty Filters</span></a></li>
+                            <li><a href="@Url.Action("LoyaltyProgramsList", "Admin")" id="idLoyaltyProgram"><i class="fa fa-angle-double-right"></i><span>Loyalty Programs</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            @*/.sidebar*@
+        </aside>
+
+        @*===============================================*@
+
+        @*Content Wrapper. Contains page content*@
+        <div class="content-wrapper">
+            @*Content Header (Page header)*@
+            @RenderSection("header", required: false)
+            @*Main content*@
+            <section class="content">
+                @RenderBody()
+            </section>@* /.content *@
+        </div>
+        @*/.content-wrapper*@
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+       
+            </div>
+            <strong>Copyright &copy; 2015-2016 <a href="javascript:;">Admin Portal</a>.</strong> All rights reserved.
+     
+        </footer>
+    </div>
+    @*./wrapper *@
+    @Scripts.Render("~/bundles/adminscript")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

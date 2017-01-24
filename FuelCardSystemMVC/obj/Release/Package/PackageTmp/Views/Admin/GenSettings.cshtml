@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "General Settings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model FuelCardSystemEntities.Models.GeneralSetting
+@using FuelCardSystemMVC.Library
+@if (_AppContext.HasPermission(Parameters.Can_Update_GeneralSettings))
+{
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-cogs"></i><span>General Settings...</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li class="active">General Settings</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Update)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Successfully saved.</h4>
+                </div>
+            </div>
+            }
+            else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Error)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>Error.</h4>
+                </div>
+            </div>
+            }
+        }
+        <div class="col-md-12">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="box-title">General Settings</h3>
+                </div>
+                @* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("GenSettings", "Admin", FormMethod.Post, new { @id = "GeneralSettingsForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        @*                    <div class="form-group">
+                        <div class="col-md-12 no-padding">
+                            <label for="">Expire Post Paid Credit limits Every</label>
+                        </div>
+                        <div class="col-md-1 no-padding">
+                            @Html.TextBoxFor(x => x.PostPaidExpValue, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-11 no-padding">
+                            @Html.DropDownListFor(x => x.PostPaidExpPeriod, (SelectList)ViewBag.TimeDurations, new { @class = "form-control" })
+                        </div>
+                    </div>*@
+                        <div class="form-group">
+                            <label for="">Minimum redeemable points</label>
+                            @Html.TextBoxFor(x => x.MinRedeemPoints, new { @placeholder = "Minimum redeemable points", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Base currency</label>
+                            @Html.DropDownListFor(x => x.BaseCurrency, (SelectList)ViewBag.Currency, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Maximum allowed top-up per day</label>
+                            @Html.TextBoxFor(x => x.MaxTopupPerDay, new { @placeholder = "Maximum allowed top-up per day", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Maximum allowed Prepaid Card Balance</label>
+                            @Html.TextBoxFor(x => x.MaxPrepaidBalance, new { @placeholder = "Maximum allowed Prepaid Card Balance", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Default offline usage limit for all the cards</label>
+                            @Html.TextBoxFor(x => x.DefaultUsageLimit, new { @placeholder = "Default usage limit for all the cards", @class = "form-control" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="">CC Email</label>
+                                    @Html.TextBoxFor(x => x.CCEmail, new { @placeholder = "All the emails sent by the system will be copied to this email (If it is enabled)", @class = "form-control", @type = "email" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label></label>
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.CheckBoxFor(x => x.IsCCEmail) Is CC mail enabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                GeneralSettingsFormLoad();
+                GeneralSettingsFormNum();
+                if ($("input:checked").length > 0) {
+                    $("#CCEmail").attr("readonly", false);
+                } else {
+                    $("#CCEmail").attr("readonly", true);
+                }
+                $("#IsCCEmail").on("click", function () {
+                    $("#CCEmail").removeClass("error");
+                    if ($("input:checked").length > 0) {
+                        $("#CCEmail").attr("readonly", false);
+                    } else {
+                        $("#CCEmail").attr("readonly", true);
+                    }
+                });
+                $("#idGensettings").closest("li.treeview").addClass("active");
+                $("#idGensettings").closest("li").addClass("active");
+                $(".alert").delay(2000).fadeOut(1000);
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

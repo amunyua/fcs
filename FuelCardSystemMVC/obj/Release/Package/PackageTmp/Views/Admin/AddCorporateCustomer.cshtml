@@ -1,0 +1,776 @@
+﻿@{
+    ViewBag.Title = "AddCorporateCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+<link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+
+@model Tuple<FuelCardSystemEntities.Models.Customer, List<FuelCardSystemEntities.Models.CustomerType>, List<FuelCardSystemEntities.Models.CustomTableFields>>
+@using FuelCardSystemMVC.Library
+
+@if (Model.Item1 != null && Model.Item1.Customer_id > 0)
+{
+    if (_AppContext.HasPermission(Parameters.Can_Edit_Customer))
+    {
+        flag = true;
+    }
+}
+else
+{
+    if (_AppContext.HasPermission(Parameters.Can_Create_Customer))
+    {
+        flag = true;
+    }
+}
+@if (flag)
+{
+    <link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-users"></i><span class="margin">@(Model.Item1 != null ? (Model.Item1.Customer_id > 0 ? "Edit Corporate Customer" : "Add Corporate Customer") : "")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("CustomersList", "Admin")">List of Customers</a></li>
+                <li class="active">@(Model.Item1 != null ? (Model.Item1.Customer_id > 0 ? "Edit Corporate Customer" : "Add Corporate Customer") : "")</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("AddCustomer", "Admin", FormMethod.Post, new { @id = "AddCustomerForm", @role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="box-body">
+                        @*  @if (Model.Item1.Customer_id == 0 || ViewBag.isDesignationSet == false)
+                        {
+                            <div class="form-group">
+                                <label for="">Customer Designation</label>
+                                @Html.DropDownListFor(x => x.Item1.CustomerDesignation, new SelectList(_AppContext.CustomerDesig().Select(x => new { value = x.Key, text = x.Value }), "value", "text"), new { @class = "form-control" })
+                            </div>
+                        }*@
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-info">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Company details</h3>
+                                        </div>
+                                        <div class="box-body">
+
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Company Name</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyName, new { @placeholder = "Company Name", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Date of incorporation of Company</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            @Html.TextBoxFor(x => x.Item1.CompanyIncorporationDate, new { @type = "text", @data_mask = "", @data_inputmask = "'alias': 'mm/dd/yyyy'", @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Incorporation / registration number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyRegistrationNo, new { @placeholder = "Incorporation / registration number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">PIN number of company</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyPIN, new { @placeholder = "PIN number of company", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">VAT Number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyVAT, new { @placeholder = "VAT Number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone Number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_Phone, new { @placeholder = "Phone/Mobile Number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                    <div class="" id="loading1" style="display: none; position: absolute; top: 32px;">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Mobile Number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_Mobile, new { @placeholder = "Mobile Number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                    <div class="" id="loading2" style="display: none; position: absolute; top: 32px;">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">FAX Number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_Fax, new { @placeholder = "FAX Number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_Email, new { @placeholder = "Customer's Email Id", @class = "form-control", @maxlength = 50, @type = "email" })
+                                                    </div>
+                                                    <div class="" id="loading" style="display: none; position: absolute; top: 381px;">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Role</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Customer_Role, (SelectList)ViewBag.Roles, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Postal Address of company</label>
+                                                        @Html.TextAreaFor(x => x.Item1.CompanyPostalAddress, new { @placeholder = "Postal Address", @class = "form-control", @maxlength = 500 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Physical address of company</label>
+                                                        @Html.TextAreaFor(x => x.Item1.CompanyPhysicalAddress, new { @placeholder = "Postal Address", @class = "form-control", @maxlength = 500 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Postal code of company</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyPostalCode, new { @placeholder = "Postal Code", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Physical address postal code</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyPhysicalPostalCode, new { @placeholder = "Postal Code", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Country</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Customer_Country, (SelectList)ViewBag.Countries, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Physical address country</label>
+                                                        @Html.DropDownListFor(x => x.Item1.CompanyPhysicalAddressCountry, (SelectList)ViewBag.Countries, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Payment Terms</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Payment_Term_id, (SelectList)ViewBag.PaymentTerms, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Price List</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Price_List_id, (SelectList)ViewBag.pricelist, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Customer Discount</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Discount_List_id, (SelectList)ViewBag.discountlist, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Customer Tax Rate</label>
+                                                        @Html.DropDownListFor(x => x.Item1.CustomerTaxCategoryID, (SelectList)ViewBag.CustTax, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-primary">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Company Directors (First)</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">First Name of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorFirstName1, new { @placeholder = "First Name of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Middle Name of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorMiddleName1, new { @placeholder = "Middle Name of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Last Name of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorLastName1, new { @placeholder = "Last Name of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">PIN number of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPIN1, new { @placeholder = "PIN number of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">ID number of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorID1, new { @placeholder = "ID number of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone number of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPhone1, new { @placeholder = "Phone/Mobile number of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email of Director - 1</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorEmail1, new { @placeholder = "Email of Director - 1", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-primary">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Company Directors (Second)</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">First Name of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorFirstName2, new { @placeholder = "First Name of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Middle Name of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorMiddleName2, new { @placeholder = "Middle Name of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Last Name of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorLastName2, new { @placeholder = "Last Name of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">PIN number of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPIN2, new { @placeholder = "PIN number of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">ID number of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorID2, new { @placeholder = "ID number of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone number of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPhone2, new { @placeholder = "Phone/Mobile number of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email of Director - 2</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorEmail2, new { @placeholder = "Email of Director - 2", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-primary">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Company Directors (Third)</h3>
+                                        </div>
+                                        <div class="box-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">First Name of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorFirstName3, new { @placeholder = "First Name of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Middle Name of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorMiddleName3, new { @placeholder = "Middle Name of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="">Last Name of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorLastName3, new { @placeholder = "Last Name of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">PIN number of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPIN3, new { @placeholder = "PIN number of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">ID number of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorID3, new { @placeholder = "ID number of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone number of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorPhone3, new { @placeholder = "Phone/Mobile number of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email of Director - 3</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyDirectorEmail3, new { @placeholder = "Email of Director - 3", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-success">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Contact Person (First)</h3>
+                                        </div>
+                                        <div class="box-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Contact Person Name</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonName1, new { @placeholder = "Contact Person Name", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Position</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonPosition1, new { @placeholder = "Position", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonPhone1, new { @placeholder = "Phone number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonEmail1, new { @placeholder = "Email", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-success">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Contact Person (Secound)</h3>
+                                        </div>
+                                        <div class="box-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Contact Person Name</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonName2, new { @placeholder = "Contact Person Name", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Position</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonPosition2, new { @placeholder = "Position", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonPhone2, new { @placeholder = "Phone number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Email</label>
+                                                        @Html.TextBoxFor(x => x.Item1.CompanyContactPersonEmail2, new { @placeholder = "Email", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-warning">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Bank details</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Bank Name</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_BankName, new { @placeholder = "Bank Name", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Branch</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_BankBranch, new { @placeholder = "Branch Name", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Account Number</label>
+                                                        @Html.TextBoxFor(x => x.Item1.Customer_AccountNumber, new { @placeholder = "Account Number", @class = "form-control", @maxlength = 50 })
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Account Currency</label>
+                                                        @Html.DropDownListFor(x => x.Item1.Customer_AccountCurrency, (SelectList)ViewBag.Currency, new { @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if (Model.Item3 != null && Model.Item3.Count() > 0)
+                        {
+                            foreach (var item in Model.Item3)
+                            {
+                                if (item.CustomFieldId.Equals("CF1"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF1, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF2"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF2, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF3"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF3, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF4"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF4, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF5"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF5, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF6"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF6, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF7"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF7, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF8"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF8, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF9"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF9, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                                else if (item.CustomFieldId.Equals("CF10"))
+                                {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">@item.CustomFieldName</label>
+                                        @Html.TextBoxFor(x => x.Item1.CF10, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                                    </div>
+                                </div>
+                            </div>
+                                }
+                            }
+
+                        }
+@* @if (Model.Item2 != null && Model.Item2.Count() > 0)
+                        {
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-info">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Select Customer Types</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <table id="custtypeTbl" class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align: center;">
+                                                            <input type="checkbox" id="selectAll" /></th>
+                                                        <th style="text-align: center">Customer Type</th>
+                                                        <th style="text-align: center">Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var itm in Model.Item2)
+                                                    {
+                                                        <tr>
+                                                            <td style="text-align: center;">
+                                                                <input type="checkbox" name="chk" value="@itm.CustomerType_id" id="@itm.CustomerType_id" class="check" @(itm.IsSelected == true ? "checked='checked'" : "") />
+                                                            </td>
+                                                            <td>@itm.Customer_Type</td>
+                                                            <td>@itm.CustomerTypeDescription</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        } *@
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Item1.Customer_id)
+                            @Html.HiddenFor(x => x.Item1.CustomerDesignation)
+                            <input type="hidden" name="hdnCusttype" id="hdnCusttype" />
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.phone.extensions.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddCorpCustomerFormLoad();
+                phone();
+                $("#custtypeTbl").dataTable({
+                    "aaSorting": [],
+                    "aoColumnDefs": [{ "bSortable": false, "aTargets": [0] }],
+                    "iDisplayLength": -1,
+                    "aLengthMenu": [[20, 40, 60, 80, 100, -1], [20, 40, 60, 80, 100, "All"]]
+                });
+                //// Set 'Select All' to checked if all other boxes are already checked
+                //$('#selectAll').prop('checked', $('.check').length == $('.check:checked').length);
+
+                //// Add click function to 'Select All' to select all other boxes
+                //var oTable = $("#custtypeTbl").dataTable();
+                //$('#selectAll').click(function () {
+                //    $('input', oTable.fnGetNodes()).prop('checked', this.checked);
+                //    $("tr").toggleClass("bg-yellow-gradient");
+                //    Populate()
+                //});
+
+                //// Make selectAll checkbox checked if all the other checkboxes checked otherwise make it unchecked
+                //$('.check').click(function () {
+                //    $('#selectAll').prop('checked', $('.check').length == $('.check:checked').length);
+                //    $(this).closest("tr").toggleClass("bg-yellow-gradient");
+                //});
+
+                //$('input[type="checkbox"]').on('change', function () {
+                //    Populate()
+                //}).change();
+
+                //Datemask mm/dd/yyyy
+                $("#Item1_Customer_DoB").inputmask("mm/dd/yyyy", { "placeholder": "mm/dd/yyyy" });
+                $("#Item1_Customer_DoB").datepicker({ endDate: "-15y", startView: 2 });
+                $("#Item1_CompanyIncorporationDate").inputmask("mm/dd/yyyy", { "placeholder": "mm/dd/yyyy" });
+                $("#Item1_CompanyIncorporationDate").datepicker();
+                $("#Item1_Customer_Phone, #Item1_Customer_Mobile, #Item1_Customer_Fax, #Item1_CompanyDirectorPhone1, #Item1_CompanyDirectorPhone2, #Item1_CompanyDirectorPhone3, #Item1_CompanyContactPersonPhone1, #Item1_CompanyContactPersonPhone2").inputmask("phone", {
+                    url: "/Content/plugins/input-mask/phone-codes/phone-codes.json",
+                    onKeyValidation: function () { //show some metadata in the console
+                        $("#Item1_Customer_Country, #Item1_CompanyPhysicalAddressCountry").val($(this).inputmask("getmetadata")["name_en"]);
+                    }
+                });
+
+                $("#manageCustomers").addClass("active");
+                $("#idCorCustReg").closest("li").addClass("active");
+            });
+            //function Populate() {
+            //    var oTable = $("#custtypeTbl").dataTable();
+            //    vals = $("input:checked", oTable.fnGetNodes()).map(function () {
+            //        $(this).closest("tr").addClass("bg-yellow-gradient");
+            //        return this.value
+            //    }).get().join(',');
+            //    $('#hdnCusttype').val(vals);
+            //}
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

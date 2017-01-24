@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "AllPriceLists";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.PriceList>
+
+@using FuelCardSystemMVC.Library
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-list-alt"></i><span class="margin">Price Lists...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_PriceList))
+        {
+            @Html.ActionLink("Add Price List", "AddPriceList", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    @if (TempData["msg"] != null)
+    {
+        if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Insert)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                <h4><i class="icon fa fa-check"></i>Successfully saved.</h4>
+            </div>
+        </div>
+        }
+        else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Update)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                <h4><i class="icon fa fa-check"></i>Successfully updated.</h4>
+            </div>
+        </div>
+        }
+        else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Error)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <h4><i class="icon fa fa-ban"></i>Error occured.</h4>
+            </div>
+        </div>
+        }
+    }
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">Price Lists...</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Price List Name</th>
+                            <th style="text-align: center">Price List Description</th>
+                            <th style="text-align: center">Prices</th>
+                           @* @if (_AppContext.HasPermission(Parameters.Can_Assign_PriceList))
+                            { *@
+                                @*<th style="text-align: center">Assign Customers</th>*@
+                                <th style="text-align: center">View Customers</th>
+                           @* } *@
+                            <th style="text-align: center">Is Default</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_PriceList))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_PriceList))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.PriceList_Name</td>
+                                <td style="text-align: center;">@item.PriceList_Description</td>
+                                <td style="text-align: center;">@Html.ActionLink("View", "AddProductPriceList", "Admin", new { id = item.PriceList_id }, new { @class = "btn btn-primary btn-sm" })</td>
+                              @*  @if (_AppContext.HasPermission(Parameters.Can_Assign_PriceList))
+                                {
+<td style="text-align: center;">@Html.ActionLink("Assign", "AssignPriceList", "Admin", new { id=item.PriceList_id}, new { @class = "btn btn-primary btn-sm" })</td>*@
+                                    <td style="text-align: center;">@Html.ActionLink("View", "ViewPriceListCustomers", "Admin", new { id = item.PriceList_id }, new { @class = "btn btn-primary btn-sm" })</td>
+                               @* } *@
+                                @if (_AppContext.HasPermission(Parameters.Can_Make_PriceList_Default))
+                                {
+                                    <td style="text-align: center;"><a href="/Admin/AllPriceLists/@(item.PriceList_id)?status=baseitem" class = '@(item.PriceList_IsDefault.Equals(true) ? "btn btn-success btn-sm" : "btn btn-default btn-sm")'><i class = '@(item.PriceList_IsDefault.Equals(true) ? "fa fa-check" : "fa fa-ellipsis-h text-gray")'></i></a></td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center;">
+                                        <button class = '@(item.PriceList_IsDefault.Equals(true) ? "btn btn-success btn-sm" : "btn btn-default btn-sm")'><i class = '@(item.PriceList_IsDefault.Equals(true) ? "fa fa-check" : "fa fa-ellipsis-h text-gray")'></i></button>
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_PriceList))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.PriceList_IsActive.Equals(true) ? "Active" : "InActive"), "AllPriceLists", "Admin", new { id = item.PriceList_id, status = "active" }, new { @class = (item.PriceList_IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.PriceList_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "AllPriceLists", "Admin", new { id = item.PriceList_id, status = "delete" }, new { @class = (item.PriceList_IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.PriceList_IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete " + (item.PriceList_Name) + "?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_PriceList))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddPriceList", "Admin", new { id = item.PriceList_id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@{
+    var message = Html.Raw(TempData["Msg"]);
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            var msg = '@message';
+            if (msg) {
+                ShowMsg();
+            }
+            $("#idAllPriceLists").closest("li.treeview").addClass("active");
+            $("#idAllPriceLists").closest("li").addClass("active");
+            $(".alert").delay(2000).fadeOut(1000);
+        });
+        function ShowMsg() {
+            $("#msg").show().delay(1000).fadeOut(1000);
+        }
+    </script>
+}

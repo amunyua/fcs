@@ -1,0 +1,239 @@
+﻿@{
+    ViewBag.Title = "AddLoyaltyClassification";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model FuelCardSystemEntities.Models.Tierlevel
+@using FuelCardSystemMVC.Library
+@if (Model != null && Model.id > 0)
+{
+    if (_AppContext.HasPermission(Parameters.Can_Edit_Classification))
+    {
+        flag = true;
+    }
+}
+else
+{
+    if (_AppContext.HasPermission(Parameters.Can_Create_Classification))
+    {
+        flag = true;
+    }
+}
+@if (flag)
+{
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-calculator"></i><span class="margin">@(Model != null ? (Model.id > 0 ? "Edit Filter..." : "Add Filter...") : "Add Filter")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("LoyaltyClassificationList", "Admin")">List of Filters</a></li>
+                <li class="active">@(Model != null ? (Model.id > 0 ? "Edit Filter..." : "Add Filter...") : "Add Filter")</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        @if (ViewBag != null)
+        {
+            if (ViewBag.msg == _AppContext.Messages.Success)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Successfully saved.</h4>
+                </div>
+            </div>
+            }
+            if (ViewBag.msg == _AppContext.Messages.Error)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>Error occurred.</h4>
+                </div>
+            </div>
+            }
+        }
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model != null ? (Model.id > 0 ? "Edit Filter..." : "Add Filter...") : "Add Filter")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("AddLoyaltyClassification", "Admin", FormMethod.Post, new { @id = "AddLoyaltyClassificationForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="">Filter Name</label>
+                            @Html.TextBoxFor(x => x.tierlevel_name, new { @placeholder = "Classification Name", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 85px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label>Filter Description</label>
+                            @Html.TextAreaFor(x => x.tierlevel_description, new { @class = "form-control" })
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="">Activity Type</label>
+                                    @Html.DropDownListFor(x => x.activitytype_id, (SelectList)ViewBag.ActivityTypes, new { @class = "form-control", @onchange = "javascript:GetActivities(this.value);" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Activity</label>
+                                    <select id="activity_id" name="activity_id" class="form-control">
+                                        <option value="-1">All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="">Product Type</label>
+                                    @Html.DropDownListFor(x => x.producttype_id, (SelectList)ViewBag.ProductTypes, new { @class = "form-control", @onchange = "javascript:GetProducts(this.value);" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Product</label>
+                                    <select id="product_id" name="product_id" class="form-control">
+                                        <option value="-1">All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="">Channel Type</label>
+                                    @Html.DropDownListFor(x => x.channeltype_id, (SelectList)ViewBag.ChannelTypes, new { @class = "form-control", @onchange = "javascript:GetChannels(this.value);" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Channel</label>
+                                    <select id="channel_id" name="channel_id" class="form-control">
+                                        <option value="-1">All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="">Account Type</label>
+                                    @Html.DropDownListFor(x => x.accounttype_id, (SelectList)ViewBag.AccTypes, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Event</label>
+                                    @Html.DropDownListFor(x => x.event_id, (SelectList)ViewBag.Events, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    @Html.DropDownListFor(x => x.country_id, (SelectList)ViewBag.Countries, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.id)
+                            <input type="submit" value="Save" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddLoyaltyClassificationFormLoad();
+                $("#manageLtyProg").closest("li.treeview").addClass("active");
+                $("#idClassification").closest("li").addClass("active");
+                $(".alert").delay(2000).fadeOut(1000);
+            });
+            function GetActivities(_typeId) {
+                var procemessage = "<option value='-1'> Please wait...</option>";
+                $("#activity_id").html(procemessage).show();
+                var url = "/Admin/GetActivitiesFromTypeID/";
+                $.ajax({
+                    url: url,
+                    data: { id: _typeId },
+                    cache: false,
+                    type: "POST",
+                    success: function (data) {
+                        var markup = "<option value='-1'> All</option>";
+                        for (var x = 0; x < data.length; x++) {
+                            markup += "<option value=" + data[x].Activity_id + ">" + data[x].Activity_Name + "</option>";
+                        }
+                        $("#activity_id").html(markup).show();
+                    },
+                    error: function (reponse) {
+                        console.log("error : " + reponse);
+                    }
+                });
+            }
+            function GetProducts(_typeId) {
+                var procemessage = "<option value='-1'> Please wait...</option>";
+                $("#product_id").html(procemessage).show();
+                var url = "/Admin/GetProductsFromTypeID/";
+                $.ajax({
+                    url: url,
+                    data: { id: _typeId },
+                    cache: false,
+                    type: "POST",
+                    success: function (data) {
+                        var markup = "<option value='-1'> All</option>";
+                        for (var x = 0; x < data.length; x++) {
+                            markup += "<option value=" + data[x].Product_id + ">" + data[x].Product_Name + "</option>";
+                        }
+                        $("#product_id").html(markup).show();
+                    },
+                    error: function (reponse) {
+                        alert("error : " + reponse);
+                    }
+                });
+            }
+            function GetChannels(_typeId) {
+                var procemessage = "<option value='-1'> Please wait...</option>";
+                $("#channel_id").html(procemessage).show();
+                var url = "/Admin/GetChannelsFromTypeID/";
+                $.ajax({
+                    url: url,
+                    data: { id: _typeId },
+                    cache: false,
+                    type: "POST",
+                    success: function (data) {
+                        var markup = "<option value='-1'> All</option>";
+                        for (var x = 0; x < data.length; x++) {
+                            markup += "<option value=" + data[x].Channel_id + ">" + data[x].Channel_Name + "</option>";
+                        }
+                        $("#channel_id").html(markup).show();
+                    },
+                    error: function (reponse) {
+                        alert("error : " + reponse);
+                    }
+                });
+            }
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

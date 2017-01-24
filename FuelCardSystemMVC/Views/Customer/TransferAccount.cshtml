@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "TransferAccount";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@model Tuple<FuelCardSystemEntities.Models.Customer_Account, List<FuelCardSystemEntities.Models.Customer_Account>>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+@if (FuelCardSystemMVC.Library.UserAuth.UserContext.Identity.roles[0] == "Admin")
+{
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-credit-card"></i><span class="margin">Transfer Amount from (@Model.Item1.AccountNumber)...</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Customer")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("CustomerAccountDetails", "Customer", new { @id = Model.Item1.Customer_id })">List of Accounts</a></li>
+                <li class="active">Set Limit</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.limitexceed)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>Limit Exceeded.</h4>
+                </div>
+            </div>
+            }
+            if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Blocked)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>Invalid transaction.</h4>
+                </div>
+            </div>
+            }
+        }
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Transfer Amount @(ViewBag.Creditlimit!=null ? " (Credit Limit: " +ViewBag.Creditlimit+")" : "")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("TransferAccount", "Customer", FormMethod.Post, new { @id = "TransferAccountForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Amount</label>
+                            @Html.TextBoxFor(x => x.Item1.Balance, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Transfer to account</label>
+                            @Html.DropDownListFor(x => x.Item1.AccountNumber, new SelectList(Model.Item2, "AccountNumber", "AccountNumber"), new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Item1.CreditType)
+                            <input type="hidden" id="hdnAccno" name="hdnAccno" value="@ViewBag.accno" />
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                TransferAccountFormLoad();
+                $("#manageAccounts").addClass("active");
+                $("#CustomerAccountDetails").closest("li").addClass("active");
+                $(".alert").delay(2000).fadeOut(1000);
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

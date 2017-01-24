@@ -1,0 +1,13 @@
+﻿A user with user id:admin@fcs.com has tried to login into Customer Portal with 4 unsuccessful attempts on 3/12/2016 1:59:33 PM, IP Address :::1
+
+---------------------------------------------------------------------------------------------
+
+A user with user id:admin@fcs.com has tried to login into Admin Portal with 3 unsuccessful attempts on 4/26/2016 11:10:29 AM, IP Address :::1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A user with user id:admin@fcs.com has tried to login into Admin Portal with 3 unsuccessful attempts on 4/26/2016 11:11:12 AM, IP Address :::1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A user with user id:admin@fcs.com has tried to login into Admin Portal with 3 unsuccessful attempts on 4/26/2016 11:13:47 AM, IP Address :::1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

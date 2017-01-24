@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "ActivityTypeList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.ActivityType>
+@using FuelCardSystemMVC.Library
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-cubes"></i><span class="margin">Activity Types...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_ActivityType))
+        {
+            @Html.ActionLink("Add Activity Type", "AddActivityType", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Activity Types</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Activity Type</th>
+                            <th style="text-align: center;">Activity Description</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_ActivityType))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_ActivityType))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.ActivityType_Name</td>
+                                <td style="text-align: center;">@item.ActivityType_Description</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_ActivityType))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.ActivityType_IsActive.Equals(true) ? "Active" : "InActive"), "ActivityTypeList", "Admin", new { id = item.ActivityType_id, status = "active" }, new { @class = (item.ActivityType_IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.ActivityType_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "ActivityTypeList", "Admin", new { id = item.ActivityType_id, status = "delete" }, new { @class = (item.ActivityType_IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.ActivityType_IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete " + (item.ActivityType_Name) + "?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_ActivityType))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddActivityType", "Admin", new { id = item.ActivityType_id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageActivity").closest("li.treeview").addClass("active");
+            $("#idActivityTypes").closest("li").addClass("active");
+        });
+    </script>
+}

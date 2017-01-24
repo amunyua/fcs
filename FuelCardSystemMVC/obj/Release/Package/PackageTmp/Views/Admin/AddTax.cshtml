@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "AddTax";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+bool flag = false;
+}
+@model FuelCardSystemEntities.Models.Tax
+@using FuelCardSystemMVC.Library
+@if (Model != null)
+{
+    if (Model.TaxID > 0 && _AppContext.HasPermission(Parameters.Can_Edit_Tax))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Add_Tax))
+    {
+        flag = true;
+    }
+}
+else if (_AppContext.HasPermission(Parameters.Can_Add_Tax))
+{
+    flag = true;
+}
+@if (flag==true)
+{  
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-briefcase"></i><span class="margin">@(Model != null ? (Model.TaxID > 0 ? "Edit Tax..." : "Add Tax") : "")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("TaxList", "Admin")">List of Taxes</a></li>
+                <li class="active">Add or Edit Tax</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model != null ? (Model.TaxID > 0 ? "Edit Tax..." : "Add Tax") : "")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @if (Model != null)
+                {
+                    using (Html.BeginForm("AddTax", "Admin", FormMethod.Post, new { @id = "AddTaxForm", @role = "form" }))
+                    {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="">Tax Name</label>
+                            @Html.TextBoxFor(x => x.TaxName, new { @placeholder = "Tax name", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 85px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tax description</label>
+                            @Html.TextAreaFor(x => x.TaxDescription, new { @placeholder = "Tax description", @class = "form-control", @maxlength = 250 })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tax Category</label>
+                            @Html.DropDownListFor(x => x.CatID, (SelectList)ViewBag.TaxCat, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="">Customer Tax Category</label>
+                            @Html.DropDownListFor(x => x.CustCatID, (SelectList)ViewBag.CustTax, new { @class = "form-control" })
+                        </div>  
+                        <div class="form-group">
+                            <label for="">Tax Rate</label>
+                            @Html.DropDownListFor(x => x.TaxRateID, (SelectList)ViewBag.TaxRates, new { @class = "form-control" })
+                        </div>                      
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.TaxID)
+                            <input type="hidden" id="hdnProp" name="hdnProp" />
+                            <input type="submit" value="Save" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddTaxFormLoad();
+                $("#idTaxList").closest("li.treeview").addClass("active");
+                $("#idTaxList").closest("li").addClass("active");
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "PrintSettings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.ReceiptSettings>
+@if (FuelCardSystemMVC.Library._AppContext.HasPermission(FuelCardSystemMVC.Library.Parameters.Can_Update_ReceiptSettings))
+{
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-print"></i><span class="margin">Receipt Settings</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Receipt Settings</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Select fields to make them printable on receipt...</h3>
+            </div>@* /.box-header *@
+            <div class="overlay" style="display: none">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+                <div class="box-body">
+                    @foreach (var item in Model.GroupBy(x => x.TableName).Select(group => group.First()))
+                    {
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="box box-solid box-info">
+                                        <div class="box-header">
+                                            <h3 class="box-title">@item.TableName</h3>
+                                            <div class="box-tools pull-right">
+                                                <button data-widget="collapse" class="btn btn-box-tool"><i class="fa fa-minus"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                @foreach (var itm in Model.Where(x => x.TableName == item.TableName))
+                                                {
+                                                    <div class="col-sm-3">
+                                                        <div class="checkbox" style="-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; padding: 0 5px;">
+                                                            <label>
+                                                                <input type="checkbox" name="chk" id="@itm.id" value="@itm.id" @(itm.IsPrintable == true ? "checked='checked'" : "") />
+                                                                @itm.Description
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <input type="hidden" id="id" name="id" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("input[type=checkbox]").on("click", function () {
+                $(this).closest("div.checkbox").toggleClass("bg-green-gradient");
+                $(".overlay").show();
+                var v = new Object();
+                v.id = $(this).val();
+                var data = JSON.stringify(v);
+                var responseText = $.ajax({
+                    type: "POST",
+                    url: "/Admin/IsPrintable",
+                    data: { Data: data },
+                    async: false,
+                    dataType: "json",
+                    success: function () { $(".overlay").hide(); }
+                }).responseText;
+            });
+            $('input[type="checkbox"]').on('change', function () {
+                Populate()
+            }).change();
+            $("#idPrintSettings").closest("li.treeview").addClass("active");
+            $("#idPrintSettings").closest("li").addClass("active");
+        });
+        function Populate() {
+            var allvals = $("input[type=checkbox]:checked").map(function () {
+                $(this).closest("div.checkbox").addClass("bg-green-gradient");
+                return this.value;
+            }).get().join(",")
+            $('#id').val(allvals);
+        }
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

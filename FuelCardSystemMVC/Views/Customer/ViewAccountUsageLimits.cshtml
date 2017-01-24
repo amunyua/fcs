@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "ViewAccountUsageLimits";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@model Tuple<List<FuelCardSystemEntities.Models.VwAccUsageLimit_Products>, FuelCardSystemEntities.Models.VwAccUsageLimit_Products>
+@using FuelCardSystemMVC.Library
+@if (FuelCardSystemMVC.Library.UserAuth.UserContext.Identity.roles[0] == "Admin")
+{
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+@section header{
+    <section class="content-header">
+        <h4><i class="fa fa-credit-card"></i><span class="margin">Account usage limit @(ViewBag.accno!=null?"for the Account No. "+ViewBag.accno:"")</span><small></small></h4>
+         <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Customer")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("CustomerAccountDetails", "Customer", new { @id=ViewBag.custid})">List of Accounts</a></li>
+            <li class="active">Card Usage Limit</li>
+        </ol>
+    </section>
+}
+if (Model != null)
+{
+    if (Model.Item2 != null)
+    {
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Account usage limit : Is overall or per product</h3>
+                </div>
+                @*/.box-header*@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;">@Html.ActionLink((Model.Item2.UsageLimit_IsOverall.Equals(true) ? "Overall" : "Per product"), "ViewAccountUsageLimits", "Customer", new { id = Model.Item2.UsageLimit_id, status = "overall" }, new { @class = (Model.Item2.UsageLimit_IsOverall.Equals(true) ? "btn btn-success btn-sm col-md-2 col-md-offset-5" : "btn btn-info btn-sm col-md-2 col-md-offset-5"), onclick = "showloader()" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Overall Limit</h3>
+                </div>
+                @*/.box-header*@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-body">
+                    <table id="overallTbl" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Product/Service</th>
+                                <th style="text-align: center">Limit Value</th>
+                                <th style="text-align: center;">Limit Type</th>
+                                <th style="text-align: center;">Date Created</th>
+                                <th style="text-align: center;">Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;">Any product</td>
+                                <td style="text-align: center;">@Model.Item2.UsageLimit_Value</td>
+                                <td style="text-align: center;">@Model.Item2.Value</td>
+                                <td style="text-align: center;">@Model.Item2.UsageLimit_DateCreated</td>
+                                <td style="text-align: center;">@Html.ActionLink("Edit", "EditAccUsageLimit", "Customer", new { id = Model.Item2.UsageLimit_id }, new { @class = "btn btn-success btn-sm", onclick = "showloader()" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    if (Model.Item1.Count > 0)
+    {
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Per Product Limit</h3>
+                </div>
+                @*/.box-header*@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-body">
+                    <table id="prodtypesTbl" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Product/Service</th>
+                                <th style="text-align: center">Limit Value</th>
+                                <th style="text-align: center;">Limit Type</th>
+                                <th style="text-align: center;">Date Created</th>
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                                <th style="text-align: center;">Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.Item1)
+                            {
+                                <tr>
+                                    <td style="text-align: center;">@item.Product_Name</td>
+                                    <td style="text-align: center;">@item.UsageLimit_Value</td>
+                                    <td style="text-align: center;">@item.Value</td>
+                                    <td style="text-align: center;">@item.UsageLimit_DateCreated</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.UsageLimit_IsActive.Equals(true) ? "Active" : "InActive"), "ViewAccountUsageLimits", "Customer", new { id = item.UsageLimit_id, status = "active" }, new { @class = (item.UsageLimit_IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm"), onclick = "showloader()" })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.UsageLimit_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "ViewAccountUsageLimits", "Customer", new { id = item.UsageLimit_id, status = "delete" }, new { @class = (item.UsageLimit_IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onclick = (item.UsageLimit_IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete it ?')") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink("Edit", "EditAccUsageLimit", "Customer", new { @id = item.UsageLimit_id, @status="per" }, new { @class = "btn btn-success btn-sm", onclick = "showloader()" })</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                @* /.box-body *@
+            </div>
+        </div>
+    </div>
+    }
+}
+else
+{
+    <div class="col-sm-12">
+        <div class="callout callout-danger">
+            <h4><i class="icon fa fa-ban"></i> Not Exists</h4>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageAccounts").addClass("active");
+            $("#CustomerAccountDetails").closest("li").addClass("active");
+            $(".alert").delay(2000).fadeOut(1000);
+        });
+        function showloader() {
+            $(".overlay").show();
+        }
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

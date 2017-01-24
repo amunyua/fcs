@@ -1,0 +1,1922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FuelCardDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="FuelCardDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Activities" EntityType="FuelCardDBModel.Activity" />
+    <EntitySet Name="CardTopups" EntityType="FuelCardDBModel.CardTopup" />
+    <EntitySet Name="CardUsageLimits" EntityType="FuelCardDBModel.CardUsageLimit" />
+    <EntitySet Name="Countries" EntityType="FuelCardDBModel.Country" />
+    <EntitySet Name="Currencies" EntityType="FuelCardDBModel.Currency" />
+    <EntitySet Name="CustomerTypes" EntityType="FuelCardDBModel.CustomerType" />
+    <EntitySet Name="Employees" EntityType="FuelCardDBModel.Employee" />
+    <EntitySet Name="Gadgets" EntityType="FuelCardDBModel.Gadget" />
+    <EntitySet Name="Lnk_Customers_CustomerTypes" EntityType="FuelCardDBModel.Lnk_Customers_CustomerTypes" />
+    <EntitySet Name="Lnk_Gadgets_Channels" EntityType="FuelCardDBModel.Lnk_Gadgets_Channels" />
+    <EntitySet Name="Lnk_Products_Channels" EntityType="FuelCardDBModel.Lnk_Products_Channels" />
+    <EntitySet Name="Lnk_Role_Permission" EntityType="FuelCardDBModel.Lnk_Role_Permission" />
+    <EntitySet Name="Loyalty_Scheme" EntityType="FuelCardDBModel.Loyalty_Scheme" />
+    <EntitySet Name="Permissions" EntityType="FuelCardDBModel.Permission" />
+    <EntitySet Name="ProductProperties" EntityType="FuelCardDBModel.ProductProperty" />
+    <EntitySet Name="Roles" EntityType="FuelCardDBModel.Role" />
+    <EntitySet Name="Tierlevels" EntityType="FuelCardDBModel.Tierlevel" />
+    <EntitySet Name="Tierrules" EntityType="FuelCardDBModel.Tierrule" />
+    <EntitySet Name="Tiertables" EntityType="FuelCardDBModel.Tiertable" />
+    <EntitySet Name="TimeDurations" EntityType="FuelCardDBModel.TimeDuration" />
+    <EntitySet Name="Lnk_Products_Channels_Properties" EntityType="FuelCardDBModel.Lnk_Products_Channels_Properties" />
+    <EntitySet Name="Lnk_Products_Properties" EntityType="FuelCardDBModel.Lnk_Products_Properties" />
+    <EntitySet Name="VwProduct_ProductProperty" EntityType="FuelCardDBModel.VwProduct_ProductProperty" />
+    <EntitySet Name="VwProducts_ProductTypes" EntityType="FuelCardDBModel.VwProducts_ProductTypes" />
+    <EntitySet Name="VwChannels_ChannelTypes" EntityType="FuelCardDBModel.VwChannels_ChannelTypes" />
+    <EntitySet Name="VwChannelProducts" EntityType="FuelCardDBModel.VwChannelProducts" />
+    <EntitySet Name="VwChannelGadgets" EntityType="FuelCardDBModel.VwChannelGadgets" />
+    <EntitySet Name="Customer_Roles" EntityType="FuelCardDBModel.Customer_Roles" />
+    <EntitySet Name="CustomerPermissions" EntityType="FuelCardDBModel.CustomerPermissions" />
+    <EntitySet Name="LnkCustomer_Role_Permission" EntityType="FuelCardDBModel.LnkCustomer_Role_Permission" />
+    <EntitySet Name="Cards" EntityType="FuelCardDBModel.Cards" />
+    <EntitySet Name="VwCardsCustomers" EntityType="FuelCardDBModel.VwCardsCustomers" />
+    <EntitySet Name="PaymentMode" EntityType="FuelCardDBModel.PaymentMode" />
+    <EntitySet Name="VwCardUsageLimit_Products" EntityType="FuelCardDBModel.VwCardUsageLimit_Products" />
+    <EntitySet Name="ActivityType" EntityType="FuelCardDBModel.ActivityType" />
+    <EntitySet Name="VwActivity_ActivityType" EntityType="FuelCardDBModel.VwActivity_ActivityType" />
+    <EntitySet Name="EventsTbl" EntityType="FuelCardDBModel.EventsTbl" />
+    <EntitySet Name="Loyalty_Program" EntityType="FuelCardDBModel.Loyalty_Program" />
+    <EntitySet Name="CommunicationTemplates" EntityType="FuelCardDBModel.CommunicationTemplates" />
+    <EntitySet Name="Approval" EntityType="FuelCardDBModel.Approval" />
+    <EntitySet Name="Customer_Vehicle" EntityType="FuelCardDBModel.Customer_Vehicle" />
+    <EntitySet Name="Vehicle" EntityType="FuelCardDBModel.Vehicle" />
+    <EntitySet Name="VehicleModel" EntityType="FuelCardDBModel.VehicleModel" />
+    <EntitySet Name="VwVehicle_VehicleModel" EntityType="FuelCardDBModel.VwVehicle_VehicleModel" />
+    <EntitySet Name="WeekDays" EntityType="FuelCardDBModel.WeekDays" />
+    <EntitySet Name="actionitems" EntityType="FuelCardDBModel.actionitem" />
+    <EntitySet Name="conflicting_action" EntityType="FuelCardDBModel.conflicting_action" />
+    <EntitySet Name="refvaluehistories" EntityType="FuelCardDBModel.refvaluehistory" />
+    <EntitySet Name="supplementary_action" EntityType="FuelCardDBModel.supplementary_action" />
+    <EntitySet Name="ActionsTbl" EntityType="FuelCardDBModel.ActionsTbl" />
+    <EntitySet Name="AccountType" EntityType="FuelCardDBModel.AccountType" />
+    <EntitySet Name="AccountType_Action" EntityType="FuelCardDBModel.AccountType_Action" />
+    <EntitySet Name="Customer_Account" EntityType="FuelCardDBModel.Customer_Account" />
+    <EntitySet Name="Customer_AccountTopup" EntityType="FuelCardDBModel.Customer_AccountTopup" />
+    <EntitySet Name="Customer_AccountUsageLimit" EntityType="FuelCardDBModel.Customer_AccountUsageLimit" />
+    <EntitySet Name="Lnk_CustomerVehicle_Account" EntityType="FuelCardDBModel.Lnk_CustomerVehicle_Account" />
+    <EntitySet Name="MaskType" EntityType="FuelCardDBModel.MaskType" />
+    <EntitySet Name="PostpaidAccountCreditLimit" EntityType="FuelCardDBModel.PostpaidAccountCreditLimit" />
+    <EntitySet Name="VwAccUsageLimit_Products" EntityType="FuelCardDBModel.VwAccUsageLimit_Products" />
+    <EntitySet Name="VwTest" EntityType="FuelCardDBModel.VwTest" />
+    <EntitySet Name="PostpaidCustCreditLimits" EntityType="FuelCardDBModel.PostpaidCustCreditLimits" />
+    <EntitySet Name="FormulaValueType" EntityType="FuelCardDBModel.FormulaValueType" />
+    <EntitySet Name="Schedule" EntityType="FuelCardDBModel.Schedule" />
+    <EntitySet Name="VwChannelProductSchedule" EntityType="FuelCardDBModel.VwChannelProductSchedule" />
+    <EntitySet Name="Schedule_History" EntityType="FuelCardDBModel.Schedule_History" />
+    <EntitySet Name="ChartofAccountsSubTypes" EntityType="FuelCardDBModel.ChartofAccountsSubTypes" />
+    <EntitySet Name="ChartofAccounts" EntityType="FuelCardDBModel.ChartofAccounts" />
+    <EntitySet Name="ChartofAccountTypes" EntityType="FuelCardDBModel.ChartofAccountTypes" />
+    <EntitySet Name="GLTransactions" EntityType="FuelCardDBModel.GLTransactions" />
+    <EntitySet Name="Periods" EntityType="FuelCardDBModel.Periods" />
+    <EntitySet Name="AccoutingDocTypes" EntityType="FuelCardDBModel.AccoutingDocTypes" />
+    <EntitySet Name="Finance_Transaction" EntityType="FuelCardDBModel.Finance_Transaction" />
+    <EntitySet Name="Lnk_PriceList_Product" EntityType="FuelCardDBModel.Lnk_PriceList_Product" />
+    <EntitySet Name="Payment_Terms" EntityType="FuelCardDBModel.Payment_Terms" />
+    <EntitySet Name="PriceList" EntityType="FuelCardDBModel.PriceList" />
+    <EntitySet Name="VwPriceListProducts" EntityType="FuelCardDBModel.VwPriceListProducts" />
+    <EntitySet Name="Customer_PriceList" EntityType="FuelCardDBModel.Customer_PriceList" />
+    <EntitySet Name="MessageTypes" EntityType="FuelCardDBModel.MessageTypes" />
+    <EntitySet Name="CustomTableFields" EntityType="FuelCardDBModel.CustomTableFields" />
+    <EntitySet Name="DiscountsList" EntityType="FuelCardDBModel.DiscountsList" />
+    <EntitySet Name="Lnk_Discount_Product" EntityType="FuelCardDBModel.Lnk_Discount_Product" />
+    <EntitySet Name="VwDiscountProducts" EntityType="FuelCardDBModel.VwDiscountProducts" />
+    <EntitySet Name="Customer_AuditTrail" EntityType="FuelCardDBModel.Customer_AuditTrail" />
+    <EntitySet Name="Audit" EntityType="FuelCardDBModel.Audit" />
+    <EntitySet Name="Customer_TaxCategory" EntityType="FuelCardDBModel.Customer_TaxCategory" />
+    <EntitySet Name="Tax" EntityType="FuelCardDBModel.Tax" />
+    <EntitySet Name="TaxCategory" EntityType="FuelCardDBModel.TaxCategory" />
+    <EntitySet Name="TaxRate" EntityType="FuelCardDBModel.TaxRate" />
+    <EntitySet Name="VwTax" EntityType="FuelCardDBModel.VwTax" />
+    <EntitySet Name="VwCustomerAccount" EntityType="FuelCardDBModel.VwCustomerAccount" />
+    <EntitySet Name="VwCustomerEmpAccount" EntityType="FuelCardDBModel.VwCustomerEmpAccount" />
+    <EntitySet Name="GeneralSettings" EntityType="FuelCardDBModel.GeneralSetting" />
+    <EntitySet Name="Messages" EntityType="FuelCardDBModel.Message" />
+    <EntitySet Name="ChannelTypes" EntityType="FuelCardDBModel.ChannelType" />
+    <EntitySet Name="ProductTypes" EntityType="FuelCardDBModel.ProductType" />
+    <EntitySet Name="Staffs" EntityType="FuelCardDBModel.Staff" />
+    <EntitySet Name="Products" EntityType="FuelCardDBModel.Product" />
+    <EntitySet Name="VwCreditLimit" EntityType="FuelCardDBModel.VwCreditLimit" />
+    <EntitySet Name="ReceiptSettings" EntityType="FuelCardDBModel.ReceiptSettings" />
+    <EntitySet Name="Channels" EntityType="FuelCardDBModel.Channel" />
+    <EntitySet Name="Companies" EntityType="FuelCardDBModel.Company" />
+    <EntitySet Name="Customers" EntityType="FuelCardDBModel.Customer" />
+    <EntitySet Name="VwCustomers" EntityType="FuelCardDBModel.VwCustomers" />
+  </EntityContainer>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Activity_id" />
+    </Key>
+    <Property Name="Activity_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Activity_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Activity_Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Activity_IsActive" Type="Boolean" />
+    <Property Name="Activity_IsDeleted" Type="Boolean" />
+    <Property Name="Activity_DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Int64" Name="ActivityType_id" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CardTopup">
+    <Key>
+      <PropertyRef Name="Card_topup_id" />
+    </Key>
+    <Property Name="Card_topup_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Card_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Card_Channel" Type="Int64" />
+    <Property Name="Card_Modeofpayment" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Card_Reference" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Card_topupby" Type="Int64" />
+    <Property Name="Card_topupdate" Type="DateTime" Precision="3" />
+    <Property Type="Int64" Name="Card_id" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CardUsageLimit">
+    <Key>
+      <PropertyRef Name="Card_UsageLimit_id" />
+    </Key>
+    <Property Name="Card_UsageLimit_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Card_UsageLimit_Product_id" Type="Int64" />
+    <Property Name="Card_UsageLimit_Value" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Card_UsageLimit_DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Int64" Name="Card_UsageLimit_Card_id" />
+    <Property Type="Int32" Name="Card_UsageLimit_Type" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsOverall" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsActive" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsDeleted" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Currency_id" />
+    </Key>
+    <Property Name="Currency_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="CurrencySymbol" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="RatioToBase" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="CustomerType_id" />
+    </Key>
+    <Property Name="CustomerType_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerTypeDescription" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsSelected" Nullable="false" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_id" />
+    </Key>
+    <Property Name="Emp_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_Customer_id" Type="Int64" />
+    <Property Name="Emp_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Emp_Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Emp_Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Emp_Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Emp_IsActive" Type="Boolean" />
+    <Property Name="Emp_IsDeleted" Type="Boolean" />
+    <Property Name="Emp_DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Gadget">
+    <Key>
+      <PropertyRef Name="Gadget_id" />
+    </Key>
+    <Property Name="Gadget_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gadget_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gadget_Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Gadget_IsActive" Type="Boolean" />
+    <Property Name="Gadget_IsDeleted" Type="Boolean" />
+    <Property Name="Gadget_DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Customers_CustomerTypes">
+    <Key>
+      <PropertyRef Name="Lnk_Cust_CustType_id" />
+    </Key>
+    <Property Name="Lnk_Cust_CustType_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_id" Type="Int64" />
+    <Property Name="CustomerType_id" Type="Int64" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Gadgets_Channels">
+    <Key>
+      <PropertyRef Name="Lnk_Gadgets_Channels_id" />
+    </Key>
+    <Property Name="Lnk_Gadgets_Channels_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gadget_id" Type="Int64" />
+    <Property Name="Channel_id" Type="Int64" />
+    <Property Type="Boolean" Name="Lnk_Gadget_IsActive" />
+    <Property Type="Boolean" Name="Lnk_Gadget_IsDeleted" />
+    <Property Type="DateTime" Name="Lnk_Gadget_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Channels">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Name="Lnk_Products_Channels_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="Int64" />
+    <Property Name="Channel_id" Type="Int64" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="PriceSchedule_Id" />
+    <Property Type="Decimal" Name="Scheduled_Price" Precision="18" Scale="2" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Role_Permission">
+    <Key>
+      <PropertyRef Name="Lnk_Role_Permission_id" />
+    </Key>
+    <Property Name="Lnk_Role_Permission_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_id" Type="Int64" />
+    <Property Name="Permission_id" Type="Int64" />
+    <Property Type="DateTime" Name="Lnk_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Loyalty_Scheme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Loyalty_Scheme_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="loyaltyprogram_id" Type="Int64" />
+    <Property Name="commprotocol_id" Type="Int64" />
+    <Property Name="IsApproved" Type="Boolean" />
+    <Property Name="IsExclusive" Type="Boolean" />
+    <Property Name="IsDiscontinued" Type="Boolean" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Permission_Id" />
+    </Key>
+    <Property Name="Permission_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionDescription" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="PermissionName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="PermissionIsSelected" Nullable="false" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ProductProperty">
+    <Key>
+      <PropertyRef Name="ProductProperty_id" />
+    </Key>
+    <Property Name="ProductProperty_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductProperty_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProductProperty_Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="ProductProperty_DateCreated" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="ProductProperty_IsActive" />
+    <Property Type="Boolean" Name="ProductProperty_IsDeleted" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingDeleted" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="Boolean" Name="IsbeingAdded" />
+    <Property Type="Boolean" Name="IsSelected" Nullable="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_id" />
+    </Key>
+    <Property Name="Role_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleDescription" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Role_IsActive" />
+    <Property Type="Boolean" Name="Role_IsDeleted" />
+    <Property Type="DateTime" Name="Role_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Tierlevel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tierlevel_name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="tierlevel_description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="producttype_id" Type="Int64" />
+    <Property Name="activity_id" Type="Int64" />
+    <Property Name="event_id" Type="Int64" />
+    <Property Name="channel_id" Type="Int64" />
+    <Property Name="activitytype_id" Type="Int64" />
+    <Property Name="channeltype_id" Type="Int64" />
+    <Property Name="country_id" Type="Int64" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <Property Type="Int64" Name="product_id" />
+    <Property Type="Boolean" Name="tierlevel_IsActive" />
+    <Property Type="Boolean" Name="tierlevel_IsDelete" />
+    <Property Type="Boolean" Name="all_items" />
+    <Property Type="Boolean" Name="all_channels" />
+    <Property Type="Boolean" Name="all_activities" />
+    <Property Type="Int64" Name="accounttype_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Tierrule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tierrule_name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="formula" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="tierrule_IsActive" />
+    <Property Type="Boolean" Name="tierrule_IsDeleted" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ValueId" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Tiertable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tierlevel_id" Type="Int64" />
+    <Property Name="tierrule_id" Type="Int64" />
+    <Property Name="loyaltyprogram_id" Type="Int64" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="TimeDuration">
+    <Key>
+      <PropertyRef Name="TimeDuration_id" />
+    </Key>
+    <Property Name="TimeDuration_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Channels_Properties">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Ch_Properties_id" />
+    </Key>
+    <Property Type="Int64" Name="Lnk_Products_Ch_Properties_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="Int64" Name="Product_Property_id" />
+    <Property Type="String" Name="Product_Property_Value" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Properties">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Properties_id" />
+    </Key>
+    <Property Type="Int64" Name="Lnk_Products_Properties_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Product_Property_id" />
+    <Property Type="DateTime" Name="Product_Property_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwProduct_ProductProperty">
+    <Key>
+      <PropertyRef Name="ProductProperty_id" />
+      <PropertyRef Name="Lnk_Products_Properties_id" />
+    </Key>
+    <Property Type="Int64" Name="ProductProperty_id" Nullable="false" />
+    <Property Type="String" Name="ProductProperty_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductProperty_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ProductProperty_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="ProductProperty_IsActive" />
+    <Property Type="Boolean" Name="ProductProperty_IsDeleted" />
+    <Property Type="Int64" Name="Lnk_Products_Properties_id" Nullable="false" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Product_Property_id" />
+    <Property Type="DateTime" Name="Product_Property_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingDeleted" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="Boolean" Name="IsbeingAdded" />
+  </EntityType>
+  <EntityType Name="VwProducts_ProductTypes">
+    <Key>
+      <PropertyRef Name="Product_id" />
+      <PropertyRef Name="ProductType_id" />
+    </Key>
+    <Property Type="Int64" Name="Product_id" Nullable="false" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Product_Type" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ProductType_id" Nullable="false" />
+    <Property Type="String" Name="ProductType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductType_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ProductType_IsActive" />
+    <Property Type="Boolean" Name="ProductType_IsDeleted" />
+    <Property Type="DateTime" Name="ProductType_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VwChannels_ChannelTypes">
+    <Key>
+      <PropertyRef Name="ChannelType_id" />
+      <PropertyRef Name="Channel_id" />
+    </Key>
+    <Property Type="Int64" Name="ChannelType_id" Nullable="false" />
+    <Property Type="String" Name="ChannelType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ChannelType_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ChannelType_IsActive" />
+    <Property Type="Boolean" Name="ChannelType_IsDeleted" />
+    <Property Type="DateTime" Name="ChannelType_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Channel_id" Nullable="false" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Channel_Type" />
+    <Property Type="String" Name="Channel_Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Address" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_City" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Channel_IsDeleted" />
+    <Property Type="Boolean" Name="Channel_IsActive" />
+    <Property Type="DateTime" Name="Channel_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="Channel_IsSelected" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+  </EntityType>
+  <EntityType Name="VwChannelProducts">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Lnk_Products_Channels_id" Nullable="false" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="Decimal" Name="Scheduled_Price" Precision="18" Scale="2" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="Product_Type" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VwChannelGadgets">
+    <Key>
+      <PropertyRef Name="Channel_id" />
+      <PropertyRef Name="Gadget_id" />
+      <PropertyRef Name="Lnk_Gadgets_Channels_id" />
+    </Key>
+    <Property Type="Int64" Name="Channel_id" Nullable="false" />
+    <Property Type="Int64" Name="Gadget_id" Nullable="false" />
+    <Property Type="String" Name="Gadget_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Lnk_Gadget_IsActive" />
+    <Property Type="Boolean" Name="Lnk_Gadget_IsDeleted" />
+    <Property Type="DateTime" Name="Lnk_Gadget_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Lnk_Gadgets_Channels_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer_Roles">
+    <Key>
+      <PropertyRef Name="Customer_RoleId" />
+    </Key>
+    <Property Type="Int64" Name="Customer_RoleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Customer_RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_RoleDescription" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Role_IsActive" />
+    <Property Type="Boolean" Name="Role_IsDeleted" />
+    <Property Type="DateTime" Name="Role_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CustomerPermissions">
+    <Key>
+      <PropertyRef Name="Permission_Id" />
+    </Key>
+    <Property Type="Int64" Name="Permission_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PermissionName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PermissionDescription" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="PermissionIsSelected" Nullable="false" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="LnkCustomer_Role_Permission">
+    <Key>
+      <PropertyRef Name="Lnk_Role_Permission_id" />
+    </Key>
+    <Property Type="Int64" Name="Lnk_Role_Permission_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Role_id" />
+    <Property Type="Int64" Name="Permission_id" />
+    <Property Type="DateTime" Name="Lnk_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Cards">
+    <Key>
+      <PropertyRef Name="Card_id" />
+    </Key>
+    <Property Type="Int64" Name="Card_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Card_UID" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Card_SNO" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Card_Type" />
+    <Property Type="Int64" Name="Card_Owner" />
+    <Property Type="Int64" Name="Card_Owner_Employee" />
+    <Property Type="Decimal" Name="Card_Balance" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Card_Points_Balance" />
+    <Property Type="Decimal" Name="Card_OverDraftValue" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Card_PrepaidAmt" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="Card_IsAssigned" />
+    <Property Type="Boolean" Name="Card_IsActive" />
+    <Property Type="Boolean" Name="Card_IsDeleted" />
+    <Property Type="DateTime" Name="Card_DateAssigned" Precision="3" />
+    <Property Type="DateTime" Name="Card_UploadDate" Precision="3" />
+    <Property Type="DateTime" Name="Card_UpdateDate" Precision="3" />
+    <Property Type="String" Name="Card_PIN" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Card_IsAssignedtoEmp" />
+    <Property Type="Decimal" Name="Card_CreditLimit" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="Card_CreditLimit_Expiration" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwCardsCustomers">
+    <Key>
+      <PropertyRef Name="Card_id" />
+    </Key>
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="String" Name="Customer_OtherName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Customer_DoB" Precision="0" />
+    <Property Type="String" Name="Customer_Gender" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Password" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Phone" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Customer_Role" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsVerificationMailSent" />
+    <Property Type="Boolean" Name="IsVerified" />
+    <Property Type="DateTime" Name="VerificationMailDate" Precision="3" />
+    <Property Type="DateTime" Name="PasswordResetLnkDate" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Card_id" Nullable="false" />
+    <Property Type="String" Name="Card_UID" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Card_SNO" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Card_Type" />
+    <Property Type="Int64" Name="Card_Owner" />
+    <Property Type="Int64" Name="Card_Owner_Employee" />
+    <Property Type="Decimal" Name="Card_Balance" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Card_Points_Balance" />
+    <Property Type="Decimal" Name="Card_OverDraftValue" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Card_PrepaidAmt" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="Card_IsAssigned" />
+    <Property Type="Boolean" Name="Card_IsActive" />
+    <Property Type="Boolean" Name="Card_IsDeleted" />
+    <Property Type="DateTime" Name="Card_DateAssigned" Precision="3" />
+    <Property Type="DateTime" Name="Card_UploadDate" Precision="3" />
+    <Property Type="DateTime" Name="Card_UpdateDate" Precision="3" />
+    <Property Type="String" Name="Card_PIN" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Card_IsAssignedtoEmp" />
+    <Property Type="String" Name="Customer_FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="PaymentMode_id" />
+    </Key>
+    <Property Type="Int64" Name="PaymentMode_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PaymentMode_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwCardUsageLimit_Products">
+    <Key>
+      <PropertyRef Name="Card_UsageLimit_id" />
+      <PropertyRef Name="TimeDuration_id" />
+    </Key>
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Card_UsageLimit_id" Nullable="false" />
+    <Property Type="Int64" Name="Card_UsageLimit_Card_id" />
+    <Property Type="Int64" Name="Card_UsageLimit_Product_id" />
+    <Property Type="Decimal" Name="Card_UsageLimit_Value" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="Card_UsageLimit_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Card_UsageLimit_Type" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsOverall" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsActive" />
+    <Property Type="Boolean" Name="Card_UsageLimit_IsDeleted" />
+    <Property Type="String" Name="Value" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="TimeDuration_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityType">
+    <Key>
+      <PropertyRef Name="ActivityType_id" />
+    </Key>
+    <Property Type="Int64" Name="ActivityType_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ActivityType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ActivityType_Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ActivityType_IsActive" />
+    <Property Type="Boolean" Name="ActivityType_IsDeleted" />
+    <Property Type="DateTime" Name="ActivityType_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwActivity_ActivityType">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Activity_id" />
+    </Key>
+    <Property Type="Int64" Name="Expr1" Nullable="false" />
+    <Property Type="String" Name="ActivityType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ActivityType_Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ActivityType_IsActive" />
+    <Property Type="Boolean" Name="ActivityType_IsDeleted" />
+    <Property Type="DateTime" Name="ActivityType_DateCreated" Precision="3" />
+    <Property Type="String" Name="Activity_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Activity_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Activity_IsActive" />
+    <Property Type="Boolean" Name="Activity_IsDeleted" />
+    <Property Type="DateTime" Name="Activity_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Activity_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventsTbl">
+    <Key>
+      <PropertyRef Name="Event_id" />
+    </Key>
+    <Property Type="Int64" Name="Event_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Event_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Event_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Event_IsActive" />
+    <Property Type="Boolean" Name="Event_IsDeleted" />
+    <Property Type="DateTime" Name="Event_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Loyalty_Program">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Loyalty_Program_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="time_period" />
+    <Property Type="Int64" Name="period_type" />
+    <Property Type="DateTime" Name="date_created" Precision="3" />
+    <Property Type="Int64" Name="day" />
+    <Property Type="Time" Name="start_time" Precision="7" />
+    <Property Type="Time" Name="end_time" Precision="7" />
+    <Property Type="Int64" Name="action_id" />
+    <Property Type="Int64" Name="commprotocol_id" />
+    <Property Type="Int64" Name="tierlevel_id" />
+    <Property Type="Int64" Name="tierrule_id" />
+    <Property Type="Boolean" Name="IsApproved" />
+    <Property Type="Boolean" Name="IsExclusive" />
+    <Property Type="Boolean" Name="IsDiscontinued" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CommunicationTemplates">
+    <Key>
+      <PropertyRef Name="Template_Id" />
+    </Key>
+    <Property Type="Int64" Name="Template_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Template_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Template_Content" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="String" Name="Template_Type" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="String" Name="Template_Subject" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Approval">
+    <Key>
+      <PropertyRef Name="Table_id" />
+    </Key>
+    <Property Type="Int64" Name="Table_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TableName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsApprovalReqAdd" />
+    <Property Type="Boolean" Name="IsApprovalReqEdit" />
+    <Property Type="Boolean" Name="IsApprovalReqDelete" />
+    <Property Type="Int64" Name="FirstApprover" />
+    <Property Type="Int64" Name="SecondApprover" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Customer_Vehicle">
+    <Key>
+      <PropertyRef Name="CustomerVehicleId" />
+    </Key>
+    <Property Type="Int64" Name="CustomerVehicleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Customer_Id" />
+    <Property Type="Int64" Name="Vehicle_Id" />
+    <Property Type="Int64" Name="VehicleModel_Id" />
+    <Property Type="String" Name="VehicleRegNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="TankCapacity" Precision="18" Scale="2" />
+    <Property Type="String" Name="DaystoFuel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Time" Name="StartTime" Precision="7" />
+    <Property Type="Time" Name="EndTime" Precision="7" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ProductID" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehicle_Id" />
+    </Key>
+    <Property Type="Int64" Name="Vehicle_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Vehicle_Make" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="VehicleIsActive" />
+    <Property Type="Boolean" Name="VehicleIsDeleted" />
+    <Property Type="DateTime" Name="VehicleDateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VehicleModel">
+    <Key>
+      <PropertyRef Name="VehicleModel_Id" />
+    </Key>
+    <Property Type="Int64" Name="VehicleModel_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="VehicleModel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="VehicleModelIsActive" />
+    <Property Type="Boolean" Name="VehicleModelIsDeleted" />
+    <Property Type="DateTime" Name="VehicleModelDateCreated" Precision="3" />
+    <Property Type="Int64" Name="VehicleId" />
+    <Property Type="Decimal" Name="TankCapacity" Precision="18" Scale="2" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwVehicle_VehicleModel">
+    <Key>
+      <PropertyRef Name="Vehicle_Id" />
+      <PropertyRef Name="VehicleModel_Id" />
+    </Key>
+    <Property Type="Int64" Name="Vehicle_Id" Nullable="false" />
+    <Property Type="String" Name="Vehicle_Make" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="VehicleIsActive" />
+    <Property Type="Boolean" Name="VehicleIsDeleted" />
+    <Property Type="DateTime" Name="VehicleDateCreated" Precision="3" />
+    <Property Type="Int64" Name="VehicleModel_Id" Nullable="false" />
+    <Property Type="String" Name="VehicleModel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="VehicleModelIsActive" />
+    <Property Type="Boolean" Name="VehicleModelIsDeleted" />
+    <Property Type="DateTime" Name="VehicleModelDateCreated" Precision="3" />
+    <Property Type="Int64" Name="VehicleId" />
+    <Property Type="Decimal" Name="TankCapacity" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="WeekDays">
+    <Key>
+      <PropertyRef Name="Day_Id" />
+    </Key>
+    <Property Type="Int64" Name="Day_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="WeekdayName" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSelected" Nullable="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="actionitem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="actionitem_name" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="ref_value" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="DateTime" Name="created" Precision="3" />
+    <Property Type="Boolean" Name="baseitem" Nullable="false" />
+    <Property Type="String" Name="description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="conflicting_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="action_id" />
+    <Property Type="Int64" Name="conflicting_action_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="refvaluehistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="actionitem_id" />
+    <Property Type="Double" Name="ref_value" />
+    <Property Type="DateTime" Name="created" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="supplementary_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="action_id" />
+    <Property Type="Int64" Name="supplementary_action_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ActionsTbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Action_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Action_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Action_IsActive" />
+    <Property Type="Boolean" Name="Action_IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="exclusive" />
+    <Property Type="Boolean" Name="conflicting_action" />
+    <Property Type="Int64" Name="actionitem_id" />
+    <Property Type="Boolean" Name="supplementary_action" />
+    <Property Type="Boolean" Name="arithmetictype" />
+    <Property Type="Boolean" Name="Action_IsSelected" Nullable="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AccType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AccDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="AccIsDeleted" />
+    <Property Type="DateTime" Name="AccDateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="AccountType_Action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="AccTypeId" />
+    <Property Type="Int64" Name="ActionId" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Customer_Account">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Type="Int64" Name="AccountNumber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="Int64" Name="AccountType_id" />
+    <Property Type="String" Name="Mask_Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Mask" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CreditType" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Decimal" Name="Balance" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsCollection" Nullable="false" />
+    <Property Type="Int64" Name="Employee_id" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Customer_AccountTopup">
+    <Key>
+      <PropertyRef Name="AccountTopup_id" />
+    </Key>
+    <Property Type="Int64" Name="AccountTopup_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="AccountNumber" />
+    <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="String" Name="Modeofpayment" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ERPRef" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ChequeNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BankAccountNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reference" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Topupby" />
+    <Property Type="DateTime" Name="Topupdate" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+    <Property Type="Int64" Name="Finance_Transaction_id" />
+    <Property Type="String" Name="DrawerBankName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PayeeBankName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BranchDeposited" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DepositSlipNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Customer_AccountUsageLimit">
+    <Key>
+      <PropertyRef Name="UsageLimit_id" />
+    </Key>
+    <Property Type="Int64" Name="UsageLimit_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="UsageLimit_AccountNumber" />
+    <Property Type="Int64" Name="UsageLimit_Product_id" />
+    <Property Type="Decimal" Name="UsageLimit_Value" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="UsageLimit_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="UsageLimit_Type" />
+    <Property Type="Boolean" Name="UsageLimit_IsOverall" />
+    <Property Type="Boolean" Name="UsageLimit_IsActive" />
+    <Property Type="Boolean" Name="UsageLimit_IsDeleted" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_CustomerVehicle_Account">
+    <Key>
+      <PropertyRef Name="Lnk_id" />
+    </Key>
+    <Property Type="Int64" Name="Lnk_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Lnk_CustomerVehicleId" />
+    <Property Type="Int64" Name="Lnk_AccountNumber" />
+    <Property Type="Boolean" Name="Lnk_IsDeleted" />
+    <Property Type="Boolean" Name="Lnk_IsActive" />
+    <Property Type="DateTime" Name="Lnk_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="MaskType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Mask_Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Mask_IsDeleted" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="PostpaidAccountCreditLimit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Credit_id" />
+    <Property Type="Int64" Name="AccountNumber" />
+    <Property Type="Decimal" Name="Account_CreditLimit" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwAccUsageLimit_Products">
+    <Key>
+      <PropertyRef Name="TimeDuration_id" />
+      <PropertyRef Name="UsageLimit_id" />
+    </Key>
+    <Property Type="Int64" Name="UsageLimit_Product_id" />
+    <Property Type="Int64" Name="TimeDuration_id" Nullable="false" />
+    <Property Type="Int64" Name="UsageLimit_id" Nullable="false" />
+    <Property Type="Int64" Name="UsageLimit_AccountNumber" />
+    <Property Type="Decimal" Name="UsageLimit_Value" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="UsageLimit_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="UsageLimit_Type" />
+    <Property Type="Boolean" Name="UsageLimit_IsOverall" />
+    <Property Type="Boolean" Name="UsageLimit_IsActive" />
+    <Property Type="Boolean" Name="UsageLimit_IsDeleted" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Product_Type" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="String" Name="Value" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VwTest">
+    <Key>
+      <PropertyRef Name="Credit_id" />
+    </Key>
+    <Property Type="Int64" Name="Credit_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Cust_id" />
+    <Property Type="Decimal" Name="CreditLimit" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="CreditLimit_Expiration" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="PostpaidCustCreditLimits">
+    <Key>
+      <PropertyRef Name="Credit_id" />
+    </Key>
+    <Property Type="Int64" Name="Credit_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Cust_id" />
+    <Property Type="Decimal" Name="CreditLimit" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="CreditLimit_Expiration" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="FormulaValueType">
+    <Key>
+      <PropertyRef Name="ValueId" />
+    </Key>
+    <Property Type="Int64" Name="ValueId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Schedule_Id" />
+    </Key>
+    <Property Type="Int64" Name="Schedule_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Schedule_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Effective_Date" Precision="3" />
+    <Property Type="Boolean" Name="Schedule_IsActive" />
+    <Property Type="Boolean" Name="Schedule_IsDeleted" />
+    <Property Type="DateTime" Name="Schedule_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwChannelProductSchedule">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Type="Int64" Name="Lnk_Products_Channels_id" Nullable="false" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="PriceSchedule_Id" />
+    <Property Type="Decimal" Name="Scheduled_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Schedule_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Effective_Date" Precision="3" />
+    <Property Type="Boolean" Name="Schedule_IsActive" />
+    <Property Type="Boolean" Name="Schedule_IsDeleted" />
+    <Property Type="DateTime" Name="Schedule_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="String" Name="PriceList_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Schedule_History">
+    <Key>
+      <PropertyRef Name="History_Id" />
+    </Key>
+    <Property Type="Int64" Name="History_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="Original_Price" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Scheduled_Price" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="Scheduled_Date" Precision="3" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ChartofAccountsSubTypes">
+    <Key>
+      <PropertyRef Name="ChartofAccountsSubType_id" />
+    </Key>
+    <Property Type="Int64" Name="ChartofAccountsSubType_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Subtype_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ChartofAccounts">
+    <Key>
+      <PropertyRef Name="ChartofAccount_id" />
+    </Key>
+    <Property Type="Int64" Name="ChartofAccount_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Account_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ChartofAccountsSubType_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ChartofAccountTypes">
+    <Key>
+      <PropertyRef Name="ChartofAccountType_id" />
+    </Key>
+    <Property Type="Int64" Name="ChartofAccountType_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AccountType_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsGLType" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="GLTransactions">
+    <Key>
+      <PropertyRef Name="GlTrans_id" />
+    </Key>
+    <Property Type="Int64" Name="GlTrans_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Finance_Transaction_id" />
+    <Property Type="Int64" Name="Amount" />
+    <Property Type="String" Name="Currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Memo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="GlTrans_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ChartofAccount_id" />
+    <Property Type="Int64" Name="Period_id" />
+    <Property Type="DateTime" Name="GLTrans_Actual_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Periods">
+    <Key>
+      <PropertyRef Name="Period_id" />
+    </Key>
+    <Property Type="Int64" Name="Period_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="LastDate_In_Period" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="AccoutingDocTypes">
+    <Key>
+      <PropertyRef Name="Doc_Type_id" />
+    </Key>
+    <Property Type="Int64" Name="Doc_Type_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Doc_Type_Name" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Finance_Transaction">
+    <Key>
+      <PropertyRef Name="Finance_Transaction_id" />
+    </Key>
+    <Property Type="Int64" Name="Finance_Transaction_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Finance_Trans_description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Transaction_Code" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsPosted" />
+    <Property Type="DateTime" Name="Transaction_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="Doc_Type_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_PriceList_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Payment_Terms">
+    <Key>
+      <PropertyRef Name="PaymentTerm_id" />
+    </Key>
+    <Property Type="Int64" Name="PaymentTerm_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PaymentTerm_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="DayInFollowingMonth" />
+    <Property Type="Int32" Name="DaysBeforeDue" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="PriceList">
+    <Key>
+      <PropertyRef Name="PriceList_id" />
+    </Key>
+    <Property Type="Int64" Name="PriceList_id" Nullable="false" />
+    <Property Type="String" Name="PriceList_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PriceList_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="PriceList_IsActive" />
+    <Property Type="Boolean" Name="PriceList_IsDeleted" />
+    <Property Type="DateTime" Name="PriceList_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="PriceList_IsDefault" Nullable="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwPriceListProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="BuyingPrice" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Product_Type" />
+  </EntityType>
+  <EntityType Name="Customer_PriceList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="MessageTypes">
+    <Key>
+      <PropertyRef Name="message_type_id" />
+    </Key>
+    <Property Type="Int64" Name="message_type_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="message_type" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="CustomTableFields">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CustomFieldId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CustomFieldName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TableName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="DiscountsList">
+    <Key>
+      <PropertyRef Name="DiscountList_id" />
+    </Key>
+    <Property Type="Int64" Name="DiscountList_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DiscountList_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DiscountList_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="DiscountList_IsActive" />
+    <Property Type="Boolean" Name="DiscountList_IsDeleted" />
+    <Property Type="DateTime" Name="DiscountList_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="DiscountList_IsDefault" Nullable="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Lnk_Discount_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="Int64" Name="Discount_List_id" />
+    <Property Type="Decimal" Name="Discount_Value" Precision="18" Scale="2" />
+    <Property Type="String" Name="Discount_Currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Discount_Type" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="VwDiscountProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="Product_id" />
+    <Property Type="Int64" Name="Channel_id" />
+    <Property Type="Int64" Name="Discount_List_id" />
+    <Property Type="Decimal" Name="Discount_Value" Precision="18" Scale="2" />
+    <Property Type="String" Name="Discount_Currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Discount_Type" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Product_Type" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Customer_AuditTrail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Staff_Id" />
+    <Property Type="String" Name="Field_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FieldValueBeforeChange" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FieldValueAfterChange" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DateofChange" Precision="3" />
+    <Property Type="Int64" Name="Customer_Id" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="AuditID" />
+    </Key>
+    <Property Type="Int32" Name="AuditID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="TableName" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PrimaryKeyField" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PrimaryKeyValue" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FieldName" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OldValue" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NewValue" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+    <Property Type="Int64" Name="StaffId" />
+  </EntityType>
+  <EntityType Name="Customer_TaxCategory">
+    <Key>
+      <PropertyRef Name="CustCatID" />
+    </Key>
+    <Property Type="Int64" Name="CustCatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CustCatName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CustCatDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <EntityType Name="Tax">
+    <Key>
+      <PropertyRef Name="TaxID" />
+    </Key>
+    <Property Type="Int64" Name="TaxID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TaxName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="CatID" />
+    <Property Type="String" Name="TaxDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="TaxRateID" />
+    <Property Type="Int64" Name="CustCatID" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <EntityType Name="TaxCategory">
+    <Key>
+      <PropertyRef Name="CatID" />
+    </Key>
+    <Property Type="Int64" Name="CatID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CatDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <EntityType Name="TaxRate">
+    <Key>
+      <PropertyRef Name="TaxRateID" />
+    </Key>
+    <Property Type="Int64" Name="TaxRateID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TaxRateName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="TaxRateValue" />
+    <Property Type="String" Name="TaxRateDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <EntityType Name="VwTax">
+    <Key>
+      <PropertyRef Name="TaxID" />
+    </Key>
+    <Property Type="Int64" Name="TaxID" Nullable="false" />
+    <Property Type="String" Name="TaxName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TaxDescription" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="String" Name="CatName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CustCatName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TaxRateName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+  </EntityType>
+  <EntityType Name="VwCustomerAccount">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+      <PropertyRef Name="Customer_Name" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="AccountNumber" Nullable="false" />
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="Int64" Name="AccountType_id" />
+    <Property Type="String" Name="Mask_Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Mask" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CreditType" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Decimal" Name="Balance" Precision="18" Scale="2" />
+    <Property Type="String" Name="Customer_Name" Nullable="false" MaxLength="152" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="String" Name="AccType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" />
+  </EntityType>
+  <EntityType Name="VwCustomerEmpAccount">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Type="String" Name="Customer_FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Emp_id" />
+    <Property Type="String" Name="Emp_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="AccountNumber" Nullable="false" />
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="Boolean" Name="IsDeleted" />
+  </EntityType>
+  <EntityType Name="GeneralSetting">
+    <Key>
+      <PropertyRef Name="GenSet_id" />
+    </Key>
+    <Property Type="Int64" Name="GenSet_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PostPaidExpValue" />
+    <Property Type="String" Name="PostPaidExpPeriod" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="MinRedeemPoints" />
+    <Property Type="Int32" Name="BaseCurrency" />
+    <Property Type="Int32" Name="MaxTopupPerDay" />
+    <Property Type="Int32" Name="MaxPrepaidBalance" />
+    <Property Type="Int32" Name="DefaultUsageLimit" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="IndividualMultipleAccounts" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="String" Name="CCEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsCCEmail" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="from_id" />
+    <Property Type="String" Name="customer_type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="message_subject" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="message_body" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="message_date" Precision="3" />
+    <Property Type="Int64" Name="message_type" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ChannelType">
+    <Key>
+      <PropertyRef Name="ChannelType_id" />
+    </Key>
+    <Property Type="Int64" Name="ChannelType_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ChannelType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ChannelType_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ChannelType_IsActive" />
+    <Property Type="Boolean" Name="ChannelType_IsDeleted" />
+    <Property Type="DateTime" Name="ChannelType_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="ProductType_id" />
+    </Key>
+    <Property Type="Int64" Name="ProductType_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProductType_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductType_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ProductType_IsActive" />
+    <Property Type="Boolean" Name="ProductType_IsDeleted" />
+    <Property Type="DateTime" Name="ProductType_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="ProductType_IsDeletedFlag" />
+    <Property Type="Boolean" Name="ProductType_IsbeingDeleted" />
+    <Property Type="Boolean" Name="ProductType_IsbeingEdited" />
+    <Property Type="Boolean" Name="ProductType_IsbeingAdded" />
+    <Property Type="Boolean" Name="IsAddApprovedFirstApvr" />
+    <Property Type="Boolean" Name="IsAddApprovedSecondApvr" />
+    <Property Type="Boolean" Name="IsDelApprovedFirstApvr" />
+    <Property Type="Boolean" Name="IsDelApprovedSecondApvr" />
+    <Property Type="Boolean" Name="IsEditApprovedFirstApvr" />
+    <Property Type="Boolean" Name="IsEditApprovedSecondApvr" />
+    <Property Type="String" Name="ReasonEditFirstApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonEditSecondApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonDelFirstApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonDelSecondApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonAddFirstApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReasonAddSecondApvr" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staff_id" />
+    </Key>
+    <Property Type="Int64" Name="Staff_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Staff_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Staff_Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Staff_Password" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Staff_PIN" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Staff_Phone" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Staff_TopupLimitType" />
+    <Property Type="Decimal" Name="Staff_TopupLimitValue" Precision="18" Scale="2" />
+    <Property Type="Int64" Name="Staff_Channel_id" />
+    <Property Type="Int64" Name="Staff_Role" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="DateTime" Name="PasswordResetExpDate" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Type="Int64" Name="Product_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Product_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Product_Type" />
+    <Property Type="Decimal" Name="Product_Price" Precision="18" Scale="2" />
+    <Property Type="String" Name="Product_currency" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Product_IsActive" />
+    <Property Type="Boolean" Name="Product_IsDeleted" />
+    <Property Type="DateTime" Name="Product_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingDeleted" />
+    <Property Type="Boolean" Name="IsbeingAdded" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="Int64" Name="TaxCategoryID" />
+  </EntityType>
+  <EntityType Name="VwCreditLimit">
+    <Key>
+      <PropertyRef Name="Customer_Name" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Type="String" Name="Customer_Name" Nullable="false" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Credit_id" />
+    <Property Type="Decimal" Name="CreditLimit" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="CreditLimit_Expiration" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Int32" Name="CreditType" />
+    <Property Type="Int64" Name="Customer_id" />
+    <Property Type="Int64" Name="Cust_id" />
+    <Property Type="Int64" Name="Expr1" Nullable="false" />
+    <Property Type="Int64" Name="AccountNumber" Nullable="false" />
+    <Property Type="String" Name="CustomerDesignation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ReceiptSettings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TableName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FieldName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsPrintable" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Channel">
+    <Key>
+      <PropertyRef Name="Channel_id" />
+    </Key>
+    <Property Type="Int64" Name="Channel_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Channel_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Channel_Type" />
+    <Property Type="String" Name="Channel_Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_Address" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Channel_City" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Channel_IsDeleted" />
+    <Property Type="Boolean" Name="Channel_IsActive" />
+    <Property Type="DateTime" Name="Channel_DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="Channel_IsSelected" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="IsDeletedFlag" />
+    <Property Type="Boolean" Name="IsbeingEdited" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Type="Int64" Name="Company_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Company_Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_PostalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_PostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Country" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_City" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Phone1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Phone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_PIN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Company_IsActive" />
+    <Property Type="Boolean" Name="Company_IsDeleted" />
+    <Property Type="DateTime" Name="Company_DateCreated" Precision="3" />
+    <Property Type="Int64" Name="ModifiedBy" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Type="Int64" Name="Customer_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Customer_FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_OtherName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Customer_DoB" Precision="0" />
+    <Property Type="String" Name="Customer_Gender" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Password" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Phone" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Customer_Role" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsVerificationMailSent" />
+    <Property Type="Boolean" Name="IsVerified" />
+    <Property Type="DateTime" Name="VerificationMailDate" Precision="3" />
+    <Property Type="DateTime" Name="PasswordResetLnkDate" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsBlocked" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="TotalEmp" />
+    <Property Type="String" Name="ReportingPassword" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Payment_Term_id" />
+    <Property Type="Boolean" Name="AutoRedistributeFunds" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="Discount_List_id" />
+    <Property Type="String" Name="CustomerDesignation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="Int64" Name="CustomerTaxCategoryID" />
+    <Property Type="String" Name="Customer_PIN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_IDNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_PostalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_PostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_Mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_ContactNoHome" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_ContactNoOffice" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_MiddleName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_BankName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_BankBranch" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_AccountNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_AccountCurrency" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CompanyIncorporationDate" Precision="0" />
+    <Property Type="String" Name="CompanyRegistrationNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPIN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyVAT" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPostalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyCountry" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalAddressCountry" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPosition1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonEmail1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPhone1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPosition2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonEmail2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VwCustomers">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Type="Int64" Name="Customer_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Customer_Name" MaxLength="202" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_OtherName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Customer_DoB" Precision="0" />
+    <Property Type="String" Name="Customer_Gender" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Password" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Phone" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Customer_Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Customer_Role" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="Boolean" Name="IsVerificationMailSent" />
+    <Property Type="Boolean" Name="IsVerified" />
+    <Property Type="DateTime" Name="VerificationMailDate" Precision="3" />
+    <Property Type="DateTime" Name="PasswordResetLnkDate" Precision="3" />
+    <Property Type="DateTime" Name="DateCreated" Precision="3" />
+    <Property Type="Boolean" Name="IsBlocked" />
+    <Property Type="Boolean" Name="IsAddApproved" />
+    <Property Type="Boolean" Name="IsDelApproved" />
+    <Property Type="Boolean" Name="IsEditApproved" />
+    <Property Type="Int32" Name="TotalEmp" />
+    <Property Type="String" Name="ReportingPassword" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Payment_Term_id" />
+    <Property Type="Boolean" Name="AutoRedistributeFunds" />
+    <Property Type="Int64" Name="Price_List_id" />
+    <Property Type="Int64" Name="Discount_List_id" />
+    <Property Type="String" Name="CustomerDesignation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="ModifiedBy" />
+    <Property Type="Int64" Name="CustomerTaxCategoryID" />
+    <Property Type="String" Name="Customer_PIN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_IDNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_PostalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_PostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_Mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_ContactNoHome" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_ContactNoOffice" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_Fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_MiddleName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOK_Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_BankName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_BankBranch" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_AccountNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Customer_AccountCurrency" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CompanyIncorporationDate" Precision="0" />
+    <Property Type="String" Name="CompanyRegistrationNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPIN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyVAT" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPostalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyCountry" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyPhysicalAddressCountry" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorFirstName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorMiddleName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorLastName3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorEmail3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPhone3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorPIN3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyDirectorID3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonName1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPosition1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonEmail1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPhone1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonName2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPosition2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonEmail2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyContactPersonPhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF1" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF4" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF5" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF6" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF7" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF8" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF9" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CF10" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

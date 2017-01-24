@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "ViewTopupPostpaid";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.CardTopup>
+@using FuelCardSystemMVC.Library
+@if(_AppContext.HasPermission(Parameters.Can_Topup_Cards))
+{
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-credit-card"></i><span class="margin">Details of topups</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("PostpaidCards", "Admin")">List of Postpaid Cards</a></li>
+            <li class="active">Topups</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    @if (ViewBag.msg != null)
+    {
+        if (ViewBag.msg == _AppContext.Messages.Error)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <h4><i class="icon fa fa-ban"></i> Error occured.</h4>
+            </div>
+        </div>
+        }
+        if (ViewBag.msg == _AppContext.Messages.NotExist)
+        {
+        <div class="col-sm-12">
+            <div class="callout callout-warning">
+                <h4><i class="icon fa fa-warning"></i> No topups</h4>
+            </div>
+        </div>
+        }
+        else
+        {
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Cards</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="box-body">
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        <table id="CardsTbl" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center">Amount</th>
+                                    <th style="text-align: center">Mode</th>
+                                    <th style="text-align: center">Reference</th>
+                                    <th style="text-align: center">Channel</th>
+                                    <th style="text-align: center">Topup Date</th>
+                                    <th style="text-align: center">Edit</th>
+                                    <th style="text-align: center">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var itm in Model)
+                                {
+                                    <tr>
+                                        <td style="text-align: center;">@itm.Card_Amount</td>
+                                        <td style="text-align: center;">@itm.Card_Modeofpayment</td>
+                                        <td style="text-align: center;">@itm.Card_Reference</td>
+                                        <td style="text-align: center;">@itm.Card_Channel</td>
+                                        <td style="text-align: center;">@itm.Card_topupdate</td>
+                                        <td style="text-align: center;">@Html.ActionLink("Edit", "TopupPostpaidCard", "Admin", new { id = itm.Card_topup_id, status="edit" }, new { @class = "btn btn-info btn-sm" })</td>
+                                        <td style="text-align: center;">@Html.ActionLink(itm.IsDeleted==true?"Deleted":"Delete", "ViewTopupPostpaid", "Admin", new { id = itm.Card_topup_id, status="delete" }, new { @class = itm.IsDeleted==true?"btn btn-danger btn-sm":"btn btn-info btn-sm", onclick=itm.IsDeleted==true?"":"confirm('Are you sure?');" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    <div class="clearfix"></div>
+                </div>@* /.box-body *@
+            </div>
+        </div>
+        }
+    }
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CardsTbl").dataTable({
+                "aaSorting": [],
+                "aoColumnDefs": [{ "bSortable": false, "aTargets": [0] }],
+                //"iDisplayLength": -1,
+                "aLengthMenu": [[10, 20, 30, 40, 100, -1], [10, 20, 30, 40, 100, "All"]]
+            });
+            $(".alert").delay(2000).fadeOut(1000);
+            $("#manageCards").addClass("active");
+            $("#idPostpaidCards").closest("li").addClass("active");
+        });
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

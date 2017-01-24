@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "ChannelsList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.VwChannels_ChannelTypes>
+@using FuelCardSystemMVC.Library
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-link"></i><span class="margin">Channels...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_Channel))
+        {
+            @Html.ActionLink("Add Channel", "AddChannel", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Channels</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Channel</th>
+                            <th style="text-align: center">Description</th>
+                            <th style="text-align: center">Channel Type</th>
+                            <th style="text-align: center">Country</th>
+                            <th style="text-align: center">City</th>
+                            <th style="text-align: center">Address</th>
+                            
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_Channel))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Channel))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.Channel_Name</td>
+                                <td style="text-align: center;">@item.Channel_Description</td>
+                                <td style="text-align: center;">@item.ChannelType_Name</td>
+                                <td style="text-align: center;">@item.Channel_Country</td>
+                                <td style="text-align: center;">@item.Channel_City</td>
+                                <td style="text-align: center;">@item.Channel_Address</td>
+                                
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Channel))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.Channel_IsActive.Equals(true) ? "Active" : "InActive"), "ChannelsList", "Admin", new { id = item.Channel_id, status = "active" }, new { @class = (item.Channel_IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.Channel_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "ChannelsList", "Admin", new { id = item.Channel_id, status = "delete" }, new { @class = (item.Channel_IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.Channel_IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete " + (item.Channel_Name) + "?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Channel))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddChannel", "Admin", new { id = item.Channel_id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@{
+    var message = Html.Raw(TempData["Msg"]);
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            var msg = '@message';
+            if (msg) {
+                ShowMsg();
+            }
+            $("#idChannelsList").closest("li.treeview").addClass("active");
+            $("#idChannelsList").closest("li").addClass("active");
+        });
+        function ShowMsg() {
+            $("#msg").show().delay(1000).fadeOut(1000);
+        }
+    </script>
+}

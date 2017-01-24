@@ -1,0 +1,1909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FuelCardDBModelStoreContainer" CdmEntityContainer="FuelCardDBEntities">
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ActivityType_id" ColumnName="ActivityType_id" />
+          <ScalarProperty Name="Activity_id" ColumnName="Activity_id" />
+          <ScalarProperty Name="Activity_Name" ColumnName="Activity_Name" />
+          <ScalarProperty Name="Activity_Description" ColumnName="Activity_Description" />
+          <ScalarProperty Name="Activity_IsActive" ColumnName="Activity_IsActive" />
+          <ScalarProperty Name="Activity_IsDeleted" ColumnName="Activity_IsDeleted" />
+          <ScalarProperty Name="Activity_DateCreated" ColumnName="Activity_DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardTopups">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CardTopup">
+        <MappingFragment StoreEntitySet="CardTopup">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Card_id" ColumnName="Card_id" />
+          <ScalarProperty Name="Card_topup_id" ColumnName="Card_topup_id" />
+          <ScalarProperty Name="Card_Amount" ColumnName="Card_Amount" />
+          <ScalarProperty Name="Card_Channel" ColumnName="Card_Channel" />
+          <ScalarProperty Name="Card_Modeofpayment" ColumnName="Card_Modeofpayment" />
+          <ScalarProperty Name="Card_Reference" ColumnName="Card_Reference" />
+          <ScalarProperty Name="Card_topupby" ColumnName="Card_topupby" />
+          <ScalarProperty Name="Card_topupdate" ColumnName="Card_topupdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardUsageLimits">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CardUsageLimit">
+        <MappingFragment StoreEntitySet="CardUsageLimit">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Card_UsageLimit_IsDeleted" ColumnName="Card_UsageLimit_IsDeleted" />
+          <ScalarProperty Name="Card_UsageLimit_IsActive" ColumnName="Card_UsageLimit_IsActive" />
+          <ScalarProperty Name="Card_UsageLimit_IsOverall" ColumnName="Card_UsageLimit_IsOverall" />
+          <ScalarProperty Name="Card_UsageLimit_Type" ColumnName="Card_UsageLimit_Type" />
+          <ScalarProperty Name="Card_UsageLimit_Card_id" ColumnName="Card_UsageLimit_Card_id" />
+          <ScalarProperty Name="Card_UsageLimit_id" ColumnName="Card_UsageLimit_id" />
+          <ScalarProperty Name="Card_UsageLimit_Product_id" ColumnName="Card_UsageLimit_Product_id" />
+          <ScalarProperty Name="Card_UsageLimit_Value" ColumnName="Card_UsageLimit_Value" />
+          <ScalarProperty Name="Card_UsageLimit_DateCreated" ColumnName="Card_UsageLimit_DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Currency_id" ColumnName="Currency_id" />
+          <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+          <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+          <ScalarProperty Name="RatioToBase" ColumnName="RatioToBase" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CustomerType">
+        <MappingFragment StoreEntitySet="CustomerTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+          <ScalarProperty Name="CustomerType_id" ColumnName="CustomerType_id" />
+          <ScalarProperty Name="Customer_Type" ColumnName="Customer_Type" />
+          <ScalarProperty Name="CustomerTypeDescription" ColumnName="CustomerTypeDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+          <ScalarProperty Name="Emp_Customer_id" ColumnName="Emp_Customer_id" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_Description" ColumnName="Emp_Description" />
+          <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+          <ScalarProperty Name="Emp_Phone" ColumnName="Emp_Phone" />
+          <ScalarProperty Name="Emp_IsActive" ColumnName="Emp_IsActive" />
+          <ScalarProperty Name="Emp_IsDeleted" ColumnName="Emp_IsDeleted" />
+          <ScalarProperty Name="Emp_DateCreated" ColumnName="Emp_DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gadgets">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Gadget">
+        <MappingFragment StoreEntitySet="Gadgets">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Gadget_id" ColumnName="Gadget_id" />
+          <ScalarProperty Name="Gadget_Name" ColumnName="Gadget_Name" />
+          <ScalarProperty Name="Gadget_Description" ColumnName="Gadget_Description" />
+          <ScalarProperty Name="Gadget_IsActive" ColumnName="Gadget_IsActive" />
+          <ScalarProperty Name="Gadget_IsDeleted" ColumnName="Gadget_IsDeleted" />
+          <ScalarProperty Name="Gadget_DateCreated" ColumnName="Gadget_DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Customers_CustomerTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Customers_CustomerTypes">
+        <MappingFragment StoreEntitySet="Lnk_Customers_CustomerTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Lnk_Cust_CustType_id" ColumnName="Lnk_Cust_CustType_id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="CustomerType_id" ColumnName="CustomerType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Gadgets_Channels">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Gadgets_Channels">
+        <MappingFragment StoreEntitySet="Lnk_Gadgets_Channels">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Lnk_Gadget_DateCreated" ColumnName="Lnk_Gadget_DateCreated" />
+          <ScalarProperty Name="Lnk_Gadget_IsDeleted" ColumnName="Lnk_Gadget_IsDeleted" />
+          <ScalarProperty Name="Lnk_Gadget_IsActive" ColumnName="Lnk_Gadget_IsActive" />
+          <ScalarProperty Name="Lnk_Gadgets_Channels_id" ColumnName="Lnk_Gadgets_Channels_id" />
+          <ScalarProperty Name="Gadget_id" ColumnName="Gadget_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Products_Channels">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Products_Channels">
+        <MappingFragment StoreEntitySet="Lnk_Products_Channels">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="Scheduled_Price" ColumnName="Scheduled_Price" />
+          <ScalarProperty Name="PriceSchedule_Id" ColumnName="PriceSchedule_Id" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Lnk_Products_Channels_id" ColumnName="Lnk_Products_Channels_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Role_Permission">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Role_Permission">
+        <MappingFragment StoreEntitySet="Lnk_Role_Permission">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Lnk_DateCreated" ColumnName="Lnk_DateCreated" />
+          <ScalarProperty Name="Lnk_Role_Permission_id" ColumnName="Lnk_Role_Permission_id" />
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="Permission_id" ColumnName="Permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loyalty_Scheme">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Loyalty_Scheme">
+        <MappingFragment StoreEntitySet="Loyalty_Scheme">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Loyalty_Scheme_Name" ColumnName="Loyalty_Scheme_Name" />
+          <ScalarProperty Name="loyaltyprogram_id" ColumnName="loyaltyprogram_id" />
+          <ScalarProperty Name="commprotocol_id" ColumnName="commprotocol_id" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsExclusive" ColumnName="IsExclusive" />
+          <ScalarProperty Name="IsDiscontinued" ColumnName="IsDiscontinued" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Permission">
+        <MappingFragment StoreEntitySet="Permissions">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="PermissionIsSelected" ColumnName="PermissionIsSelected" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="Permission_Id" ColumnName="Permission_Id" />
+          <ScalarProperty Name="PermissionDescription" ColumnName="PermissionDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductProperties">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ProductProperty">
+        <MappingFragment StoreEntitySet="ProductProperties">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+          <ScalarProperty Name="IsbeingAdded" ColumnName="IsbeingAdded" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsbeingDeleted" ColumnName="IsbeingDeleted" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ProductProperty_IsDeleted" ColumnName="ProductProperty_IsDeleted" />
+          <ScalarProperty Name="ProductProperty_IsActive" ColumnName="ProductProperty_IsActive" />
+          <ScalarProperty Name="ProductProperty_id" ColumnName="ProductProperty_id" />
+          <ScalarProperty Name="ProductProperty_Name" ColumnName="ProductProperty_Name" />
+          <ScalarProperty Name="ProductProperty_Description" ColumnName="ProductProperty_Description" />
+          <ScalarProperty Name="ProductProperty_DateCreated" ColumnName="ProductProperty_DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Role_DateCreated" ColumnName="Role_DateCreated" />
+          <ScalarProperty Name="Role_IsDeleted" ColumnName="Role_IsDeleted" />
+          <ScalarProperty Name="Role_IsActive" ColumnName="Role_IsActive" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tierlevels">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Tierlevel">
+        <MappingFragment StoreEntitySet="Tierlevel">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="accounttype_id" ColumnName="accounttype_id" />
+          <ScalarProperty Name="all_activities" ColumnName="all_activities" />
+          <ScalarProperty Name="all_channels" ColumnName="all_channels" />
+          <ScalarProperty Name="all_items" ColumnName="all_items" />
+          <ScalarProperty Name="tierlevel_IsDelete" ColumnName="tierlevel_IsDelete" />
+          <ScalarProperty Name="tierlevel_IsActive" ColumnName="tierlevel_IsActive" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tierlevel_name" ColumnName="tierlevel_name" />
+          <ScalarProperty Name="tierlevel_description" ColumnName="tierlevel_description" />
+          <ScalarProperty Name="producttype_id" ColumnName="producttype_id" />
+          <ScalarProperty Name="activity_id" ColumnName="activity_id" />
+          <ScalarProperty Name="event_id" ColumnName="event_id" />
+          <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+          <ScalarProperty Name="activitytype_id" ColumnName="activitytype_id" />
+          <ScalarProperty Name="channeltype_id" ColumnName="channeltype_id" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tierrules">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Tierrule">
+        <MappingFragment StoreEntitySet="Tierrule">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ValueId" ColumnName="ValueId" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="tierrule_IsDeleted" ColumnName="tierrule_IsDeleted" />
+          <ScalarProperty Name="tierrule_IsActive" ColumnName="tierrule_IsActive" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tierrule_name" ColumnName="tierrule_name" />
+          <ScalarProperty Name="formula" ColumnName="formula" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tiertables">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Tiertable">
+        <MappingFragment StoreEntitySet="Tiertable">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tierlevel_id" ColumnName="tierlevel_id" />
+          <ScalarProperty Name="tierrule_id" ColumnName="tierrule_id" />
+          <ScalarProperty Name="loyaltyprogram_id" ColumnName="loyaltyprogram_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeDurations">
+      <EntityTypeMapping TypeName="FuelCardDBModel.TimeDuration">
+        <MappingFragment StoreEntitySet="TimeDuration">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="TimeDuration_id" ColumnName="TimeDuration_id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Products_Channels_Properties">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Products_Channels_Properties">
+        <MappingFragment StoreEntitySet="Lnk_Products_Channels_Properties">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Product_Property_Value" ColumnName="Product_Property_Value" />
+          <ScalarProperty Name="Product_Property_id" ColumnName="Product_Property_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Lnk_Products_Ch_Properties_id" ColumnName="Lnk_Products_Ch_Properties_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Products_Properties">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Products_Properties">
+        <MappingFragment StoreEntitySet="Lnk_Products_Properties">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Product_Property_DateCreated" ColumnName="Product_Property_DateCreated" />
+          <ScalarProperty Name="Product_Property_id" ColumnName="Product_Property_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Lnk_Products_Properties_id" ColumnName="Lnk_Products_Properties_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwProduct_ProductProperty">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwProduct_ProductProperty">
+        <MappingFragment StoreEntitySet="VwProduct_ProductProperty">
+          <ScalarProperty Name="IsbeingAdded" ColumnName="IsbeingAdded" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsbeingDeleted" ColumnName="IsbeingDeleted" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Product_Property_DateCreated" ColumnName="Product_Property_DateCreated" />
+          <ScalarProperty Name="Product_Property_id" ColumnName="Product_Property_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Lnk_Products_Properties_id" ColumnName="Lnk_Products_Properties_id" />
+          <ScalarProperty Name="ProductProperty_IsDeleted" ColumnName="ProductProperty_IsDeleted" />
+          <ScalarProperty Name="ProductProperty_IsActive" ColumnName="ProductProperty_IsActive" />
+          <ScalarProperty Name="ProductProperty_DateCreated" ColumnName="ProductProperty_DateCreated" />
+          <ScalarProperty Name="ProductProperty_Description" ColumnName="ProductProperty_Description" />
+          <ScalarProperty Name="ProductProperty_Name" ColumnName="ProductProperty_Name" />
+          <ScalarProperty Name="ProductProperty_id" ColumnName="ProductProperty_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwProducts_ProductTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwProducts_ProductTypes">
+        <MappingFragment StoreEntitySet="VwProducts_ProductTypes">
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ProductType_DateCreated" ColumnName="ProductType_DateCreated" />
+          <ScalarProperty Name="ProductType_IsDeleted" ColumnName="ProductType_IsDeleted" />
+          <ScalarProperty Name="ProductType_IsActive" ColumnName="ProductType_IsActive" />
+          <ScalarProperty Name="ProductType_Description" ColumnName="ProductType_Description" />
+          <ScalarProperty Name="ProductType_Name" ColumnName="ProductType_Name" />
+          <ScalarProperty Name="ProductType_id" ColumnName="ProductType_id" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwChannels_ChannelTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwChannels_ChannelTypes">
+        <MappingFragment StoreEntitySet="VwChannels_ChannelTypes">
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Channel_IsSelected" ColumnName="Channel_IsSelected" />
+          <ScalarProperty Name="Channel_DateCreated" ColumnName="Channel_DateCreated" />
+          <ScalarProperty Name="Channel_IsActive" ColumnName="Channel_IsActive" />
+          <ScalarProperty Name="Channel_IsDeleted" ColumnName="Channel_IsDeleted" />
+          <ScalarProperty Name="Channel_City" ColumnName="Channel_City" />
+          <ScalarProperty Name="Channel_Address" ColumnName="Channel_Address" />
+          <ScalarProperty Name="Channel_Country" ColumnName="Channel_Country" />
+          <ScalarProperty Name="Channel_Type" ColumnName="Channel_Type" />
+          <ScalarProperty Name="Channel_Description" ColumnName="Channel_Description" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="ChannelType_DateCreated" ColumnName="ChannelType_DateCreated" />
+          <ScalarProperty Name="ChannelType_IsDeleted" ColumnName="ChannelType_IsDeleted" />
+          <ScalarProperty Name="ChannelType_IsActive" ColumnName="ChannelType_IsActive" />
+          <ScalarProperty Name="ChannelType_Description" ColumnName="ChannelType_Description" />
+          <ScalarProperty Name="ChannelType_Name" ColumnName="ChannelType_Name" />
+          <ScalarProperty Name="ChannelType_id" ColumnName="ChannelType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwChannelProducts">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwChannelProducts">
+        <MappingFragment StoreEntitySet="VwChannelProducts">
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="Scheduled_Price" ColumnName="Scheduled_Price" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Lnk_Products_Channels_id" ColumnName="Lnk_Products_Channels_id" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwChannelGadgets">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwChannelGadgets">
+        <MappingFragment StoreEntitySet="VwChannelGadgets">
+          <ScalarProperty Name="Lnk_Gadgets_Channels_id" ColumnName="Lnk_Gadgets_Channels_id" />
+          <ScalarProperty Name="Lnk_Gadget_DateCreated" ColumnName="Lnk_Gadget_DateCreated" />
+          <ScalarProperty Name="Lnk_Gadget_IsDeleted" ColumnName="Lnk_Gadget_IsDeleted" />
+          <ScalarProperty Name="Lnk_Gadget_IsActive" ColumnName="Lnk_Gadget_IsActive" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="Gadget_Name" ColumnName="Gadget_Name" />
+          <ScalarProperty Name="Gadget_id" ColumnName="Gadget_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Roles">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_Roles">
+        <MappingFragment StoreEntitySet="Customer_Roles">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Role_DateCreated" ColumnName="Role_DateCreated" />
+          <ScalarProperty Name="Role_IsDeleted" ColumnName="Role_IsDeleted" />
+          <ScalarProperty Name="Role_IsActive" ColumnName="Role_IsActive" />
+          <ScalarProperty Name="Customer_RoleDescription" ColumnName="Customer_RoleDescription" />
+          <ScalarProperty Name="Customer_RoleName" ColumnName="Customer_RoleName" />
+          <ScalarProperty Name="Customer_RoleId" ColumnName="Customer_RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPermissions">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CustomerPermissions">
+        <MappingFragment StoreEntitySet="CustomerPermissions">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="PermissionIsSelected" ColumnName="PermissionIsSelected" />
+          <ScalarProperty Name="PermissionDescription" ColumnName="PermissionDescription" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="Permission_Id" ColumnName="Permission_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LnkCustomer_Role_Permission">
+      <EntityTypeMapping TypeName="FuelCardDBModel.LnkCustomer_Role_Permission">
+        <MappingFragment StoreEntitySet="LnkCustomer_Role_Permission">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Lnk_DateCreated" ColumnName="Lnk_DateCreated" />
+          <ScalarProperty Name="Permission_id" ColumnName="Permission_id" />
+          <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+          <ScalarProperty Name="Lnk_Role_Permission_id" ColumnName="Lnk_Role_Permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Cards">
+        <MappingFragment StoreEntitySet="Cards">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Card_CreditLimit_Expiration" ColumnName="Card_CreditLimit_Expiration" />
+          <ScalarProperty Name="Card_CreditLimit" ColumnName="Card_CreditLimit" />
+          <ScalarProperty Name="Card_IsAssignedtoEmp" ColumnName="Card_IsAssignedtoEmp" />
+          <ScalarProperty Name="Card_PIN" ColumnName="Card_PIN" />
+          <ScalarProperty Name="Card_UpdateDate" ColumnName="Card_UpdateDate" />
+          <ScalarProperty Name="Card_UploadDate" ColumnName="Card_UploadDate" />
+          <ScalarProperty Name="Card_DateAssigned" ColumnName="Card_DateAssigned" />
+          <ScalarProperty Name="Card_IsDeleted" ColumnName="Card_IsDeleted" />
+          <ScalarProperty Name="Card_IsActive" ColumnName="Card_IsActive" />
+          <ScalarProperty Name="Card_IsAssigned" ColumnName="Card_IsAssigned" />
+          <ScalarProperty Name="Card_PrepaidAmt" ColumnName="Card_PrepaidAmt" />
+          <ScalarProperty Name="Card_OverDraftValue" ColumnName="Card_OverDraftValue" />
+          <ScalarProperty Name="Card_Points_Balance" ColumnName="Card_Points_Balance" />
+          <ScalarProperty Name="Card_Balance" ColumnName="Card_Balance" />
+          <ScalarProperty Name="Card_Owner_Employee" ColumnName="Card_Owner_Employee" />
+          <ScalarProperty Name="Card_Owner" ColumnName="Card_Owner" />
+          <ScalarProperty Name="Card_Type" ColumnName="Card_Type" />
+          <ScalarProperty Name="Card_SNO" ColumnName="Card_SNO" />
+          <ScalarProperty Name="Card_UID" ColumnName="Card_UID" />
+          <ScalarProperty Name="Card_id" ColumnName="Card_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCardsCustomers">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCardsCustomers">
+        <MappingFragment StoreEntitySet="VwCardsCustomers">
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Card_IsAssignedtoEmp" ColumnName="Card_IsAssignedtoEmp" />
+          <ScalarProperty Name="Card_PIN" ColumnName="Card_PIN" />
+          <ScalarProperty Name="Card_UpdateDate" ColumnName="Card_UpdateDate" />
+          <ScalarProperty Name="Card_UploadDate" ColumnName="Card_UploadDate" />
+          <ScalarProperty Name="Card_DateAssigned" ColumnName="Card_DateAssigned" />
+          <ScalarProperty Name="Card_IsDeleted" ColumnName="Card_IsDeleted" />
+          <ScalarProperty Name="Card_IsActive" ColumnName="Card_IsActive" />
+          <ScalarProperty Name="Card_IsAssigned" ColumnName="Card_IsAssigned" />
+          <ScalarProperty Name="Card_PrepaidAmt" ColumnName="Card_PrepaidAmt" />
+          <ScalarProperty Name="Card_OverDraftValue" ColumnName="Card_OverDraftValue" />
+          <ScalarProperty Name="Card_Points_Balance" ColumnName="Card_Points_Balance" />
+          <ScalarProperty Name="Card_Balance" ColumnName="Card_Balance" />
+          <ScalarProperty Name="Card_Owner_Employee" ColumnName="Card_Owner_Employee" />
+          <ScalarProperty Name="Card_Owner" ColumnName="Card_Owner" />
+          <ScalarProperty Name="Card_Type" ColumnName="Card_Type" />
+          <ScalarProperty Name="Card_SNO" ColumnName="Card_SNO" />
+          <ScalarProperty Name="Card_UID" ColumnName="Card_UID" />
+          <ScalarProperty Name="Card_id" ColumnName="Card_id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PasswordResetLnkDate" ColumnName="PasswordResetLnkDate" />
+          <ScalarProperty Name="VerificationMailDate" ColumnName="VerificationMailDate" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsVerificationMailSent" ColumnName="IsVerificationMailSent" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Customer_Role" ColumnName="Customer_Role" />
+          <ScalarProperty Name="Customer_Country" ColumnName="Customer_Country" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Gender" ColumnName="Customer_Gender" />
+          <ScalarProperty Name="Customer_DoB" ColumnName="Customer_DoB" />
+          <ScalarProperty Name="Customer_OtherName" ColumnName="Customer_OtherName" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMode">
+      <EntityTypeMapping TypeName="FuelCardDBModel.PaymentMode">
+        <MappingFragment StoreEntitySet="PaymentMode">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="PaymentMode_Name" ColumnName="PaymentMode_Name" />
+          <ScalarProperty Name="PaymentMode_id" ColumnName="PaymentMode_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCardUsageLimit_Products">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCardUsageLimit_Products">
+        <MappingFragment StoreEntitySet="VwCardUsageLimit_Products">
+          <ScalarProperty Name="TimeDuration_id" ColumnName="TimeDuration_id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Card_UsageLimit_IsDeleted" ColumnName="Card_UsageLimit_IsDeleted" />
+          <ScalarProperty Name="Card_UsageLimit_IsActive" ColumnName="Card_UsageLimit_IsActive" />
+          <ScalarProperty Name="Card_UsageLimit_IsOverall" ColumnName="Card_UsageLimit_IsOverall" />
+          <ScalarProperty Name="Card_UsageLimit_Type" ColumnName="Card_UsageLimit_Type" />
+          <ScalarProperty Name="Card_UsageLimit_DateCreated" ColumnName="Card_UsageLimit_DateCreated" />
+          <ScalarProperty Name="Card_UsageLimit_Value" ColumnName="Card_UsageLimit_Value" />
+          <ScalarProperty Name="Card_UsageLimit_Product_id" ColumnName="Card_UsageLimit_Product_id" />
+          <ScalarProperty Name="Card_UsageLimit_Card_id" ColumnName="Card_UsageLimit_Card_id" />
+          <ScalarProperty Name="Card_UsageLimit_id" ColumnName="Card_UsageLimit_id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityType">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ActivityType">
+        <MappingFragment StoreEntitySet="ActivityType">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ActivityType_DateCreated" ColumnName="ActivityType_DateCreated" />
+          <ScalarProperty Name="ActivityType_IsDeleted" ColumnName="ActivityType_IsDeleted" />
+          <ScalarProperty Name="ActivityType_IsActive" ColumnName="ActivityType_IsActive" />
+          <ScalarProperty Name="ActivityType_Description" ColumnName="ActivityType_Description" />
+          <ScalarProperty Name="ActivityType_Name" ColumnName="ActivityType_Name" />
+          <ScalarProperty Name="ActivityType_id" ColumnName="ActivityType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwActivity_ActivityType">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwActivity_ActivityType">
+        <MappingFragment StoreEntitySet="VwActivity_ActivityType">
+          <ScalarProperty Name="Activity_id" ColumnName="Activity_id" />
+          <ScalarProperty Name="Activity_DateCreated" ColumnName="Activity_DateCreated" />
+          <ScalarProperty Name="Activity_IsDeleted" ColumnName="Activity_IsDeleted" />
+          <ScalarProperty Name="Activity_IsActive" ColumnName="Activity_IsActive" />
+          <ScalarProperty Name="Activity_Description" ColumnName="Activity_Description" />
+          <ScalarProperty Name="Activity_Name" ColumnName="Activity_Name" />
+          <ScalarProperty Name="ActivityType_DateCreated" ColumnName="ActivityType_DateCreated" />
+          <ScalarProperty Name="ActivityType_IsDeleted" ColumnName="ActivityType_IsDeleted" />
+          <ScalarProperty Name="ActivityType_IsActive" ColumnName="ActivityType_IsActive" />
+          <ScalarProperty Name="ActivityType_Description" ColumnName="ActivityType_Description" />
+          <ScalarProperty Name="ActivityType_Name" ColumnName="ActivityType_Name" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventsTbl">
+      <EntityTypeMapping TypeName="FuelCardDBModel.EventsTbl">
+        <MappingFragment StoreEntitySet="EventsTbl">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Event_DateCreated" ColumnName="Event_DateCreated" />
+          <ScalarProperty Name="Event_IsDeleted" ColumnName="Event_IsDeleted" />
+          <ScalarProperty Name="Event_IsActive" ColumnName="Event_IsActive" />
+          <ScalarProperty Name="Event_Description" ColumnName="Event_Description" />
+          <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+          <ScalarProperty Name="Event_id" ColumnName="Event_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loyalty_Program">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Loyalty_Program">
+        <MappingFragment StoreEntitySet="Loyalty_Program">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="IsDiscontinued" ColumnName="IsDiscontinued" />
+          <ScalarProperty Name="IsExclusive" ColumnName="IsExclusive" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="tierrule_id" ColumnName="tierrule_id" />
+          <ScalarProperty Name="tierlevel_id" ColumnName="tierlevel_id" />
+          <ScalarProperty Name="commprotocol_id" ColumnName="commprotocol_id" />
+          <ScalarProperty Name="action_id" ColumnName="action_id" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="period_type" ColumnName="period_type" />
+          <ScalarProperty Name="time_period" ColumnName="time_period" />
+          <ScalarProperty Name="Loyalty_Program_Name" ColumnName="Loyalty_Program_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommunicationTemplates">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CommunicationTemplates">
+        <MappingFragment StoreEntitySet="CommunicationTemplates">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Template_Subject" ColumnName="Template_Subject" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Template_Type" ColumnName="Template_Type" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Template_Content" ColumnName="Template_Content" />
+          <ScalarProperty Name="Template_Name" ColumnName="Template_Name" />
+          <ScalarProperty Name="Template_Id" ColumnName="Template_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Approval">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Approval">
+        <MappingFragment StoreEntitySet="Approval">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="SecondApprover" ColumnName="SecondApprover" />
+          <ScalarProperty Name="FirstApprover" ColumnName="FirstApprover" />
+          <ScalarProperty Name="IsApprovalReqDelete" ColumnName="IsApprovalReqDelete" />
+          <ScalarProperty Name="IsApprovalReqEdit" ColumnName="IsApprovalReqEdit" />
+          <ScalarProperty Name="IsApprovalReqAdd" ColumnName="IsApprovalReqAdd" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Table_id" ColumnName="Table_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Vehicle">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_Vehicle">
+        <MappingFragment StoreEntitySet="Customer_Vehicle">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DaystoFuel" ColumnName="DaystoFuel" />
+          <ScalarProperty Name="TankCapacity" ColumnName="TankCapacity" />
+          <ScalarProperty Name="VehicleRegNo" ColumnName="VehicleRegNo" />
+          <ScalarProperty Name="VehicleModel_Id" ColumnName="VehicleModel_Id" />
+          <ScalarProperty Name="Vehicle_Id" ColumnName="Vehicle_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="CustomerVehicleId" ColumnName="CustomerVehicleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="VehicleDateCreated" ColumnName="VehicleDateCreated" />
+          <ScalarProperty Name="VehicleIsDeleted" ColumnName="VehicleIsDeleted" />
+          <ScalarProperty Name="VehicleIsActive" ColumnName="VehicleIsActive" />
+          <ScalarProperty Name="Vehicle_Make" ColumnName="Vehicle_Make" />
+          <ScalarProperty Name="Vehicle_Id" ColumnName="Vehicle_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleModel">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VehicleModel">
+        <MappingFragment StoreEntitySet="VehicleModel">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="TankCapacity" ColumnName="TankCapacity" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="VehicleModelDateCreated" ColumnName="VehicleModelDateCreated" />
+          <ScalarProperty Name="VehicleModelIsDeleted" ColumnName="VehicleModelIsDeleted" />
+          <ScalarProperty Name="VehicleModelIsActive" ColumnName="VehicleModelIsActive" />
+          <ScalarProperty Name="VehicleModel_Name" ColumnName="VehicleModel_Name" />
+          <ScalarProperty Name="VehicleModel_Id" ColumnName="VehicleModel_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwVehicle_VehicleModel">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwVehicle_VehicleModel">
+        <MappingFragment StoreEntitySet="VwVehicle_VehicleModel">
+          <ScalarProperty Name="TankCapacity" ColumnName="TankCapacity" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="VehicleModelDateCreated" ColumnName="VehicleModelDateCreated" />
+          <ScalarProperty Name="VehicleModelIsDeleted" ColumnName="VehicleModelIsDeleted" />
+          <ScalarProperty Name="VehicleModelIsActive" ColumnName="VehicleModelIsActive" />
+          <ScalarProperty Name="VehicleModel_Name" ColumnName="VehicleModel_Name" />
+          <ScalarProperty Name="VehicleModel_Id" ColumnName="VehicleModel_Id" />
+          <ScalarProperty Name="VehicleDateCreated" ColumnName="VehicleDateCreated" />
+          <ScalarProperty Name="VehicleIsDeleted" ColumnName="VehicleIsDeleted" />
+          <ScalarProperty Name="VehicleIsActive" ColumnName="VehicleIsActive" />
+          <ScalarProperty Name="Vehicle_Make" ColumnName="Vehicle_Make" />
+          <ScalarProperty Name="Vehicle_Id" ColumnName="Vehicle_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeekDays">
+      <EntityTypeMapping TypeName="FuelCardDBModel.WeekDays">
+        <MappingFragment StoreEntitySet="WeekDays">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+          <ScalarProperty Name="WeekdayName" ColumnName="WeekdayName" />
+          <ScalarProperty Name="Day_Id" ColumnName="Day_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="actionitems">
+      <EntityTypeMapping TypeName="FuelCardDBModel.actionitem">
+        <MappingFragment StoreEntitySet="actionitem">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="baseitem" ColumnName="baseitem" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ref_value" ColumnName="ref_value" />
+          <ScalarProperty Name="actionitem_name" ColumnName="actionitem_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conflicting_action">
+      <EntityTypeMapping TypeName="FuelCardDBModel.conflicting_action">
+        <MappingFragment StoreEntitySet="conflicting_action">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="conflicting_action_id" ColumnName="conflicting_action_id" />
+          <ScalarProperty Name="action_id" ColumnName="action_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="refvaluehistories">
+      <EntityTypeMapping TypeName="FuelCardDBModel.refvaluehistory">
+        <MappingFragment StoreEntitySet="refvaluehistory">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="ref_value" ColumnName="ref_value" />
+          <ScalarProperty Name="actionitem_id" ColumnName="actionitem_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplementary_action">
+      <EntityTypeMapping TypeName="FuelCardDBModel.supplementary_action">
+        <MappingFragment StoreEntitySet="supplementary_action">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="supplementary_action_id" ColumnName="supplementary_action_id" />
+          <ScalarProperty Name="action_id" ColumnName="action_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionsTbl">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ActionsTbl">
+        <MappingFragment StoreEntitySet="ActionsTbl">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Action_IsSelected" ColumnName="Action_IsSelected" />
+          <ScalarProperty Name="arithmetictype" ColumnName="arithmetictype" />
+          <ScalarProperty Name="supplementary_action" ColumnName="supplementary_action" />
+          <ScalarProperty Name="actionitem_id" ColumnName="actionitem_id" />
+          <ScalarProperty Name="conflicting_action" ColumnName="conflicting_action" />
+          <ScalarProperty Name="exclusive" ColumnName="exclusive" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Action_IsDeleted" ColumnName="Action_IsDeleted" />
+          <ScalarProperty Name="Action_IsActive" ColumnName="Action_IsActive" />
+          <ScalarProperty Name="Action_Description" ColumnName="Action_Description" />
+          <ScalarProperty Name="Action_Name" ColumnName="Action_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountType">
+      <EntityTypeMapping TypeName="FuelCardDBModel.AccountType">
+        <MappingFragment StoreEntitySet="AccountType">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="AccDateCreated" ColumnName="AccDateCreated" />
+          <ScalarProperty Name="AccIsDeleted" ColumnName="AccIsDeleted" />
+          <ScalarProperty Name="AccDescription" ColumnName="AccDescription" />
+          <ScalarProperty Name="AccType" ColumnName="AccType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountType_Action">
+      <EntityTypeMapping TypeName="FuelCardDBModel.AccountType_Action">
+        <MappingFragment StoreEntitySet="AccountType_Action">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="AccTypeId" ColumnName="AccTypeId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Account">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_Account">
+        <MappingFragment StoreEntitySet="Customer_Account">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+          <ScalarProperty Name="IsCollection" ColumnName="IsCollection" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreditType" ColumnName="CreditType" />
+          <ScalarProperty Name="Mask" ColumnName="Mask" />
+          <ScalarProperty Name="Mask_Type" ColumnName="Mask_Type" />
+          <ScalarProperty Name="AccountType_id" ColumnName="AccountType_id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_AccountTopup">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_AccountTopup">
+        <MappingFragment StoreEntitySet="Customer_AccountTopup">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DepositSlipNumber" ColumnName="DepositSlipNumber" />
+          <ScalarProperty Name="BranchDeposited" ColumnName="BranchDeposited" />
+          <ScalarProperty Name="PayeeBankName" ColumnName="PayeeBankName" />
+          <ScalarProperty Name="DrawerBankName" ColumnName="DrawerBankName" />
+          <ScalarProperty Name="Finance_Transaction_id" ColumnName="Finance_Transaction_id" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Topupdate" ColumnName="Topupdate" />
+          <ScalarProperty Name="Topupby" ColumnName="Topupby" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="BankAccountNo" ColumnName="BankAccountNo" />
+          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="ERPRef" ColumnName="ERPRef" />
+          <ScalarProperty Name="Modeofpayment" ColumnName="Modeofpayment" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="AccountTopup_id" ColumnName="AccountTopup_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_AccountUsageLimit">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_AccountUsageLimit">
+        <MappingFragment StoreEntitySet="Customer_AccountUsageLimit">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UsageLimit_IsDeleted" ColumnName="UsageLimit_IsDeleted" />
+          <ScalarProperty Name="UsageLimit_IsActive" ColumnName="UsageLimit_IsActive" />
+          <ScalarProperty Name="UsageLimit_IsOverall" ColumnName="UsageLimit_IsOverall" />
+          <ScalarProperty Name="UsageLimit_Type" ColumnName="UsageLimit_Type" />
+          <ScalarProperty Name="UsageLimit_DateCreated" ColumnName="UsageLimit_DateCreated" />
+          <ScalarProperty Name="UsageLimit_Value" ColumnName="UsageLimit_Value" />
+          <ScalarProperty Name="UsageLimit_Product_id" ColumnName="UsageLimit_Product_id" />
+          <ScalarProperty Name="UsageLimit_AccountNumber" ColumnName="UsageLimit_AccountNumber" />
+          <ScalarProperty Name="UsageLimit_id" ColumnName="UsageLimit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_CustomerVehicle_Account">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_CustomerVehicle_Account">
+        <MappingFragment StoreEntitySet="Lnk_CustomerVehicle_Account">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Lnk_DateCreated" ColumnName="Lnk_DateCreated" />
+          <ScalarProperty Name="Lnk_IsActive" ColumnName="Lnk_IsActive" />
+          <ScalarProperty Name="Lnk_IsDeleted" ColumnName="Lnk_IsDeleted" />
+          <ScalarProperty Name="Lnk_AccountNumber" ColumnName="Lnk_AccountNumber" />
+          <ScalarProperty Name="Lnk_CustomerVehicleId" ColumnName="Lnk_CustomerVehicleId" />
+          <ScalarProperty Name="Lnk_id" ColumnName="Lnk_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaskType">
+      <EntityTypeMapping TypeName="FuelCardDBModel.MaskType">
+        <MappingFragment StoreEntitySet="MaskType">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Mask_IsDeleted" ColumnName="Mask_IsDeleted" />
+          <ScalarProperty Name="Mask_Type" ColumnName="Mask_Type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostpaidAccountCreditLimit">
+      <EntityTypeMapping TypeName="FuelCardDBModel.PostpaidAccountCreditLimit">
+        <MappingFragment StoreEntitySet="PostpaidAccountCreditLimit">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Account_CreditLimit" ColumnName="Account_CreditLimit" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Credit_id" ColumnName="Credit_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwAccUsageLimit_Products">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwAccUsageLimit_Products">
+        <MappingFragment StoreEntitySet="VwAccUsageLimit_Products">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="UsageLimit_IsDeleted" ColumnName="UsageLimit_IsDeleted" />
+          <ScalarProperty Name="UsageLimit_IsActive" ColumnName="UsageLimit_IsActive" />
+          <ScalarProperty Name="UsageLimit_IsOverall" ColumnName="UsageLimit_IsOverall" />
+          <ScalarProperty Name="UsageLimit_Type" ColumnName="UsageLimit_Type" />
+          <ScalarProperty Name="UsageLimit_DateCreated" ColumnName="UsageLimit_DateCreated" />
+          <ScalarProperty Name="UsageLimit_Value" ColumnName="UsageLimit_Value" />
+          <ScalarProperty Name="UsageLimit_AccountNumber" ColumnName="UsageLimit_AccountNumber" />
+          <ScalarProperty Name="UsageLimit_id" ColumnName="UsageLimit_id" />
+          <ScalarProperty Name="TimeDuration_id" ColumnName="TimeDuration_id" />
+          <ScalarProperty Name="UsageLimit_Product_id" ColumnName="UsageLimit_Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwTest">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwTest">
+        <MappingFragment StoreEntitySet="VwTest">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreditLimit_Expiration" ColumnName="CreditLimit_Expiration" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="Cust_id" ColumnName="Cust_id" />
+          <ScalarProperty Name="Credit_id" ColumnName="Credit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostpaidCustCreditLimits">
+      <EntityTypeMapping TypeName="FuelCardDBModel.PostpaidCustCreditLimits">
+        <MappingFragment StoreEntitySet="PostpaidCustCreditLimits">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreditLimit_Expiration" ColumnName="CreditLimit_Expiration" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="Cust_id" ColumnName="Cust_id" />
+          <ScalarProperty Name="Credit_id" ColumnName="Credit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormulaValueType">
+      <EntityTypeMapping TypeName="FuelCardDBModel.FormulaValueType">
+        <MappingFragment StoreEntitySet="FormulaValueType">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ValueId" ColumnName="ValueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Schedule_DateCreated" ColumnName="Schedule_DateCreated" />
+          <ScalarProperty Name="Schedule_IsDeleted" ColumnName="Schedule_IsDeleted" />
+          <ScalarProperty Name="Schedule_IsActive" ColumnName="Schedule_IsActive" />
+          <ScalarProperty Name="Effective_Date" ColumnName="Effective_Date" />
+          <ScalarProperty Name="Schedule_Name" ColumnName="Schedule_Name" />
+          <ScalarProperty Name="Schedule_Id" ColumnName="Schedule_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwChannelProductSchedule">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwChannelProductSchedule">
+        <MappingFragment StoreEntitySet="VwChannelProductSchedule">
+          <ScalarProperty Name="PriceList_Name" ColumnName="PriceList_Name" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="Schedule_DateCreated" ColumnName="Schedule_DateCreated" />
+          <ScalarProperty Name="Schedule_IsDeleted" ColumnName="Schedule_IsDeleted" />
+          <ScalarProperty Name="Schedule_IsActive" ColumnName="Schedule_IsActive" />
+          <ScalarProperty Name="Effective_Date" ColumnName="Effective_Date" />
+          <ScalarProperty Name="Schedule_Name" ColumnName="Schedule_Name" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Scheduled_Price" ColumnName="Scheduled_Price" />
+          <ScalarProperty Name="PriceSchedule_Id" ColumnName="PriceSchedule_Id" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Lnk_Products_Channels_id" ColumnName="Lnk_Products_Channels_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule_History">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Schedule_History">
+        <MappingFragment StoreEntitySet="Schedule_History">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Scheduled_Date" ColumnName="Scheduled_Date" />
+          <ScalarProperty Name="Scheduled_Price" ColumnName="Scheduled_Price" />
+          <ScalarProperty Name="Original_Price" ColumnName="Original_Price" />
+          <ScalarProperty Name="History_Id" ColumnName="History_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChartofAccountsSubTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ChartofAccountsSubTypes">
+        <MappingFragment StoreEntitySet="ChartofAccountsSubTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Subtype_Name" ColumnName="Subtype_Name" />
+          <ScalarProperty Name="ChartofAccountsSubType_id" ColumnName="ChartofAccountsSubType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChartofAccounts">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ChartofAccounts">
+        <MappingFragment StoreEntitySet="ChartofAccounts">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ChartofAccountsSubType_id" ColumnName="ChartofAccountsSubType_id" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="ChartofAccount_id" ColumnName="ChartofAccount_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChartofAccountTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ChartofAccountTypes">
+        <MappingFragment StoreEntitySet="ChartofAccountTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsGLType" ColumnName="IsGLType" />
+          <ScalarProperty Name="AccountType_Name" ColumnName="AccountType_Name" />
+          <ScalarProperty Name="ChartofAccountType_id" ColumnName="ChartofAccountType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GLTransactions">
+      <EntityTypeMapping TypeName="FuelCardDBModel.GLTransactions">
+        <MappingFragment StoreEntitySet="GLTransactions">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="GLTrans_Actual_DateCreated" ColumnName="GLTrans_Actual_DateCreated" />
+          <ScalarProperty Name="Period_id" ColumnName="Period_id" />
+          <ScalarProperty Name="ChartofAccount_id" ColumnName="ChartofAccount_id" />
+          <ScalarProperty Name="GlTrans_DateCreated" ColumnName="GlTrans_DateCreated" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Finance_Transaction_id" ColumnName="Finance_Transaction_id" />
+          <ScalarProperty Name="GlTrans_id" ColumnName="GlTrans_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periods">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Periods">
+        <MappingFragment StoreEntitySet="Periods">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="LastDate_In_Period" ColumnName="LastDate_In_Period" />
+          <ScalarProperty Name="Period_id" ColumnName="Period_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccoutingDocTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.AccoutingDocTypes">
+        <MappingFragment StoreEntitySet="AccoutingDocTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Doc_Type_Name" ColumnName="Doc_Type_Name" />
+          <ScalarProperty Name="Doc_Type_id" ColumnName="Doc_Type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Finance_Transaction">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Finance_Transaction">
+        <MappingFragment StoreEntitySet="Finance_Transaction">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Doc_Type_id" ColumnName="Doc_Type_id" />
+          <ScalarProperty Name="Transaction_DateCreated" ColumnName="Transaction_DateCreated" />
+          <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
+          <ScalarProperty Name="Transaction_Code" ColumnName="Transaction_Code" />
+          <ScalarProperty Name="Finance_Trans_description" ColumnName="Finance_Trans_description" />
+          <ScalarProperty Name="Finance_Transaction_id" ColumnName="Finance_Transaction_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_PriceList_Product">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_PriceList_Product">
+        <MappingFragment StoreEntitySet="Lnk_PriceList_Product">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Terms">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Payment_Terms">
+        <MappingFragment StoreEntitySet="Payment_Terms">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DaysBeforeDue" ColumnName="DaysBeforeDue" />
+          <ScalarProperty Name="DayInFollowingMonth" ColumnName="DayInFollowingMonth" />
+          <ScalarProperty Name="PaymentTerm_Name" ColumnName="PaymentTerm_Name" />
+          <ScalarProperty Name="PaymentTerm_id" ColumnName="PaymentTerm_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceList">
+      <EntityTypeMapping TypeName="FuelCardDBModel.PriceList">
+        <MappingFragment StoreEntitySet="PriceList">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="PriceList_IsDefault" ColumnName="PriceList_IsDefault" />
+          <ScalarProperty Name="PriceList_DateCreated" ColumnName="PriceList_DateCreated" />
+          <ScalarProperty Name="PriceList_IsDeleted" ColumnName="PriceList_IsDeleted" />
+          <ScalarProperty Name="PriceList_IsActive" ColumnName="PriceList_IsActive" />
+          <ScalarProperty Name="PriceList_Description" ColumnName="PriceList_Description" />
+          <ScalarProperty Name="PriceList_Name" ColumnName="PriceList_Name" />
+          <ScalarProperty Name="PriceList_id" ColumnName="PriceList_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwPriceListProducts">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwPriceListProducts">
+        <MappingFragment StoreEntitySet="VwPriceListProducts">
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="BuyingPrice" ColumnName="BuyingPrice" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_PriceList">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_PriceList">
+        <MappingFragment StoreEntitySet="Customer_PriceList">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.MessageTypes">
+        <MappingFragment StoreEntitySet="MessageTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="message_type" ColumnName="message_type" />
+          <ScalarProperty Name="message_type_id" ColumnName="message_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomTableFields">
+      <EntityTypeMapping TypeName="FuelCardDBModel.CustomTableFields">
+        <MappingFragment StoreEntitySet="CustomTableFields">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="CustomFieldName" ColumnName="CustomFieldName" />
+          <ScalarProperty Name="CustomFieldId" ColumnName="CustomFieldId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiscountsList">
+      <EntityTypeMapping TypeName="FuelCardDBModel.DiscountsList">
+        <MappingFragment StoreEntitySet="DiscountsList">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DiscountList_IsDefault" ColumnName="DiscountList_IsDefault" />
+          <ScalarProperty Name="DiscountList_DateCreated" ColumnName="DiscountList_DateCreated" />
+          <ScalarProperty Name="DiscountList_IsDeleted" ColumnName="DiscountList_IsDeleted" />
+          <ScalarProperty Name="DiscountList_IsActive" ColumnName="DiscountList_IsActive" />
+          <ScalarProperty Name="DiscountList_Description" ColumnName="DiscountList_Description" />
+          <ScalarProperty Name="DiscountList_Name" ColumnName="DiscountList_Name" />
+          <ScalarProperty Name="DiscountList_id" ColumnName="DiscountList_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnk_Discount_Product">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Lnk_Discount_Product">
+        <MappingFragment StoreEntitySet="Lnk_Discount_Product">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Discount_Type" ColumnName="Discount_Type" />
+          <ScalarProperty Name="Discount_Currency" ColumnName="Discount_Currency" />
+          <ScalarProperty Name="Discount_Value" ColumnName="Discount_Value" />
+          <ScalarProperty Name="Discount_List_id" ColumnName="Discount_List_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwDiscountProducts">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwDiscountProducts">
+        <MappingFragment StoreEntitySet="VwDiscountProducts">
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Discount_Type" ColumnName="Discount_Type" />
+          <ScalarProperty Name="Discount_Currency" ColumnName="Discount_Currency" />
+          <ScalarProperty Name="Discount_Value" ColumnName="Discount_Value" />
+          <ScalarProperty Name="Discount_List_id" ColumnName="Discount_List_id" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_AuditTrail">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_AuditTrail">
+        <MappingFragment StoreEntitySet="Customer_AuditTrail">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="DateofChange" ColumnName="DateofChange" />
+          <ScalarProperty Name="FieldValueAfterChange" ColumnName="FieldValueAfterChange" />
+          <ScalarProperty Name="FieldValueBeforeChange" ColumnName="FieldValueBeforeChange" />
+          <ScalarProperty Name="Field_Name" ColumnName="Field_Name" />
+          <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audit">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Audit">
+        <MappingFragment StoreEntitySet="Audit">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="PrimaryKeyValue" ColumnName="PrimaryKeyValue" />
+          <ScalarProperty Name="PrimaryKeyField" ColumnName="PrimaryKeyField" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_TaxCategory">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer_TaxCategory">
+        <MappingFragment StoreEntitySet="Customer_TaxCategory">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CustCatDescription" ColumnName="CustCatDescription" />
+          <ScalarProperty Name="CustCatName" ColumnName="CustCatName" />
+          <ScalarProperty Name="CustCatID" ColumnName="CustCatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tax">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Tax">
+        <MappingFragment StoreEntitySet="Tax">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CustCatID" ColumnName="CustCatID" />
+          <ScalarProperty Name="TaxRateID" ColumnName="TaxRateID" />
+          <ScalarProperty Name="TaxDescription" ColumnName="TaxDescription" />
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+          <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxCategory">
+      <EntityTypeMapping TypeName="FuelCardDBModel.TaxCategory">
+        <MappingFragment StoreEntitySet="TaxCategory">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CatDescription" ColumnName="CatDescription" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="CatID" ColumnName="CatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxRate">
+      <EntityTypeMapping TypeName="FuelCardDBModel.TaxRate">
+        <MappingFragment StoreEntitySet="TaxRate">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="TaxRateDescription" ColumnName="TaxRateDescription" />
+          <ScalarProperty Name="TaxRateValue" ColumnName="TaxRateValue" />
+          <ScalarProperty Name="TaxRateName" ColumnName="TaxRateName" />
+          <ScalarProperty Name="TaxRateID" ColumnName="TaxRateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwTax">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwTax">
+        <MappingFragment StoreEntitySet="VwTax">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="TaxRateName" ColumnName="TaxRateName" />
+          <ScalarProperty Name="CustCatName" ColumnName="CustCatName" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TaxDescription" ColumnName="TaxDescription" />
+          <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+          <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCustomerAccount">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCustomerAccount">
+        <MappingFragment StoreEntitySet="VwCustomerAccount">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AccType" ColumnName="AccType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreditType" ColumnName="CreditType" />
+          <ScalarProperty Name="Mask" ColumnName="Mask" />
+          <ScalarProperty Name="Mask_Type" ColumnName="Mask_Type" />
+          <ScalarProperty Name="AccountType_id" ColumnName="AccountType_id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCustomerEmpAccount">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCustomerEmpAccount">
+        <MappingFragment StoreEntitySet="VwCustomerEmpAccount">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Customer_MiddleName" ColumnName="Customer_MiddleName" />
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeneralSettings">
+      <EntityTypeMapping TypeName="FuelCardDBModel.GeneralSetting">
+        <MappingFragment StoreEntitySet="GeneralSettings">
+          <ScalarProperty Name="IsCCEmail" ColumnName="IsCCEmail" />
+          <ScalarProperty Name="CCEmail" ColumnName="CCEmail" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IndividualMultipleAccounts" ColumnName="IndividualMultipleAccounts" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="DefaultUsageLimit" ColumnName="DefaultUsageLimit" />
+          <ScalarProperty Name="MaxPrepaidBalance" ColumnName="MaxPrepaidBalance" />
+          <ScalarProperty Name="MaxTopupPerDay" ColumnName="MaxTopupPerDay" />
+          <ScalarProperty Name="BaseCurrency" ColumnName="BaseCurrency" />
+          <ScalarProperty Name="MinRedeemPoints" ColumnName="MinRedeemPoints" />
+          <ScalarProperty Name="PostPaidExpPeriod" ColumnName="PostPaidExpPeriod" />
+          <ScalarProperty Name="PostPaidExpValue" ColumnName="PostPaidExpValue" />
+          <ScalarProperty Name="GenSet_id" ColumnName="GenSet_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="message_type" ColumnName="message_type" />
+          <ScalarProperty Name="message_date" ColumnName="message_date" />
+          <ScalarProperty Name="message_body" ColumnName="message_body" />
+          <ScalarProperty Name="message_subject" ColumnName="message_subject" />
+          <ScalarProperty Name="customer_type" ColumnName="customer_type" />
+          <ScalarProperty Name="from_id" ColumnName="from_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChannelTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ChannelType">
+        <MappingFragment StoreEntitySet="ChannelTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ChannelType_DateCreated" ColumnName="ChannelType_DateCreated" />
+          <ScalarProperty Name="ChannelType_IsDeleted" ColumnName="ChannelType_IsDeleted" />
+          <ScalarProperty Name="ChannelType_IsActive" ColumnName="ChannelType_IsActive" />
+          <ScalarProperty Name="ChannelType_Description" ColumnName="ChannelType_Description" />
+          <ScalarProperty Name="ChannelType_Name" ColumnName="ChannelType_Name" />
+          <ScalarProperty Name="ChannelType_id" ColumnName="ChannelType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="ReasonAddSecondApvr" ColumnName="ReasonAddSecondApvr" />
+          <ScalarProperty Name="ReasonAddFirstApvr" ColumnName="ReasonAddFirstApvr" />
+          <ScalarProperty Name="ReasonDelSecondApvr" ColumnName="ReasonDelSecondApvr" />
+          <ScalarProperty Name="ReasonDelFirstApvr" ColumnName="ReasonDelFirstApvr" />
+          <ScalarProperty Name="ReasonEditSecondApvr" ColumnName="ReasonEditSecondApvr" />
+          <ScalarProperty Name="ReasonEditFirstApvr" ColumnName="ReasonEditFirstApvr" />
+          <ScalarProperty Name="IsEditApprovedSecondApvr" ColumnName="IsEditApprovedSecondApvr" />
+          <ScalarProperty Name="IsEditApprovedFirstApvr" ColumnName="IsEditApprovedFirstApvr" />
+          <ScalarProperty Name="IsDelApprovedSecondApvr" ColumnName="IsDelApprovedSecondApvr" />
+          <ScalarProperty Name="IsDelApprovedFirstApvr" ColumnName="IsDelApprovedFirstApvr" />
+          <ScalarProperty Name="IsAddApprovedSecondApvr" ColumnName="IsAddApprovedSecondApvr" />
+          <ScalarProperty Name="IsAddApprovedFirstApvr" ColumnName="IsAddApprovedFirstApvr" />
+          <ScalarProperty Name="ProductType_IsbeingAdded" ColumnName="ProductType_IsbeingAdded" />
+          <ScalarProperty Name="ProductType_IsbeingEdited" ColumnName="ProductType_IsbeingEdited" />
+          <ScalarProperty Name="ProductType_IsbeingDeleted" ColumnName="ProductType_IsbeingDeleted" />
+          <ScalarProperty Name="ProductType_IsDeletedFlag" ColumnName="ProductType_IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="ProductType_DateCreated" ColumnName="ProductType_DateCreated" />
+          <ScalarProperty Name="ProductType_IsDeleted" ColumnName="ProductType_IsDeleted" />
+          <ScalarProperty Name="ProductType_IsActive" ColumnName="ProductType_IsActive" />
+          <ScalarProperty Name="ProductType_Description" ColumnName="ProductType_Description" />
+          <ScalarProperty Name="ProductType_Name" ColumnName="ProductType_Name" />
+          <ScalarProperty Name="ProductType_id" ColumnName="ProductType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="PasswordResetExpDate" ColumnName="PasswordResetExpDate" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Staff_Role" ColumnName="Staff_Role" />
+          <ScalarProperty Name="Staff_Channel_id" ColumnName="Staff_Channel_id" />
+          <ScalarProperty Name="Staff_TopupLimitValue" ColumnName="Staff_TopupLimitValue" />
+          <ScalarProperty Name="Staff_TopupLimitType" ColumnName="Staff_TopupLimitType" />
+          <ScalarProperty Name="Staff_Phone" ColumnName="Staff_Phone" />
+          <ScalarProperty Name="Staff_PIN" ColumnName="Staff_PIN" />
+          <ScalarProperty Name="Staff_Password" ColumnName="Staff_Password" />
+          <ScalarProperty Name="Staff_Email" ColumnName="Staff_Email" />
+          <ScalarProperty Name="Staff_Name" ColumnName="Staff_Name" />
+          <ScalarProperty Name="Staff_id" ColumnName="Staff_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="TaxCategoryID" ColumnName="TaxCategoryID" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsbeingAdded" ColumnName="IsbeingAdded" />
+          <ScalarProperty Name="IsbeingDeleted" ColumnName="IsbeingDeleted" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Product_DateCreated" ColumnName="Product_DateCreated" />
+          <ScalarProperty Name="Product_IsDeleted" ColumnName="Product_IsDeleted" />
+          <ScalarProperty Name="Product_IsActive" ColumnName="Product_IsActive" />
+          <ScalarProperty Name="Product_currency" ColumnName="Product_currency" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCreditLimit">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCreditLimit">
+        <MappingFragment StoreEntitySet="VwCreditLimit">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CustomerDesignation" ColumnName="CustomerDesignation" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Cust_id" ColumnName="Cust_id" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+          <ScalarProperty Name="CreditType" ColumnName="CreditType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreditLimit_Expiration" ColumnName="CreditLimit_Expiration" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="Credit_id" ColumnName="Credit_id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptSettings">
+      <EntityTypeMapping TypeName="FuelCardDBModel.ReceiptSettings">
+        <MappingFragment StoreEntitySet="ReceiptSettings">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsPrintable" ColumnName="IsPrintable" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Channels">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Channel">
+        <MappingFragment StoreEntitySet="Channels">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="IsbeingEdited" ColumnName="IsbeingEdited" />
+          <ScalarProperty Name="IsDeletedFlag" ColumnName="IsDeletedFlag" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="Channel_IsSelected" ColumnName="Channel_IsSelected" />
+          <ScalarProperty Name="Channel_DateCreated" ColumnName="Channel_DateCreated" />
+          <ScalarProperty Name="Channel_IsActive" ColumnName="Channel_IsActive" />
+          <ScalarProperty Name="Channel_IsDeleted" ColumnName="Channel_IsDeleted" />
+          <ScalarProperty Name="Channel_City" ColumnName="Channel_City" />
+          <ScalarProperty Name="Channel_Address" ColumnName="Channel_Address" />
+          <ScalarProperty Name="Channel_Country" ColumnName="Channel_Country" />
+          <ScalarProperty Name="Channel_Type" ColumnName="Channel_Type" />
+          <ScalarProperty Name="Channel_Description" ColumnName="Channel_Description" />
+          <ScalarProperty Name="Channel_Name" ColumnName="Channel_Name" />
+          <ScalarProperty Name="Channel_id" ColumnName="Channel_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Company_DateCreated" ColumnName="Company_DateCreated" />
+          <ScalarProperty Name="Company_IsDeleted" ColumnName="Company_IsDeleted" />
+          <ScalarProperty Name="Company_IsActive" ColumnName="Company_IsActive" />
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="Company_PIN" ColumnName="Company_PIN" />
+          <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
+          <ScalarProperty Name="Company_Phone2" ColumnName="Company_Phone2" />
+          <ScalarProperty Name="Company_Phone1" ColumnName="Company_Phone1" />
+          <ScalarProperty Name="Company_City" ColumnName="Company_City" />
+          <ScalarProperty Name="Company_Country" ColumnName="Company_Country" />
+          <ScalarProperty Name="Company_PostalCode" ColumnName="Company_PostalCode" />
+          <ScalarProperty Name="Company_PostalAddress" ColumnName="Company_PostalAddress" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FuelCardDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="CompanyContactPersonPhone2" ColumnName="CompanyContactPersonPhone2" />
+          <ScalarProperty Name="CompanyContactPersonEmail2" ColumnName="CompanyContactPersonEmail2" />
+          <ScalarProperty Name="CompanyContactPersonPosition2" ColumnName="CompanyContactPersonPosition2" />
+          <ScalarProperty Name="CompanyContactPersonName2" ColumnName="CompanyContactPersonName2" />
+          <ScalarProperty Name="CompanyContactPersonPhone1" ColumnName="CompanyContactPersonPhone1" />
+          <ScalarProperty Name="CompanyContactPersonEmail1" ColumnName="CompanyContactPersonEmail1" />
+          <ScalarProperty Name="CompanyContactPersonPosition1" ColumnName="CompanyContactPersonPosition1" />
+          <ScalarProperty Name="CompanyContactPersonName1" ColumnName="CompanyContactPersonName1" />
+          <ScalarProperty Name="CompanyDirectorID3" ColumnName="CompanyDirectorID3" />
+          <ScalarProperty Name="CompanyDirectorPIN3" ColumnName="CompanyDirectorPIN3" />
+          <ScalarProperty Name="CompanyDirectorPhone3" ColumnName="CompanyDirectorPhone3" />
+          <ScalarProperty Name="CompanyDirectorEmail3" ColumnName="CompanyDirectorEmail3" />
+          <ScalarProperty Name="CompanyDirectorLastName3" ColumnName="CompanyDirectorLastName3" />
+          <ScalarProperty Name="CompanyDirectorMiddleName3" ColumnName="CompanyDirectorMiddleName3" />
+          <ScalarProperty Name="CompanyDirectorFirstName3" ColumnName="CompanyDirectorFirstName3" />
+          <ScalarProperty Name="CompanyDirectorID2" ColumnName="CompanyDirectorID2" />
+          <ScalarProperty Name="CompanyDirectorPIN2" ColumnName="CompanyDirectorPIN2" />
+          <ScalarProperty Name="CompanyDirectorPhone2" ColumnName="CompanyDirectorPhone2" />
+          <ScalarProperty Name="CompanyDirectorEmail2" ColumnName="CompanyDirectorEmail2" />
+          <ScalarProperty Name="CompanyDirectorLastName2" ColumnName="CompanyDirectorLastName2" />
+          <ScalarProperty Name="CompanyDirectorMiddleName2" ColumnName="CompanyDirectorMiddleName2" />
+          <ScalarProperty Name="CompanyDirectorFirstName2" ColumnName="CompanyDirectorFirstName2" />
+          <ScalarProperty Name="CompanyDirectorID1" ColumnName="CompanyDirectorID1" />
+          <ScalarProperty Name="CompanyDirectorPIN1" ColumnName="CompanyDirectorPIN1" />
+          <ScalarProperty Name="CompanyDirectorPhone1" ColumnName="CompanyDirectorPhone1" />
+          <ScalarProperty Name="CompanyDirectorEmail1" ColumnName="CompanyDirectorEmail1" />
+          <ScalarProperty Name="CompanyDirectorLastName1" ColumnName="CompanyDirectorLastName1" />
+          <ScalarProperty Name="CompanyDirectorMiddleName1" ColumnName="CompanyDirectorMiddleName1" />
+          <ScalarProperty Name="CompanyDirectorFirstName1" ColumnName="CompanyDirectorFirstName1" />
+          <ScalarProperty Name="CompanyPhysicalAddressCountry" ColumnName="CompanyPhysicalAddressCountry" />
+          <ScalarProperty Name="CompanyPhysicalPostalCode" ColumnName="CompanyPhysicalPostalCode" />
+          <ScalarProperty Name="CompanyPhysicalAddress" ColumnName="CompanyPhysicalAddress" />
+          <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+          <ScalarProperty Name="CompanyPostalCode" ColumnName="CompanyPostalCode" />
+          <ScalarProperty Name="CompanyPostalAddress" ColumnName="CompanyPostalAddress" />
+          <ScalarProperty Name="CompanyVAT" ColumnName="CompanyVAT" />
+          <ScalarProperty Name="CompanyPIN" ColumnName="CompanyPIN" />
+          <ScalarProperty Name="CompanyRegistrationNo" ColumnName="CompanyRegistrationNo" />
+          <ScalarProperty Name="CompanyIncorporationDate" ColumnName="CompanyIncorporationDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Customer_AccountCurrency" ColumnName="Customer_AccountCurrency" />
+          <ScalarProperty Name="Customer_AccountNumber" ColumnName="Customer_AccountNumber" />
+          <ScalarProperty Name="Customer_BankBranch" ColumnName="Customer_BankBranch" />
+          <ScalarProperty Name="Customer_BankName" ColumnName="Customer_BankName" />
+          <ScalarProperty Name="NOK_Phone" ColumnName="NOK_Phone" />
+          <ScalarProperty Name="NOK_Email" ColumnName="NOK_Email" />
+          <ScalarProperty Name="NOK_LastName" ColumnName="NOK_LastName" />
+          <ScalarProperty Name="NOK_MiddleName" ColumnName="NOK_MiddleName" />
+          <ScalarProperty Name="NOK_FirstName" ColumnName="NOK_FirstName" />
+          <ScalarProperty Name="Customer_Fax" ColumnName="Customer_Fax" />
+          <ScalarProperty Name="Customer_ContactNoOffice" ColumnName="Customer_ContactNoOffice" />
+          <ScalarProperty Name="Customer_ContactNoHome" ColumnName="Customer_ContactNoHome" />
+          <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
+          <ScalarProperty Name="Customer_PostalCode" ColumnName="Customer_PostalCode" />
+          <ScalarProperty Name="Customer_PostalAddress" ColumnName="Customer_PostalAddress" />
+          <ScalarProperty Name="Customer_IDNumber" ColumnName="Customer_IDNumber" />
+          <ScalarProperty Name="Customer_PIN" ColumnName="Customer_PIN" />
+          <ScalarProperty Name="CustomerTaxCategoryID" ColumnName="CustomerTaxCategoryID" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CustomerDesignation" ColumnName="CustomerDesignation" />
+          <ScalarProperty Name="Discount_List_id" ColumnName="Discount_List_id" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="AutoRedistributeFunds" ColumnName="AutoRedistributeFunds" />
+          <ScalarProperty Name="Payment_Term_id" ColumnName="Payment_Term_id" />
+          <ScalarProperty Name="ReportingPassword" ColumnName="ReportingPassword" />
+          <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PasswordResetLnkDate" ColumnName="PasswordResetLnkDate" />
+          <ScalarProperty Name="VerificationMailDate" ColumnName="VerificationMailDate" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsVerificationMailSent" ColumnName="IsVerificationMailSent" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Customer_Role" ColumnName="Customer_Role" />
+          <ScalarProperty Name="Customer_Country" ColumnName="Customer_Country" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Gender" ColumnName="Customer_Gender" />
+          <ScalarProperty Name="Customer_DoB" ColumnName="Customer_DoB" />
+          <ScalarProperty Name="Customer_OtherName" ColumnName="Customer_OtherName" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Customer_MiddleName" ColumnName="Customer_MiddleName" />
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwCustomers">
+      <EntityTypeMapping TypeName="FuelCardDBModel.VwCustomers">
+        <MappingFragment StoreEntitySet="VwCustomers">
+          <ScalarProperty Name="CF10" ColumnName="CF10" />
+          <ScalarProperty Name="CF9" ColumnName="CF9" />
+          <ScalarProperty Name="CF8" ColumnName="CF8" />
+          <ScalarProperty Name="CF7" ColumnName="CF7" />
+          <ScalarProperty Name="CF6" ColumnName="CF6" />
+          <ScalarProperty Name="CF5" ColumnName="CF5" />
+          <ScalarProperty Name="CF4" ColumnName="CF4" />
+          <ScalarProperty Name="CF3" ColumnName="CF3" />
+          <ScalarProperty Name="CF2" ColumnName="CF2" />
+          <ScalarProperty Name="CF1" ColumnName="CF1" />
+          <ScalarProperty Name="CompanyContactPersonPhone2" ColumnName="CompanyContactPersonPhone2" />
+          <ScalarProperty Name="CompanyContactPersonEmail2" ColumnName="CompanyContactPersonEmail2" />
+          <ScalarProperty Name="CompanyContactPersonPosition2" ColumnName="CompanyContactPersonPosition2" />
+          <ScalarProperty Name="CompanyContactPersonName2" ColumnName="CompanyContactPersonName2" />
+          <ScalarProperty Name="CompanyContactPersonPhone1" ColumnName="CompanyContactPersonPhone1" />
+          <ScalarProperty Name="CompanyContactPersonEmail1" ColumnName="CompanyContactPersonEmail1" />
+          <ScalarProperty Name="CompanyContactPersonPosition1" ColumnName="CompanyContactPersonPosition1" />
+          <ScalarProperty Name="CompanyContactPersonName1" ColumnName="CompanyContactPersonName1" />
+          <ScalarProperty Name="CompanyDirectorID3" ColumnName="CompanyDirectorID3" />
+          <ScalarProperty Name="CompanyDirectorPIN3" ColumnName="CompanyDirectorPIN3" />
+          <ScalarProperty Name="CompanyDirectorPhone3" ColumnName="CompanyDirectorPhone3" />
+          <ScalarProperty Name="CompanyDirectorEmail3" ColumnName="CompanyDirectorEmail3" />
+          <ScalarProperty Name="CompanyDirectorLastName3" ColumnName="CompanyDirectorLastName3" />
+          <ScalarProperty Name="CompanyDirectorMiddleName3" ColumnName="CompanyDirectorMiddleName3" />
+          <ScalarProperty Name="CompanyDirectorFirstName3" ColumnName="CompanyDirectorFirstName3" />
+          <ScalarProperty Name="CompanyDirectorID2" ColumnName="CompanyDirectorID2" />
+          <ScalarProperty Name="CompanyDirectorPIN2" ColumnName="CompanyDirectorPIN2" />
+          <ScalarProperty Name="CompanyDirectorPhone2" ColumnName="CompanyDirectorPhone2" />
+          <ScalarProperty Name="CompanyDirectorEmail2" ColumnName="CompanyDirectorEmail2" />
+          <ScalarProperty Name="CompanyDirectorLastName2" ColumnName="CompanyDirectorLastName2" />
+          <ScalarProperty Name="CompanyDirectorMiddleName2" ColumnName="CompanyDirectorMiddleName2" />
+          <ScalarProperty Name="CompanyDirectorFirstName2" ColumnName="CompanyDirectorFirstName2" />
+          <ScalarProperty Name="CompanyDirectorID1" ColumnName="CompanyDirectorID1" />
+          <ScalarProperty Name="CompanyDirectorPIN1" ColumnName="CompanyDirectorPIN1" />
+          <ScalarProperty Name="CompanyDirectorPhone1" ColumnName="CompanyDirectorPhone1" />
+          <ScalarProperty Name="CompanyDirectorEmail1" ColumnName="CompanyDirectorEmail1" />
+          <ScalarProperty Name="CompanyDirectorLastName1" ColumnName="CompanyDirectorLastName1" />
+          <ScalarProperty Name="CompanyDirectorMiddleName1" ColumnName="CompanyDirectorMiddleName1" />
+          <ScalarProperty Name="CompanyDirectorFirstName1" ColumnName="CompanyDirectorFirstName1" />
+          <ScalarProperty Name="CompanyPhysicalAddressCountry" ColumnName="CompanyPhysicalAddressCountry" />
+          <ScalarProperty Name="CompanyPhysicalPostalCode" ColumnName="CompanyPhysicalPostalCode" />
+          <ScalarProperty Name="CompanyPhysicalAddress" ColumnName="CompanyPhysicalAddress" />
+          <ScalarProperty Name="CompanyCountry" ColumnName="CompanyCountry" />
+          <ScalarProperty Name="CompanyPostalCode" ColumnName="CompanyPostalCode" />
+          <ScalarProperty Name="CompanyPostalAddress" ColumnName="CompanyPostalAddress" />
+          <ScalarProperty Name="CompanyVAT" ColumnName="CompanyVAT" />
+          <ScalarProperty Name="CompanyPIN" ColumnName="CompanyPIN" />
+          <ScalarProperty Name="CompanyRegistrationNo" ColumnName="CompanyRegistrationNo" />
+          <ScalarProperty Name="CompanyIncorporationDate" ColumnName="CompanyIncorporationDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Customer_AccountCurrency" ColumnName="Customer_AccountCurrency" />
+          <ScalarProperty Name="Customer_AccountNumber" ColumnName="Customer_AccountNumber" />
+          <ScalarProperty Name="Customer_BankBranch" ColumnName="Customer_BankBranch" />
+          <ScalarProperty Name="Customer_BankName" ColumnName="Customer_BankName" />
+          <ScalarProperty Name="NOK_Phone" ColumnName="NOK_Phone" />
+          <ScalarProperty Name="NOK_Email" ColumnName="NOK_Email" />
+          <ScalarProperty Name="NOK_LastName" ColumnName="NOK_LastName" />
+          <ScalarProperty Name="NOK_MiddleName" ColumnName="NOK_MiddleName" />
+          <ScalarProperty Name="NOK_FirstName" ColumnName="NOK_FirstName" />
+          <ScalarProperty Name="Customer_Fax" ColumnName="Customer_Fax" />
+          <ScalarProperty Name="Customer_ContactNoOffice" ColumnName="Customer_ContactNoOffice" />
+          <ScalarProperty Name="Customer_ContactNoHome" ColumnName="Customer_ContactNoHome" />
+          <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
+          <ScalarProperty Name="Customer_PostalCode" ColumnName="Customer_PostalCode" />
+          <ScalarProperty Name="Customer_PostalAddress" ColumnName="Customer_PostalAddress" />
+          <ScalarProperty Name="Customer_IDNumber" ColumnName="Customer_IDNumber" />
+          <ScalarProperty Name="Customer_PIN" ColumnName="Customer_PIN" />
+          <ScalarProperty Name="CustomerTaxCategoryID" ColumnName="CustomerTaxCategoryID" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CustomerDesignation" ColumnName="CustomerDesignation" />
+          <ScalarProperty Name="Discount_List_id" ColumnName="Discount_List_id" />
+          <ScalarProperty Name="Price_List_id" ColumnName="Price_List_id" />
+          <ScalarProperty Name="AutoRedistributeFunds" ColumnName="AutoRedistributeFunds" />
+          <ScalarProperty Name="Payment_Term_id" ColumnName="Payment_Term_id" />
+          <ScalarProperty Name="ReportingPassword" ColumnName="ReportingPassword" />
+          <ScalarProperty Name="TotalEmp" ColumnName="TotalEmp" />
+          <ScalarProperty Name="IsEditApproved" ColumnName="IsEditApproved" />
+          <ScalarProperty Name="IsDelApproved" ColumnName="IsDelApproved" />
+          <ScalarProperty Name="IsAddApproved" ColumnName="IsAddApproved" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PasswordResetLnkDate" ColumnName="PasswordResetLnkDate" />
+          <ScalarProperty Name="VerificationMailDate" ColumnName="VerificationMailDate" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsVerificationMailSent" ColumnName="IsVerificationMailSent" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Customer_Role" ColumnName="Customer_Role" />
+          <ScalarProperty Name="Customer_Country" ColumnName="Customer_Country" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Gender" ColumnName="Customer_Gender" />
+          <ScalarProperty Name="Customer_DoB" ColumnName="Customer_DoB" />
+          <ScalarProperty Name="Customer_OtherName" ColumnName="Customer_OtherName" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

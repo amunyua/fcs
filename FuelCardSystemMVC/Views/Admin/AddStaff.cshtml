@@ -1,0 +1,220 @@
+﻿@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model FuelCardSystemEntities.Models.Staff
+@using FuelCardSystemMVC.Library
+@if (Model != null && Model.Staff_id > 0)
+{
+    if (_AppContext.HasPermission(Parameters.Can_Edit_Staff))
+    {
+        flag = true;
+    }
+}
+else
+{
+    if (_AppContext.HasPermission(Parameters.Can_Create_Staff))
+    {
+        flag = true;
+    }
+}
+@if (flag)
+{
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-user"></i><span class="margin">@(Model != null ? (Model.Staff_id > 0 ? "Update Staff Member" : "Add Staff Member") : "Add Staff Member")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("StaffList", "Admin")">List of Staff members</a></li>
+                <li class="active">@(Model != null ? (Model.Staff_id > 0 ? "Update Staff Member" : "Add Staff Member") : "Add Staff Member")</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Insert)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Successfully saved.</h4>
+                </div>
+            </div>
+            }
+            else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Update)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Successfully updated.</h4>
+                </div>
+            </div>
+            }
+            else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Error)
+            {
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i>Error occured.</h4>
+                </div>
+            </div>
+            }
+        }
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model != null ? (Model.Staff_id > 0 ? "Update Staff Member" : "Add Staff Member") : "Add Staff Member")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("AddStaff", "Admin", new { }, FormMethod.Post, new { @id = "AddStaffForm", @role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            @Html.TextBoxFor(x => x.Staff_Name, new { @placeholder = "Staff member's name", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            @Html.TextBoxFor(x => x.Staff_Email, new { @placeholder = "Email", @class = "form-control", @maxlength = "50" })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 158px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            @Html.TextBoxFor(x => x.Staff_Phone, new { @placeholder = "Phone Number", @class = "form-control", @maxlength = "30" })
+                        </div>
+                        <div class="" id="loading1" style="display: none; position: absolute; top: 232px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label>Topup limit type</label>
+                            @Html.DropDownListFor(x => x.Staff_TopupLimitType, (SelectList)ViewBag.time, new { @class = "form-control" })
+                            @*Html.DropDownListFor(x => x.Staff_TopupLimitType, new SelectList(_AppContext.TimePeriod().Select(x => new { value = x.Key, text = x.Value }), "value", "text"), new { @class = "form-control" })*@
+                        </div>
+                        <div class="form-group">
+                            <label>Topup limit value</label>
+                            @Html.TextBoxFor(x => x.Staff_TopupLimitValue, new { @placeholder = "Topup limit value", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Channel</label>
+                            @Html.DropDownListFor(x => x.Staff_Channel_id, (SelectList)ViewBag.Channels, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
+                            @Html.DropDownListFor(x => x.Staff_Role, (SelectList)ViewBag.Roles, new { @class = "form-control" })
+                        </div>
+                        @foreach (var item in (IEnumerable<FuelCardSystemEntities.Models.CustomTableFields>)ViewBag.tables)
+                        {
+                            if (item.CustomFieldId.Equals("CF1"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF1, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF2"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF2, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF3"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF3, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF4"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF4, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF5"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF5, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF6"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF6, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF7"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF7, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF8"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF8, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF9"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF9, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF10"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF10, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                        }
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.Staff_id)
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+        <script src="~/Content/plugins/input-mask/jquery.inputmask.phone.extensions.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddStaffFormLoad();
+                phone();
+                $("#manageStaff").addClass("active");
+                $("#idAddStaff").closest("li").addClass("active");
+                $(".alert").delay(2000).fadeOut(1000);
+                $("#Staff_Phone").inputmask("phone", {
+                    url: "/Content/plugins/input-mask/phone-codes/phone-codes.json"
+                });
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

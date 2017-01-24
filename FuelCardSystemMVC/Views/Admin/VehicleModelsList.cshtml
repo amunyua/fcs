@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "VehicleModelsList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.VwVehicle_VehicleModel>
+@using FuelCardSystemMVC.Library
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-truck"></i><span class="margin">Vehicle Model List...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Add_Vehicle_Model))
+        {
+            @Html.ActionLink("Add Model", "AddVehicleModel", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Vehicle Models</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Vehicle Make</th>
+                            <th style="text-align: center;">Vehicle Model</th>
+                            <th style="text-align: center;">Tank Capacity (in Liters)</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_Vehicle_Model))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Vehicle_Model))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.Vehicle_Make</td>
+                                <td style="text-align: center;">@item.VehicleModel_Name</td>
+                                <td style="text-align: center;">@item.TankCapacity</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Vehicle_Model))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.VehicleModelIsActive.Equals(true) ? "Active" : "InActive"), "VehicleModelsList", "Admin", new { id = item.VehicleModel_Id, status = "active" }, new { @class = (item.VehicleModelIsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.VehicleModelIsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "VehicleModelsList", "Admin", new { id = item.VehicleModel_Id, status = "delete" }, new { @class = (item.VehicleModelIsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.VehicleModelIsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete " + (item.VehicleModel_Name) + "?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Vehicle_Model))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddVehicleModel", "Admin", new { id = item.VehicleModel_Id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageCustomers").closest("li.treeview").addClass("active");
+            $("#idVehicleModelList").closest("li").addClass("active");
+        });
+    </script>
+}

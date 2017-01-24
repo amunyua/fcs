@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "AddRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model Tuple<FuelCardSystemEntities.Models.Role, List<FuelCardSystemEntities.Models.Permission>>
+@using FuelCardSystemMVC.Library
+
+@if (Model.Item1!=null && Model.Item1.Role_id > 0)
+{
+    if (_AppContext.HasPermission(Parameters.Can_Assign_PermissionsToRoles))
+    {
+        flag = true;
+    }
+}
+else
+{
+    if (_AppContext.HasPermission(Parameters.Can_Create_Role))
+    {
+        flag = true;
+    }
+}
+@if(flag)
+{
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-link"></i><span class="margin">@(Model.Item1!=null ? (Model.Item1.Role_id>0?"Edit Role":"Add Role") : "")</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("RolePermissionsList", "Admin")">List of Roles</a></li>
+            <li class="active">Add or Edit Roles</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">@(Model.Item1!=null ? (Model.Item1.Role_id>0?"Edit Role":"Add Role") : "")</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>@* /.box-tools *@
+            </div>@* /.box-header *@
+            <div style="display: none" class="overlay">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            @* form start *@
+            @using (Html.BeginForm("AddRole", "Admin", FormMethod.Post, new { @id = "AddRoleForm", @role = "form" }))
+            {
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="">Role Name</label>
+                        @Html.TextBoxFor(x => x.Item1.RoleName, new { @placeholder = "Role Name", @class = "form-control", @maxlength = 50 })
+                    </div>
+                    <div style="position: absolute; top: 85px; display: none;" id="loading" class="">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Role Description</label>
+                        @Html.TextAreaFor(x => x.Item1.RoleDescription, new { @placeholder = "Role description", @class = "form-control", @maxlength = 250 })
+                    </div>
+                    @if(Model.Item2!=null && Model.Item2.Count()>0)
+                    {
+                    <div class="form-group">
+                        <table id="PermissionTbl" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <input type="checkbox" id="selectAll" /></th>
+                                    <th style="text-align: center">Permission</th>
+                                    <th style="text-align: center">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var itm in Model.Item2)
+                                {
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <input type="checkbox" name="chk" value="@itm.Permission_Id" id="@itm.Permission_Id" class="check" @(itm.PermissionIsSelected==true?"checked='checked'":"") />
+                                        </td>
+                                        <td>@itm.PermissionName</td>
+                                        <td>@itm.PermissionDescription</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    }
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.Item1.Role_id)
+                        <input type="hidden" name="hdnPermission" id="hdnPermission" />
+                        <label for="chk"></label>
+                        <button ondblclick="DisableButton(this);" onclick="DisableButton(this);" class="btn btn-primary col-md-2 col-md-offset-5" type="submit">Save</button>
+                    </div>
+                </div>@* /.box-body *@
+            }
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#PermissionTbl").dataTable({
+                "aaSorting": [],
+                "aoColumnDefs": [{ "bSortable": false, "aTargets": [0] }],
+                "iDisplayLength": -1,
+                "aLengthMenu": [[20, 40, 60, 80, 100, -1], [20, 40, 60, 80, 100, "All"]]
+            });
+            // Set 'Select All' to checked if all other boxes are already checked
+            $('#selectAll').prop('checked', $('.check').length == $('.check:checked').length);
+
+            // Add click function to 'Select All' to select all other boxes
+            var oTable = $("#PermissionTbl").dataTable();
+            $('#selectAll').click(function () {
+                $('input', oTable.fnGetNodes()).prop('checked', this.checked);
+                $("tr").toggleClass("bg-yellow-gradient");
+                Populate()
+            });
+
+            // Make selectAll checkbox checked if all the other checkboxes checked otherwise make it unchecked
+            $('.check').click(function () {
+                $('#selectAll').prop('checked', $('.check').length == $('.check:checked').length);
+                $(this).closest("tr").toggleClass("bg-yellow-gradient");
+            });
+
+            $('input[type="checkbox"]').on('change', function () {
+                Populate()
+            }).change();
+
+            AddRoleFormLoad();
+            $("#idAddRole").closest("li.treeview").addClass("active");
+            $("#idAddRole").closest("li").addClass("active");
+        });
+        function Populate() {
+            var oTable = $("#PermissionTbl").dataTable();
+            vals = $("input:checked", oTable.fnGetNodes()).map(function () {
+                $(this).closest("tr").addClass("bg-yellow-gradient");
+                return this.value
+            }).get().join(',');
+            $('#hdnPermission').val(vals);
+        }
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

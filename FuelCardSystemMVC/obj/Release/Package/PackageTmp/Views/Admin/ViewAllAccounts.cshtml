@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "ViewAllAccounts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.VwCustomerAccount>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-credit-card"></i><span class="margin">List of Accounts</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">List of Accounts</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Accounts...</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Account Owner</th>
+                            <th style="text-align: center;">Account Number</th>
+                            <th style="text-align: center;">Account Type</th>
+                            <th style="text-align: center;">Mask Type</th>
+                            <th style="text-align: center;">Mask</th>
+                            <th style="text-align: center;">Balance</th>
+                            <th style="text-align: center;">Credit Type</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Topup_Account))
+                            {
+                                <th style="text-align: center;">Top-up / Set Limit</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Define_AccountUsageLimits))
+                            {
+                                <th style="text-align: center; width: 150px">Set-Up usage Limits</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Activate_Account))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Account))
+                            {
+                                <th style="text-align: center;">Edit</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*@foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.Customer_Name</td>
+                                <td style="text-align: center;">@item.AccountNumber</td>
+                                <td style="text-align: center;">@item.AccType</td>
+                                <td style="text-align: center;">@item.Mask_Type</td>
+                                <td style="text-align: center;">@item.Mask</td>
+                                <td style="text-align: center;">@Html.ActionLink(item.Balance != null ? item.Balance.ToString() : "0", "ViewAccTopup", "Admin", new { id = item.AccountNumber }, new { @data_toggle = "tooltip", @title = "View/Edit Topup history." })</td>
+                                <td style="text-align: center;">@Html.ActionLink((item.CreditType.Equals(0) ? "Prepaid" : "Postpaid"), "CustomerAccountDetails", "Admin", new { accno = item.AccountNumber, status = "type" }, new { @class = (item.CreditType.Equals(0) ? "btn btn-primary btn-sm" : "btn btn-success btn-sm") })</td>
+                                <td style="text-align: center;">@Html.ActionLink("Topup", "TopupCustomerAccount", "Admin", new { @id = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })</td>
+                                <td style="text-align: center;">
+                                    @Html.ActionLink("Set-up", "SetupAccountUsageLimit", "Admin", new { @id = item.AccountNumber, @custid = item.Customer_id }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("View", "ViewAccountUsageLimits", "Admin", new { @id = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                                <td style="text-align: center;">@Html.ActionLink((item.IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "CustomerAccountDetails", "Admin", new { accno = item.AccountNumber, status = "delete" }, new { @class = (item.IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete (" + (item.AccountNumber) + ")?')") })</td>
+                                <td style="text-align: center;">
+                                    @Html.ActionLink("Edit", "AssignAccounts", "Admin", new { @id = item.Customer_id, @accno = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }*@
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/pagination_bootstrap.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var oTable = $('#prodtypesTbl').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": "/Admin/AjaxHandlerAccounts",
+                "bProcessing": true,
+                "aoColumns": [
+                                { "sName": "CUSTOMER_NAME" },
+                                { "sName": "ACCOUNTNUMBER" },
+                                { "sName": "ACCTYPE" },
+                                { "sName": "MASK_TYPE" },
+                                { "sName": "MASK" },
+                                {
+                                    "sName": "BALANCE",
+                                    "fnRender": function (oObj) {
+                                        if (oObj.aData[19] == 0) {
+                                            return "<td><a href=\"/Admin/ViewAccTopup/" + oObj.aData[6] + "\" data-toggle=\"tooltip\" data-original-title=\"View Topup history.\">" + (oObj.aData[5] == 0 || oObj.aData[5] == "" ? 0 : oObj.aData[5]) + "</a></td>";
+                                        }
+                                        else if (oObj.aData[19] == 1) {
+                                            return "<td><a href=\"/Admin/SetLimitCustomerAccount/" + oObj.aData[6] + "\" data-toggle=\"tooltip\" data-original-title=\"View postpaid limit history.\">" + (oObj.aData[5] == 0 || oObj.aData[5] == "" ? 0 : oObj.aData[5]) + "</a></td>";
+                                        }
+                                    }
+                                },
+                                {
+                                    "sName": "CREDITTYPE",
+                                    "fnRender": function (oObj) {
+                                        if (oObj.aData[7] == 0 || oObj.aData[7]=="") {
+                                            return "<td style=\"text-align: center;\" class=\" \"><button class=\"btn btn-success btn-sm\">Prepaid</button></td>";
+                                        }
+                                        else if (oObj.aData[7] == 1) {
+                                            return "<td style=\"text-align: center;\" class=\" \"><button class=\"btn btn-info btn-sm\">PostPaid</button></td>";
+                                        }
+                                    }
+                                },
+                                @if (_AppContext.HasPermission(Parameters.Can_Topup_Account))
+                                {
+                                    <text>
+                                {
+                                    "sName": "TOPUP",
+                                    "fnRender": function (oObj) {
+                                        //return "<td><a href=\"/Admin/TopupCustomerAccount/" + oObj.aData[9] + "\" class = \"btn btn-primary btn-sm\">Topup</a></td>";
+                                        if (oObj.aData[18] == 0) {
+                                            return "<td><a href=\"/Admin/TopupCustomerAccount/" + oObj.aData[9] + "\" class = \"btn btn-primary btn-sm\">Top-up</a></td>";
+                                        }
+                                        else if (oObj.aData[18] == 1) {
+                                            return "<td><a href=\"/Admin/SetLimitCustomerAccount/" + oObj.aData[9] + "\" class = \"btn btn-primary btn-sm\">Set Limit</a></td>";
+                                        }
+                                    }
+                                },
+                                </text>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Define_AccountUsageLimits))
+                                {
+                                    <text>
+                                {
+                                    "sName": "SETUP",
+                                    "fnRender": function (oObj) {
+                                        return "<td class=\"text-center\"><a href=\"/Admin/SetupAccountUsageLimit/" + oObj.aData[10] + "?custid=" + oObj.aData[11] + "\" class = \"btn btn-primary btn-sm\">Set-up</a> <a href=\"/Admin/ViewAccountUsageLimits/" + oObj.aData[12] + "\" class = \"btn btn-primary btn-sm\">View</a></td>";
+                                    }
+                                },
+                                </text>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Activate_Account))
+                                {
+                                    <text>
+                                {
+                                    "sName": "IsActive",
+                                    "fnRender": function (oObj) {
+                                        if (oObj.aData[13] == "True") {
+                                            return "<td style=\"text-align: center;\" class=\" \"><a href=\"/Admin/ViewAllAccounts/?accno=" + oObj.aData[14] + "&status=active\" class=\"btn btn-success btn-sm\">Active</a></td>";
+                                        }
+                                        else if (oObj.aData[13] == "False") {
+                                            return "<td style=\"text-align: center;\" class=\" \"><a href=\"/Admin/ViewAllAccounts/?accno=" + oObj.aData[14] + "&status=active\" class=\"btn btn-danger btn-sm\">In Active</a></td>";
+                                        }
+                                    }
+                                },
+                                </text>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Account))
+                                {
+                                    <text>
+                                {
+                                    "sName": "EDIT",
+                                    "fnRender": function (oObj) {
+                                        return "<td><a href=\"/Admin/AssignAccounts/" + oObj.aData[15] + "?accno=" + oObj.aData[16] + "\" class = \"btn btn-primary btn-sm\">Edit</a></td>";
+                                    }
+                                },
+                                </text>
+                                }
+                ]
+            });
+            $("#manageAccount").closest("li.treeview").addClass("active");
+            $("#ViewAllAccounts").closest("li").addClass("active");
+            $("#prodtypesTbl_processing").html("<div class=\"overlay\" style=\"display: block; height: 100%; left: 0; position: absolute; top: 0; width: 100%;\"><i class=\"fa fa-refresh fa-spin\"></i></div>");
+        });
+    </script>
+}

@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "CustomerAccountDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.Customer_Account>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-credit-card"></i><span class="margin">List of Accounts of @(ViewBag.custname != null ? ViewBag.custname : "")</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="/Admin"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="/Admin/CustomersList">Customer List</a></li>
+            <li class="active">List of Accounts</li>
+        </ol>
+        @if (_AppContext.HasPermission(Parameters.Can_Assign_AccountsToCustomerEmployeeDept))
+        {
+            @Html.ActionLink("Add Account", "AssignAccounts", "Admin", new { @id = ViewBag.id }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Accounts...</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Account Number</th>
+                            <th style="text-align: center;">Account Type</th>
+                            <th style="text-align: center;">Mask Type</th>
+                            <th style="text-align: center;">Mask</th>
+                            <th style="text-align: center;">Balance</th>
+                            <th style="text-align: center;">Credit Type</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Topup_Account))
+                            {
+                                <th style="text-align: center;">Topup / Set Limit</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Define_AccountUsageLimits))
+                            {
+                                <th style="text-align: center;">Set-Up usage Limits</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Activate_Account))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Account))
+                            {
+                                <th style="text-align: center;">Edit</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Transfer_Account))
+                            {
+                                <th style="text-align: center;">Transfer</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr  data-toggle="tooltip" class="@(item.IsCollection == true ? "bg-gray" : "")" title="@(item.IsCollection == true ? "Collection Account" : "")">
+                                <td style="text-align: center;">@item.AccountNumber</td>
+                                <td style="text-align: center;">@(AdminBAL.GetAccountTypeById(item.AccountType_id))</td>
+                                <td style="text-align: center;">@item.Mask_Type</td>
+                                <td style="text-align: center;">@item.Mask</td>
+                                @if (item.CreditType == 0 || item.CreditType==null)
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink(item.Balance != null ? string.Format("{0:n}", item.Balance) : "0", "ViewAccTopup", "Admin", new { id = item.AccountNumber }, new { @data_toggle = "tooltip", @title = "View Topup history." })</td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink(item.Balance != null ? string.Format("{0:n}", item.Balance) : "0", "SetLimitCustomerAccount", "Admin", new { id = item.AccountNumber }, new { @data_toggle = "tooltip", @title = "View postpaid limit history." })</td>
+                                }
+                                <td style="text-align: center;">
+                                    <button class = "@(item.CreditType.Equals(0) || item.CreditType==null  ? "btn btn-primary btn-sm" : "btn btn-success btn-sm")">@(item.CreditType.Equals(0) || item.CreditType==null ? "Prepaid" : "Postpaid")</button></td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Topup_Account))
+                                {
+                                    if (item.CreditType == 0 || item.CreditType==null)
+                                    {
+                                    <td style="text-align: center;">@Html.ActionLink("Topup", "TopupCustomerAccount", "Admin", new { @id = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })</td>
+                                    }
+                                    else
+                                    {
+                                    <td style="text-align: center;">@Html.ActionLink("Set Limit", "SetLimitCustomerAccount", "Admin", new { @id = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })</td>
+                                    }
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Define_AccountUsageLimits))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Set-up", "SetupAccountUsageLimit", "Admin", new { @id = item.AccountNumber, @custid = item.Customer_id }, new { @class = "btn btn-primary btn-sm" })
+                                        @Html.ActionLink("View", "ViewAccountUsageLimits", "Admin", new { @id = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Activate_Account))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.IsActive.Equals(true) ? "Active" : "In Active"), "CustomerAccountDetails", "Admin", new { accno = item.AccountNumber, status = "active" }, new { @class = (item.IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Account))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AssignAccounts", "Admin", new { @id = item.Customer_id, @accno = item.AccountNumber }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Transfer_Account))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Transfer", "TransferAccount", "Admin", new { @id = item.Customer_id, @accno = item.AccountNumber }, new { @class = (item.Balance > 0 ? "btn btn-primary btn-sm" : "btn btn-primary btn-sm disabled") })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageCustomers").closest("li.treeview").addClass("active");
+            $("#idCustList").closest("li").addClass("active");
+        });
+    </script>
+}

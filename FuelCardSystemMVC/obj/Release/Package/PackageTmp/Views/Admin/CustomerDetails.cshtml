@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "CustomerDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Tuple<FuelCardSystemEntities.Models.Customer, List<FuelCardSystemEntities.Models.CustomerType>>
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-user"></i><span class="margin">Customer Details</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("CustomersList", "Admin")">List of Customers</a></li>
+            <li class="active">Customer Details</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-list-alt"></i>
+                <h3 class="box-title">Full details...</h3>
+            </div>
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>Customer Name :</dt>
+                    <dd>@Model.Item1.Customer_Name</dd>
+                    <dt>Other Name :</dt>
+                    <dd>@Model.Item1.Customer_OtherName</dd>
+                    <dt>Email :</dt>
+                    <dd>@Model.Item1.Customer_Email</dd>
+                    <dt>Phone Number :</dt>
+                    <dd>@Model.Item1.Customer_Phone</dd>
+                    <dt>Country :</dt>
+                    <dd>@Model.Item1.Customer_Country</dd>
+                    <dt>Customer Role :</dt>
+                    <dd>@ViewBag.RoleName</dd>
+                    <dt>Customer Types :</dt>
+                    @foreach (var item in Model.Item2)
+                    {
+                        <dd>@item.Customer_Type</dd>
+                    }
+                    <dt>Date Created :</dt>
+                    <dd>@Model.Item1.DateCreated</dd>
+                    <dt>Is Active :</dt>
+                    <dd>@(Model.Item1.IsActive == true ? "Active" : "Inactive")</dd>
+                    <dt>Is Deleted :</dt>
+                    <dd>@(Model.Item1.IsDeleted == true ? "Deleted" : "Not Deleted")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#manageCustomers").addClass("active");
+            $("#idCustList").closest("li").addClass("active");
+        });
+    </script>
+}

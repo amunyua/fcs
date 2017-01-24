@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "ChannelProductSchedulesList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.VwChannelProductSchedule>
+@using FuelCardSystemMVC.Library
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-cubes"></i><span class="margin">List of Scheduled Products...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Set_Price_Schedule_for_Channel))
+        {
+            @Html.ActionLink("Set Prices for a Schedule", "AddPriceScheduletoChannels", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Scheduled Products</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="custtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Channel</th>
+                            <th style="text-align: center;">Product</th>
+                            <th style="text-align: center;">Price List</th>
+                            <th style="text-align: center;">Price</th>
+                            <th style="text-align: center;">Schedule</th>
+                            <th style="text-align: center;">Scheduled Price</th>
+                            <th style="text-align: center;">Effective Date</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Set_Price_Schedule_for_Channel))
+                            {
+                                <th style="text-align: center;">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.Channel_Name</td>
+                                <td style="text-align: center;">@item.Product_Name</td>
+                                <td style="text-align: center;">@item.PriceList_Name</td>
+                                <td style="text-align: center;">@string.Format("{0:n}",item.Product_Price)</td>
+                                <td style="text-align: center;">@item.Schedule_Name</td>
+                                <td style="text-align: center;">@string.Format("{0:n}",item.Scheduled_Price)</td>
+                                <td style="text-align: center;">@item.Effective_Date</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Set_Price_Schedule_for_Channel))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink("Run Now", "ChannelProductSchedulesList", "Admin", new { id = item.Lnk_Products_Channels_id }, new { @class = "btn btn-sm btn-danger", onClick = "return confirm('Are you sure you want to apply scheduled price on " + @item.Product_Name + " of " + @item.Channel_Name + "?')" })</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@{
+    var message = Html.Raw(TempData["Msg"]);
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#custtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            var msg = '@message';
+            if (msg) {
+                ShowMsg();
+            }
+            $("#managechannels").addClass("active");
+            $("#ChannelProductSchedulesList").closest("li").addClass("active");
+        });
+        function ShowMsg() {
+            $("#msg").show().delay(1000).fadeOut(1000);
+        }
+    </script>
+}

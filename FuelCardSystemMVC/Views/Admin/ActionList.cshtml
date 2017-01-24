@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "ActionList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.ActionsTbl>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-rocket"></i><span class="margin">List of Reward Actions...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_Action))
+        {
+            @Html.ActionLink("Add Reward Action", "AddAction", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Reward Actions...</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Reward Action Name</th>
+                            <th style="text-align: center;">Exclusivity</th>
+                            <th style="text-align: center;">Reward Item</th>
+                            <th style="text-align: center;">Arithmetic Type</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Add_Supplementary_Actions))
+                            {
+                                <th style="text-align: center;">Add/ Remove Supplementary Reward Actions</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Add_Conflicting_Actions))
+                            {
+                                <th style="text-align: center;">Conflict</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Action))
+                            {
+                                <th style="text-align: center; width: 15%">Edit</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_Action))
+                            {
+                                <th style="text-align: center; width: 15%">Delete</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.actionitem_id == null)
+                            {
+                            <tr class="bg-gray">
+                                <td style="text-align: center;">@item.Action_Name</td>
+                                <td style="text-align: center;">@(item.exclusive == true ? "Exclusive" : "Supplementary")</td>
+                                <td style="text-align: center;">N/A</td>
+                                <td style="text-align: center;">N/A</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Add_Supplementary_Actions))
+                                {
+                                    <td style="text-align: center;">Not Applicable
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Add_Conflicting_Actions))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink("Conflicts With", "ConflictsWith", "Admin", new { id = item.id }, new { @class = "btn btn-sm btn-warning" })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Action))
+                                {
+                                    <td style="text-align: center;">Not Applicable
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Action))
+                                {
+                                    <td style="text-align: center;">Not Applicable
+                                    </td>
+                                }
+                            </tr>
+                            }
+                            else
+                            {
+                            <tr>
+                                <td style="text-align: center;">@item.Action_Name</td>
+                                <td style="text-align: center;">@(item.exclusive == true ? "Exclusive" : "Supplementary")</td>
+                                <td style="text-align: center;">@(AdminBAL.GetActionItemById(item.actionitem_id))</td>
+                                <td style="text-align: center;">@(item.arithmetictype == true ? "Addition" : "Subtraction")</td>
+                                @if (item.exclusive == true)
+                                {
+                                    if (_AppContext.HasPermission(Parameters.Can_Add_Supplementary_Actions))
+                                    {
+                                    <td style="text-align: center;">Not Applicable
+                                    </td>
+                                    }
+                                }
+                                else
+                                {
+                                    if (_AppContext.HasPermission(Parameters.Can_Add_Supplementary_Actions))
+                                    {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Add/Remove", "AddSupplementaryAction", "Admin", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                    }
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Add_Conflicting_Actions))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Conflicts With", "ConflictsWith", "Admin", new { id = item.id }, new { @class = "btn btn-sm btn-warning" })
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Action))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddAction", "Admin", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Action))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.Action_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "ActionList", "Admin", new { id = item.id, status = "delete" }, new { @class = (item.Action_IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.Action_IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete (" + (item.Action_Name) + ")?')") })</td>
+                                }
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#programActions").closest("li.treeview").addClass("active");
+            $("#idAction").closest("li").addClass("active");
+        });
+    </script>
+}

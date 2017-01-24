@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "LoyaltyClassificationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.Tierlevel>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-calculator"></i><span class="margin">Customer Discounting/Points Filters</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_Classification))
+        {
+            @Html.ActionLink("Add Filter", "AddLoyaltyClassification", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">Customer Discounting/Points Filter</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Name / Date Created</th>
+                            <th style="text-align: center;">Product Type / Product</th>
+                            <th style="text-align: center;">Account Type</th>
+                            <th style="text-align: center;">Event</th>
+                            <th style="text-align: center;">Country</th>
+                            <th style="text-align: center;">Channel Type / Channel</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_Classification))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Classification))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@(item.tierlevel_name) / @(item.date_created)</td>
+                                <td style="text-align: center;">@(item.producttype_id!=null ? AdminBAL.GetProductTypeNameById(item.producttype_id) : "-") / @(item.product_id!=null ? AdminBAL.GetProductNameById(item.product_id) : "-")</td>
+                                <td style="text-align: center;">@(item.accounttype_id == null ? "All" : item.accounttype_id>0?AdminBAL.GetAccountTypeById(item.accounttype_id):"-")</td>
+                                @if(item.event_id!=null)
+                                {
+                                <td style="text-align: center;">@(AdminBAL.GetEventNameById(item.event_id))</td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center;">-</td>
+                                }
+                                @if(item.country_id!=null)
+                                {
+                                <td style="text-align: center;">@(AdminBAL.GetCountryNameById(item.country_id))</td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center;">-</td>
+                                }
+                                
+                                <td style="text-align: center;">@(item.channeltype_id!=null ? AdminBAL.GetChannelTypeNameById(item.channeltype_id) : "-") / @(item.channel_id!=null ? AdminBAL.GetChannelNameById(item.channel_id) : "-")</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Classification))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.tierlevel_IsActive.Equals(true) ? "Active" : "InActive"), "LoyaltyClassificationList", "Admin", new { id = item.id, status = "active" }, new { @class = (item.tierlevel_IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.tierlevel_IsDelete.Equals(true) ? "Deleted" : "Not Deleted"), "LoyaltyClassificationList", "Admin", new { id = item.id, status = "delete" }, new { @class = (item.tierlevel_IsDelete.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.tierlevel_IsDelete.Equals(true) ? "" : "return confirm('Are you sure you want to delete (" + (item.tierlevel_name) + ")?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Classification))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddLoyaltyClassification", "Admin", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageLtyProg").closest("li.treeview").addClass("active");
+            $("#idClassification").closest("li").addClass("active");
+        });
+    </script>
+}

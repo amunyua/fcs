@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "AccountTypeList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.AccountType>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-dollar"></i><span class="margin">List of Account Types...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_Account_Type))
+        {
+            @Html.ActionLink("Add Account Type", "AddAccountType", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="box-title">List of Account Types...</h3>
+                </div>
+                @*/.box-header*@
+                <div class="box-body">
+                    <table id="prodtypesTbl" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Account Type</th>
+                                <th style="text-align: center;">Description</th>
+                                <th style="text-align: center;">Actions</th>
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Account_Type))
+                                {
+                                    <th style="text-align: center;">Delete</th>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Account_Type))
+                                {
+                                    <th style="text-align: center; width: 15%">Edit</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="text-align: center;">@item.AccType</td>
+                                    <td style="text-align: center;">@item.AccDescription</td>
+                                    <td style="text-align: center;">
+                                        @foreach (var itm in AdminBAL.GetActionsFromAccountTypeID(item.id))
+                                        {
+                                            <p>@AdminBAL.GetActionNameFromActionID(itm.ActionId)</p>
+                                        }
+                                    </td>
+                                    @if (_AppContext.HasPermission(Parameters.Can_Delete_Account_Type))
+                                    {
+                                        <td style="text-align: center;">@Html.ActionLink((item.AccIsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "AccountTypeList", "Admin", new { id = item.id, status = "delete" }, new { @class = (item.AccIsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.AccIsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete (" + (item.AccType) + ")?')") })</td>
+                                    }
+                                    @if (_AppContext.HasPermission(Parameters.Can_Edit_Account_Type))
+                                    {
+                                        <td style="text-align: center;">
+                                            @Html.ActionLink("Edit", "AddAccountType", "Admin", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                @* /.box-body *@
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#manageAccount").closest("li.treeview").addClass("active");
+            $("#AccountTypeList").closest("li").addClass("active");
+        });
+    </script>
+}

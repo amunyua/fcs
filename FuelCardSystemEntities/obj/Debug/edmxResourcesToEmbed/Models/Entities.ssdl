@@ -1,0 +1,2420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FuelCardDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FuelCardDBModelStoreContainer">
+    <EntitySet Name="AccountType" EntityType="FuelCardDBModel.Store.AccountType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccountType_Action" EntityType="FuelCardDBModel.Store.AccountType_Action" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccoutingDocTypes" EntityType="FuelCardDBModel.Store.AccoutingDocTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="actionitem" EntityType="FuelCardDBModel.Store.actionitem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionsTbl" EntityType="FuelCardDBModel.Store.ActionsTbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Activity" EntityType="FuelCardDBModel.Store.Activity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActivityType" EntityType="FuelCardDBModel.Store.ActivityType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Approval" EntityType="FuelCardDBModel.Store.Approval" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Audit" EntityType="FuelCardDBModel.Store.Audit" store:Type="Tables" store:Schema="dbo" store:Name="Audit">
+      <DefiningQuery>SELECT 
+      [Audit].[AuditID] AS [AuditID], 
+      [Audit].[Type] AS [Type], 
+      [Audit].[TableName] AS [TableName], 
+      [Audit].[PrimaryKeyField] AS [PrimaryKeyField], 
+      [Audit].[PrimaryKeyValue] AS [PrimaryKeyValue], 
+      [Audit].[FieldName] AS [FieldName], 
+      [Audit].[OldValue] AS [OldValue], 
+      [Audit].[NewValue] AS [NewValue], 
+      [Audit].[UpdateDate] AS [UpdateDate], 
+      [Audit].[StaffId] AS [StaffId]
+      FROM [dbo].[Audit] AS [Audit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Cards" EntityType="FuelCardDBModel.Store.Cards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardTopup" EntityType="FuelCardDBModel.Store.CardTopup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardUsageLimit" EntityType="FuelCardDBModel.Store.CardUsageLimit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Channels" EntityType="FuelCardDBModel.Store.Channels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChannelTypes" EntityType="FuelCardDBModel.Store.ChannelTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChartofAccounts" EntityType="FuelCardDBModel.Store.ChartofAccounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChartofAccountsSubTypes" EntityType="FuelCardDBModel.Store.ChartofAccountsSubTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChartofAccountTypes" EntityType="FuelCardDBModel.Store.ChartofAccountTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommunicationTemplates" EntityType="FuelCardDBModel.Store.CommunicationTemplates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="FuelCardDBModel.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="conflicting_action" EntityType="FuelCardDBModel.Store.conflicting_action" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Country" EntityType="FuelCardDBModel.Store.Country" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Currency" EntityType="FuelCardDBModel.Store.Currency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_Account" EntityType="FuelCardDBModel.Store.Customer_Account" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_AccountTopup" EntityType="FuelCardDBModel.Store.Customer_AccountTopup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_AccountUsageLimit" EntityType="FuelCardDBModel.Store.Customer_AccountUsageLimit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_AuditTrail" EntityType="FuelCardDBModel.Store.Customer_AuditTrail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_PriceList" EntityType="FuelCardDBModel.Store.Customer_PriceList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_Roles" EntityType="FuelCardDBModel.Store.Customer_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_TaxCategory" EntityType="FuelCardDBModel.Store.Customer_TaxCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer_Vehicle" EntityType="FuelCardDBModel.Store.Customer_Vehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerPermissions" EntityType="FuelCardDBModel.Store.CustomerPermissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="FuelCardDBModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerTypes" EntityType="FuelCardDBModel.Store.CustomerTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomTableFields" EntityType="FuelCardDBModel.Store.CustomTableFields" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DiscountsList" EntityType="FuelCardDBModel.Store.DiscountsList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="FuelCardDBModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventsTbl" EntityType="FuelCardDBModel.Store.EventsTbl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Finance_Transaction" EntityType="FuelCardDBModel.Store.Finance_Transaction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FormulaValueType" EntityType="FuelCardDBModel.Store.FormulaValueType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gadgets" EntityType="FuelCardDBModel.Store.Gadgets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GeneralSettings" EntityType="FuelCardDBModel.Store.GeneralSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GLTransactions" EntityType="FuelCardDBModel.Store.GLTransactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Customers_CustomerTypes" EntityType="FuelCardDBModel.Store.Lnk_Customers_CustomerTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_CustomerVehicle_Account" EntityType="FuelCardDBModel.Store.Lnk_CustomerVehicle_Account" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Discount_Product" EntityType="FuelCardDBModel.Store.Lnk_Discount_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Gadgets_Channels" EntityType="FuelCardDBModel.Store.Lnk_Gadgets_Channels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_PriceList_Product" EntityType="FuelCardDBModel.Store.Lnk_PriceList_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Products_Channels" EntityType="FuelCardDBModel.Store.Lnk_Products_Channels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Products_Channels_Properties" EntityType="FuelCardDBModel.Store.Lnk_Products_Channels_Properties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Products_Properties" EntityType="FuelCardDBModel.Store.Lnk_Products_Properties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lnk_Role_Permission" EntityType="FuelCardDBModel.Store.Lnk_Role_Permission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LnkCustomer_Role_Permission" EntityType="FuelCardDBModel.Store.LnkCustomer_Role_Permission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loyalty_Program" EntityType="FuelCardDBModel.Store.Loyalty_Program" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loyalty_Scheme" EntityType="FuelCardDBModel.Store.Loyalty_Scheme" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MaskType" EntityType="FuelCardDBModel.Store.MaskType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Message" EntityType="FuelCardDBModel.Store.Message" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MessageTypes" EntityType="FuelCardDBModel.Store.MessageTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Payment_Terms" EntityType="FuelCardDBModel.Store.Payment_Terms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentMode" EntityType="FuelCardDBModel.Store.PaymentMode" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Periods" EntityType="FuelCardDBModel.Store.Periods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permissions" EntityType="FuelCardDBModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostpaidAccountCreditLimit" EntityType="FuelCardDBModel.Store.PostpaidAccountCreditLimit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostpaidCustCreditLimits" EntityType="FuelCardDBModel.Store.PostpaidCustCreditLimits" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PriceList" EntityType="FuelCardDBModel.Store.PriceList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductProperties" EntityType="FuelCardDBModel.Store.ProductProperties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="FuelCardDBModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductTypes" EntityType="FuelCardDBModel.Store.ProductTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiptSettings" EntityType="FuelCardDBModel.Store.ReceiptSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="refvaluehistory" EntityType="FuelCardDBModel.Store.refvaluehistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="FuelCardDBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule" EntityType="FuelCardDBModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule_History" EntityType="FuelCardDBModel.Store.Schedule_History" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff" EntityType="FuelCardDBModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="supplementary_action" EntityType="FuelCardDBModel.Store.supplementary_action" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tax" EntityType="FuelCardDBModel.Store.Tax" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaxCategory" EntityType="FuelCardDBModel.Store.TaxCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TaxRate" EntityType="FuelCardDBModel.Store.TaxRate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tierlevel" EntityType="FuelCardDBModel.Store.Tierlevel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tierrule" EntityType="FuelCardDBModel.Store.Tierrule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tiertable" EntityType="FuelCardDBModel.Store.Tiertable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TimeDuration" EntityType="FuelCardDBModel.Store.TimeDuration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicle" EntityType="FuelCardDBModel.Store.Vehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VehicleModel" EntityType="FuelCardDBModel.Store.VehicleModel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WeekDays" EntityType="FuelCardDBModel.Store.WeekDays" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VwAccUsageLimit_Products" EntityType="FuelCardDBModel.Store.VwAccUsageLimit_Products" store:Type="Views" store:Schema="dbo" store:Name="VwAccUsageLimit_Products">
+      <DefiningQuery>SELECT 
+      [VwAccUsageLimit_Products].[UsageLimit_Product_id] AS [UsageLimit_Product_id], 
+      [VwAccUsageLimit_Products].[TimeDuration_id] AS [TimeDuration_id], 
+      [VwAccUsageLimit_Products].[UsageLimit_id] AS [UsageLimit_id], 
+      [VwAccUsageLimit_Products].[UsageLimit_AccountNumber] AS [UsageLimit_AccountNumber], 
+      [VwAccUsageLimit_Products].[UsageLimit_Value] AS [UsageLimit_Value], 
+      [VwAccUsageLimit_Products].[UsageLimit_DateCreated] AS [UsageLimit_DateCreated], 
+      [VwAccUsageLimit_Products].[UsageLimit_Type] AS [UsageLimit_Type], 
+      [VwAccUsageLimit_Products].[UsageLimit_IsOverall] AS [UsageLimit_IsOverall], 
+      [VwAccUsageLimit_Products].[UsageLimit_IsActive] AS [UsageLimit_IsActive], 
+      [VwAccUsageLimit_Products].[UsageLimit_IsDeleted] AS [UsageLimit_IsDeleted], 
+      [VwAccUsageLimit_Products].[Product_id] AS [Product_id], 
+      [VwAccUsageLimit_Products].[Product_Name] AS [Product_Name], 
+      [VwAccUsageLimit_Products].[Product_Description] AS [Product_Description], 
+      [VwAccUsageLimit_Products].[Product_Type] AS [Product_Type], 
+      [VwAccUsageLimit_Products].[Product_Price] AS [Product_Price], 
+      [VwAccUsageLimit_Products].[Product_currency] AS [Product_currency], 
+      [VwAccUsageLimit_Products].[Product_IsActive] AS [Product_IsActive], 
+      [VwAccUsageLimit_Products].[Product_IsDeleted] AS [Product_IsDeleted], 
+      [VwAccUsageLimit_Products].[Product_DateCreated] AS [Product_DateCreated], 
+      [VwAccUsageLimit_Products].[Value] AS [Value], 
+      [VwAccUsageLimit_Products].[Type] AS [Type]
+      FROM [dbo].[VwAccUsageLimit_Products] AS [VwAccUsageLimit_Products]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwActivity_ActivityType" EntityType="FuelCardDBModel.Store.VwActivity_ActivityType" store:Type="Views" store:Schema="dbo" store:Name="VwActivity_ActivityType">
+      <DefiningQuery>SELECT 
+      [VwActivity_ActivityType].[Expr1] AS [Expr1], 
+      [VwActivity_ActivityType].[ActivityType_Name] AS [ActivityType_Name], 
+      [VwActivity_ActivityType].[ActivityType_Description] AS [ActivityType_Description], 
+      [VwActivity_ActivityType].[ActivityType_IsActive] AS [ActivityType_IsActive], 
+      [VwActivity_ActivityType].[ActivityType_IsDeleted] AS [ActivityType_IsDeleted], 
+      [VwActivity_ActivityType].[ActivityType_DateCreated] AS [ActivityType_DateCreated], 
+      [VwActivity_ActivityType].[Activity_Name] AS [Activity_Name], 
+      [VwActivity_ActivityType].[Activity_Description] AS [Activity_Description], 
+      [VwActivity_ActivityType].[Activity_IsActive] AS [Activity_IsActive], 
+      [VwActivity_ActivityType].[Activity_IsDeleted] AS [Activity_IsDeleted], 
+      [VwActivity_ActivityType].[Activity_DateCreated] AS [Activity_DateCreated], 
+      [VwActivity_ActivityType].[Activity_id] AS [Activity_id]
+      FROM [dbo].[VwActivity_ActivityType] AS [VwActivity_ActivityType]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCardsCustomers" EntityType="FuelCardDBModel.Store.VwCardsCustomers" store:Type="Views" store:Schema="dbo" store:Name="VwCardsCustomers">
+      <DefiningQuery>SELECT 
+      [VwCardsCustomers].[Customer_id] AS [Customer_id], 
+      [VwCardsCustomers].[Customer_FirstName] AS [Customer_FirstName], 
+      [VwCardsCustomers].[Customer_OtherName] AS [Customer_OtherName], 
+      [VwCardsCustomers].[Customer_DoB] AS [Customer_DoB], 
+      [VwCardsCustomers].[Customer_Gender] AS [Customer_Gender], 
+      [VwCardsCustomers].[Customer_Email] AS [Customer_Email], 
+      [VwCardsCustomers].[Customer_Password] AS [Customer_Password], 
+      [VwCardsCustomers].[Customer_Phone] AS [Customer_Phone], 
+      [VwCardsCustomers].[Customer_Country] AS [Customer_Country], 
+      [VwCardsCustomers].[Customer_Role] AS [Customer_Role], 
+      [VwCardsCustomers].[IsActive] AS [IsActive], 
+      [VwCardsCustomers].[IsDeleted] AS [IsDeleted], 
+      [VwCardsCustomers].[IsVerificationMailSent] AS [IsVerificationMailSent], 
+      [VwCardsCustomers].[IsVerified] AS [IsVerified], 
+      [VwCardsCustomers].[VerificationMailDate] AS [VerificationMailDate], 
+      [VwCardsCustomers].[PasswordResetLnkDate] AS [PasswordResetLnkDate], 
+      [VwCardsCustomers].[DateCreated] AS [DateCreated], 
+      [VwCardsCustomers].[Card_id] AS [Card_id], 
+      [VwCardsCustomers].[Card_UID] AS [Card_UID], 
+      [VwCardsCustomers].[Card_SNO] AS [Card_SNO], 
+      [VwCardsCustomers].[Card_Type] AS [Card_Type], 
+      [VwCardsCustomers].[Card_Owner] AS [Card_Owner], 
+      [VwCardsCustomers].[Card_Owner_Employee] AS [Card_Owner_Employee], 
+      [VwCardsCustomers].[Card_Balance] AS [Card_Balance], 
+      [VwCardsCustomers].[Card_Points_Balance] AS [Card_Points_Balance], 
+      [VwCardsCustomers].[Card_OverDraftValue] AS [Card_OverDraftValue], 
+      [VwCardsCustomers].[Card_PrepaidAmt] AS [Card_PrepaidAmt], 
+      [VwCardsCustomers].[Card_IsAssigned] AS [Card_IsAssigned], 
+      [VwCardsCustomers].[Card_IsActive] AS [Card_IsActive], 
+      [VwCardsCustomers].[Card_IsDeleted] AS [Card_IsDeleted], 
+      [VwCardsCustomers].[Card_DateAssigned] AS [Card_DateAssigned], 
+      [VwCardsCustomers].[Card_UploadDate] AS [Card_UploadDate], 
+      [VwCardsCustomers].[Card_UpdateDate] AS [Card_UpdateDate], 
+      [VwCardsCustomers].[Card_PIN] AS [Card_PIN], 
+      [VwCardsCustomers].[Card_IsAssignedtoEmp] AS [Card_IsAssignedtoEmp]
+      FROM [dbo].[VwCardsCustomers] AS [VwCardsCustomers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCardUsageLimit_Products" EntityType="FuelCardDBModel.Store.VwCardUsageLimit_Products" store:Type="Views" store:Schema="dbo" store:Name="VwCardUsageLimit_Products">
+      <DefiningQuery>SELECT 
+      [VwCardUsageLimit_Products].[Product_Name] AS [Product_Name], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_id] AS [Card_UsageLimit_id], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_Card_id] AS [Card_UsageLimit_Card_id], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_Product_id] AS [Card_UsageLimit_Product_id], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_Value] AS [Card_UsageLimit_Value], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_DateCreated] AS [Card_UsageLimit_DateCreated], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_Type] AS [Card_UsageLimit_Type], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_IsOverall] AS [Card_UsageLimit_IsOverall], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_IsActive] AS [Card_UsageLimit_IsActive], 
+      [VwCardUsageLimit_Products].[Card_UsageLimit_IsDeleted] AS [Card_UsageLimit_IsDeleted], 
+      [VwCardUsageLimit_Products].[Value] AS [Value], 
+      [VwCardUsageLimit_Products].[TimeDuration_id] AS [TimeDuration_id]
+      FROM [dbo].[VwCardUsageLimit_Products] AS [VwCardUsageLimit_Products]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwChannelGadgets" EntityType="FuelCardDBModel.Store.VwChannelGadgets" store:Type="Views" store:Schema="dbo" store:Name="VwChannelGadgets">
+      <DefiningQuery>SELECT 
+      [VwChannelGadgets].[Channel_id] AS [Channel_id], 
+      [VwChannelGadgets].[Gadget_id] AS [Gadget_id], 
+      [VwChannelGadgets].[Gadget_Name] AS [Gadget_Name], 
+      [VwChannelGadgets].[Channel_Name] AS [Channel_Name], 
+      [VwChannelGadgets].[Lnk_Gadget_IsActive] AS [Lnk_Gadget_IsActive], 
+      [VwChannelGadgets].[Lnk_Gadget_IsDeleted] AS [Lnk_Gadget_IsDeleted], 
+      [VwChannelGadgets].[Lnk_Gadget_DateCreated] AS [Lnk_Gadget_DateCreated], 
+      [VwChannelGadgets].[Lnk_Gadgets_Channels_id] AS [Lnk_Gadgets_Channels_id]
+      FROM [dbo].[VwChannelGadgets] AS [VwChannelGadgets]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwChannelProducts" EntityType="FuelCardDBModel.Store.VwChannelProducts" store:Type="Views" store:Schema="dbo" store:Name="VwChannelProducts">
+      <DefiningQuery>SELECT 
+      [VwChannelProducts].[Channel_Name] AS [Channel_Name], 
+      [VwChannelProducts].[Product_Name] AS [Product_Name], 
+      [VwChannelProducts].[Product_Price] AS [Product_Price], 
+      [VwChannelProducts].[Product_currency] AS [Product_currency], 
+      [VwChannelProducts].[Product_IsActive] AS [Product_IsActive], 
+      [VwChannelProducts].[Product_IsDeleted] AS [Product_IsDeleted], 
+      [VwChannelProducts].[Product_DateCreated] AS [Product_DateCreated], 
+      [VwChannelProducts].[Lnk_Products_Channels_id] AS [Lnk_Products_Channels_id], 
+      [VwChannelProducts].[Product_id] AS [Product_id], 
+      [VwChannelProducts].[Channel_id] AS [Channel_id], 
+      [VwChannelProducts].[PriceSchedule_Id] AS [PriceSchedule_Id], 
+      [VwChannelProducts].[Scheduled_Price] AS [Scheduled_Price], 
+      [VwChannelProducts].[Price_List_id] AS [Price_List_id], 
+      [VwChannelProducts].[Product_Type] AS [Product_Type], 
+      [VwChannelProducts].[Product_Description] AS [Product_Description]
+      FROM [dbo].[VwChannelProducts] AS [VwChannelProducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwChannelProductSchedule" EntityType="FuelCardDBModel.Store.VwChannelProductSchedule" store:Type="Views" store:Schema="dbo" store:Name="VwChannelProductSchedule">
+      <DefiningQuery>SELECT 
+      [VwChannelProductSchedule].[Lnk_Products_Channels_id] AS [Lnk_Products_Channels_id], 
+      [VwChannelProductSchedule].[Product_id] AS [Product_id], 
+      [VwChannelProductSchedule].[Channel_id] AS [Channel_id], 
+      [VwChannelProductSchedule].[Product_Price] AS [Product_Price], 
+      [VwChannelProductSchedule].[Product_currency] AS [Product_currency], 
+      [VwChannelProductSchedule].[Product_IsActive] AS [Product_IsActive], 
+      [VwChannelProductSchedule].[Product_IsDeleted] AS [Product_IsDeleted], 
+      [VwChannelProductSchedule].[Product_DateCreated] AS [Product_DateCreated], 
+      [VwChannelProductSchedule].[PriceSchedule_Id] AS [PriceSchedule_Id], 
+      [VwChannelProductSchedule].[Scheduled_Price] AS [Scheduled_Price], 
+      [VwChannelProductSchedule].[Product_Name] AS [Product_Name], 
+      [VwChannelProductSchedule].[Channel_Name] AS [Channel_Name], 
+      [VwChannelProductSchedule].[Schedule_Name] AS [Schedule_Name], 
+      [VwChannelProductSchedule].[Effective_Date] AS [Effective_Date], 
+      [VwChannelProductSchedule].[Schedule_IsActive] AS [Schedule_IsActive], 
+      [VwChannelProductSchedule].[Schedule_IsDeleted] AS [Schedule_IsDeleted], 
+      [VwChannelProductSchedule].[Schedule_DateCreated] AS [Schedule_DateCreated], 
+      [VwChannelProductSchedule].[Price_List_id] AS [Price_List_id], 
+      [VwChannelProductSchedule].[PriceList_Name] AS [PriceList_Name]
+      FROM [dbo].[VwChannelProductSchedule] AS [VwChannelProductSchedule]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwChannels_ChannelTypes" EntityType="FuelCardDBModel.Store.VwChannels_ChannelTypes" store:Type="Views" store:Schema="dbo" store:Name="VwChannels_ChannelTypes">
+      <DefiningQuery>SELECT 
+      [VwChannels_ChannelTypes].[ChannelType_id] AS [ChannelType_id], 
+      [VwChannels_ChannelTypes].[ChannelType_Name] AS [ChannelType_Name], 
+      [VwChannels_ChannelTypes].[ChannelType_Description] AS [ChannelType_Description], 
+      [VwChannels_ChannelTypes].[ChannelType_IsActive] AS [ChannelType_IsActive], 
+      [VwChannels_ChannelTypes].[ChannelType_IsDeleted] AS [ChannelType_IsDeleted], 
+      [VwChannels_ChannelTypes].[ChannelType_DateCreated] AS [ChannelType_DateCreated], 
+      [VwChannels_ChannelTypes].[Channel_id] AS [Channel_id], 
+      [VwChannels_ChannelTypes].[Channel_Name] AS [Channel_Name], 
+      [VwChannels_ChannelTypes].[Channel_Description] AS [Channel_Description], 
+      [VwChannels_ChannelTypes].[Channel_Type] AS [Channel_Type], 
+      [VwChannels_ChannelTypes].[Channel_Country] AS [Channel_Country], 
+      [VwChannels_ChannelTypes].[Channel_Address] AS [Channel_Address], 
+      [VwChannels_ChannelTypes].[Channel_City] AS [Channel_City], 
+      [VwChannels_ChannelTypes].[Channel_IsDeleted] AS [Channel_IsDeleted], 
+      [VwChannels_ChannelTypes].[Channel_IsActive] AS [Channel_IsActive], 
+      [VwChannels_ChannelTypes].[Channel_DateCreated] AS [Channel_DateCreated], 
+      [VwChannels_ChannelTypes].[Channel_IsSelected] AS [Channel_IsSelected], 
+      [VwChannels_ChannelTypes].[IsAddApproved] AS [IsAddApproved], 
+      [VwChannels_ChannelTypes].[IsDelApproved] AS [IsDelApproved], 
+      [VwChannels_ChannelTypes].[IsEditApproved] AS [IsEditApproved], 
+      [VwChannels_ChannelTypes].[IsDeletedFlag] AS [IsDeletedFlag]
+      FROM [dbo].[VwChannels_ChannelTypes] AS [VwChannels_ChannelTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCreditLimit" EntityType="FuelCardDBModel.Store.VwCreditLimit" store:Type="Views" store:Schema="dbo" store:Name="VwCreditLimit">
+      <DefiningQuery>SELECT 
+      [VwCreditLimit].[Customer_Name] AS [Customer_Name], 
+      [VwCreditLimit].[Credit_id] AS [Credit_id], 
+      [VwCreditLimit].[CreditLimit] AS [CreditLimit], 
+      [VwCreditLimit].[CreditLimit_Expiration] AS [CreditLimit_Expiration], 
+      [VwCreditLimit].[DateCreated] AS [DateCreated], 
+      [VwCreditLimit].[IsActive] AS [IsActive], 
+      [VwCreditLimit].[CreditType] AS [CreditType], 
+      [VwCreditLimit].[Customer_id] AS [Customer_id], 
+      [VwCreditLimit].[Cust_id] AS [Cust_id], 
+      [VwCreditLimit].[Expr1] AS [Expr1], 
+      [VwCreditLimit].[AccountNumber] AS [AccountNumber], 
+      [VwCreditLimit].[CustomerDesignation] AS [CustomerDesignation], 
+      [VwCreditLimit].[CompanyName] AS [CompanyName]
+      FROM [dbo].[VwCreditLimit] AS [VwCreditLimit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCustomerAccount" EntityType="FuelCardDBModel.Store.VwCustomerAccount" store:Type="Views" store:Schema="dbo" store:Name="VwCustomerAccount">
+      <DefiningQuery>SELECT 
+      [VwCustomerAccount].[AccountNumber] AS [AccountNumber], 
+      [VwCustomerAccount].[Customer_id] AS [Customer_id], 
+      [VwCustomerAccount].[AccountType_id] AS [AccountType_id], 
+      [VwCustomerAccount].[Mask_Type] AS [Mask_Type], 
+      [VwCustomerAccount].[Mask] AS [Mask], 
+      [VwCustomerAccount].[CreditType] AS [CreditType], 
+      [VwCustomerAccount].[IsDeleted] AS [IsDeleted], 
+      [VwCustomerAccount].[DateCreated] AS [DateCreated], 
+      [VwCustomerAccount].[Balance] AS [Balance], 
+      [VwCustomerAccount].[Customer_Name] AS [Customer_Name], 
+      [VwCustomerAccount].[id] AS [id], 
+      [VwCustomerAccount].[AccType] AS [AccType], 
+      [VwCustomerAccount].[IsActive] AS [IsActive]
+      FROM [dbo].[VwCustomerAccount] AS [VwCustomerAccount]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCustomerEmpAccount" EntityType="FuelCardDBModel.Store.VwCustomerEmpAccount" store:Type="Views" store:Schema="dbo" store:Name="VwCustomerEmpAccount">
+      <DefiningQuery>SELECT 
+      [VwCustomerEmpAccount].[Customer_FirstName] AS [Customer_FirstName], 
+      [VwCustomerEmpAccount].[Customer_MiddleName] AS [Customer_MiddleName], 
+      [VwCustomerEmpAccount].[Customer_LastName] AS [Customer_LastName], 
+      [VwCustomerEmpAccount].[Emp_id] AS [Emp_id], 
+      [VwCustomerEmpAccount].[Emp_Name] AS [Emp_Name], 
+      [VwCustomerEmpAccount].[AccountNumber] AS [AccountNumber], 
+      [VwCustomerEmpAccount].[Customer_id] AS [Customer_id], 
+      [VwCustomerEmpAccount].[IsDeleted] AS [IsDeleted]
+      FROM [dbo].[VwCustomerEmpAccount] AS [VwCustomerEmpAccount]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCustomers" EntityType="FuelCardDBModel.Store.VwCustomers" store:Type="Views" store:Schema="dbo" store:Name="VwCustomers">
+      <DefiningQuery>SELECT 
+      [VwCustomers].[Customer_id] AS [Customer_id], 
+      [VwCustomers].[Customer_Name] AS [Customer_Name], 
+      [VwCustomers].[Customer_OtherName] AS [Customer_OtherName], 
+      [VwCustomers].[Customer_DoB] AS [Customer_DoB], 
+      [VwCustomers].[Customer_Gender] AS [Customer_Gender], 
+      [VwCustomers].[Customer_Email] AS [Customer_Email], 
+      [VwCustomers].[Customer_Password] AS [Customer_Password], 
+      [VwCustomers].[Customer_Phone] AS [Customer_Phone], 
+      [VwCustomers].[Customer_Country] AS [Customer_Country], 
+      [VwCustomers].[Customer_Role] AS [Customer_Role], 
+      [VwCustomers].[IsActive] AS [IsActive], 
+      [VwCustomers].[IsDeleted] AS [IsDeleted], 
+      [VwCustomers].[IsVerificationMailSent] AS [IsVerificationMailSent], 
+      [VwCustomers].[IsVerified] AS [IsVerified], 
+      [VwCustomers].[VerificationMailDate] AS [VerificationMailDate], 
+      [VwCustomers].[PasswordResetLnkDate] AS [PasswordResetLnkDate], 
+      [VwCustomers].[DateCreated] AS [DateCreated], 
+      [VwCustomers].[IsBlocked] AS [IsBlocked], 
+      [VwCustomers].[IsAddApproved] AS [IsAddApproved], 
+      [VwCustomers].[IsDelApproved] AS [IsDelApproved], 
+      [VwCustomers].[IsEditApproved] AS [IsEditApproved], 
+      [VwCustomers].[TotalEmp] AS [TotalEmp], 
+      [VwCustomers].[ReportingPassword] AS [ReportingPassword], 
+      [VwCustomers].[Payment_Term_id] AS [Payment_Term_id], 
+      [VwCustomers].[AutoRedistributeFunds] AS [AutoRedistributeFunds], 
+      [VwCustomers].[Price_List_id] AS [Price_List_id], 
+      [VwCustomers].[Discount_List_id] AS [Discount_List_id], 
+      [VwCustomers].[CustomerDesignation] AS [CustomerDesignation], 
+      [VwCustomers].[ModifiedBy] AS [ModifiedBy], 
+      [VwCustomers].[CustomerTaxCategoryID] AS [CustomerTaxCategoryID], 
+      [VwCustomers].[Customer_PIN] AS [Customer_PIN], 
+      [VwCustomers].[Customer_IDNumber] AS [Customer_IDNumber], 
+      [VwCustomers].[Customer_PostalAddress] AS [Customer_PostalAddress], 
+      [VwCustomers].[Customer_PostalCode] AS [Customer_PostalCode], 
+      [VwCustomers].[Customer_Mobile] AS [Customer_Mobile], 
+      [VwCustomers].[Customer_ContactNoHome] AS [Customer_ContactNoHome], 
+      [VwCustomers].[Customer_ContactNoOffice] AS [Customer_ContactNoOffice], 
+      [VwCustomers].[Customer_Fax] AS [Customer_Fax], 
+      [VwCustomers].[NOK_FirstName] AS [NOK_FirstName], 
+      [VwCustomers].[NOK_MiddleName] AS [NOK_MiddleName], 
+      [VwCustomers].[NOK_LastName] AS [NOK_LastName], 
+      [VwCustomers].[NOK_Email] AS [NOK_Email], 
+      [VwCustomers].[NOK_Phone] AS [NOK_Phone], 
+      [VwCustomers].[Customer_BankName] AS [Customer_BankName], 
+      [VwCustomers].[Customer_BankBranch] AS [Customer_BankBranch], 
+      [VwCustomers].[Customer_AccountNumber] AS [Customer_AccountNumber], 
+      [VwCustomers].[Customer_AccountCurrency] AS [Customer_AccountCurrency], 
+      [VwCustomers].[CompanyName] AS [CompanyName], 
+      [VwCustomers].[CompanyIncorporationDate] AS [CompanyIncorporationDate], 
+      [VwCustomers].[CompanyRegistrationNo] AS [CompanyRegistrationNo], 
+      [VwCustomers].[CompanyPIN] AS [CompanyPIN], 
+      [VwCustomers].[CompanyVAT] AS [CompanyVAT], 
+      [VwCustomers].[CompanyPostalAddress] AS [CompanyPostalAddress], 
+      [VwCustomers].[CompanyPostalCode] AS [CompanyPostalCode], 
+      [VwCustomers].[CompanyCountry] AS [CompanyCountry], 
+      [VwCustomers].[CompanyPhysicalAddress] AS [CompanyPhysicalAddress], 
+      [VwCustomers].[CompanyPhysicalPostalCode] AS [CompanyPhysicalPostalCode], 
+      [VwCustomers].[CompanyPhysicalAddressCountry] AS [CompanyPhysicalAddressCountry], 
+      [VwCustomers].[CompanyDirectorFirstName1] AS [CompanyDirectorFirstName1], 
+      [VwCustomers].[CompanyDirectorMiddleName1] AS [CompanyDirectorMiddleName1], 
+      [VwCustomers].[CompanyDirectorLastName1] AS [CompanyDirectorLastName1], 
+      [VwCustomers].[CompanyDirectorEmail1] AS [CompanyDirectorEmail1], 
+      [VwCustomers].[CompanyDirectorPhone1] AS [CompanyDirectorPhone1], 
+      [VwCustomers].[CompanyDirectorPIN1] AS [CompanyDirectorPIN1], 
+      [VwCustomers].[CompanyDirectorID1] AS [CompanyDirectorID1], 
+      [VwCustomers].[CompanyDirectorFirstName2] AS [CompanyDirectorFirstName2], 
+      [VwCustomers].[CompanyDirectorMiddleName2] AS [CompanyDirectorMiddleName2], 
+      [VwCustomers].[CompanyDirectorLastName2] AS [CompanyDirectorLastName2], 
+      [VwCustomers].[CompanyDirectorEmail2] AS [CompanyDirectorEmail2], 
+      [VwCustomers].[CompanyDirectorPhone2] AS [CompanyDirectorPhone2], 
+      [VwCustomers].[CompanyDirectorPIN2] AS [CompanyDirectorPIN2], 
+      [VwCustomers].[CompanyDirectorID2] AS [CompanyDirectorID2], 
+      [VwCustomers].[CompanyDirectorFirstName3] AS [CompanyDirectorFirstName3], 
+      [VwCustomers].[CompanyDirectorMiddleName3] AS [CompanyDirectorMiddleName3], 
+      [VwCustomers].[CompanyDirectorLastName3] AS [CompanyDirectorLastName3], 
+      [VwCustomers].[CompanyDirectorEmail3] AS [CompanyDirectorEmail3], 
+      [VwCustomers].[CompanyDirectorPhone3] AS [CompanyDirectorPhone3], 
+      [VwCustomers].[CompanyDirectorPIN3] AS [CompanyDirectorPIN3], 
+      [VwCustomers].[CompanyDirectorID3] AS [CompanyDirectorID3], 
+      [VwCustomers].[CompanyContactPersonName1] AS [CompanyContactPersonName1], 
+      [VwCustomers].[CompanyContactPersonPosition1] AS [CompanyContactPersonPosition1], 
+      [VwCustomers].[CompanyContactPersonEmail1] AS [CompanyContactPersonEmail1], 
+      [VwCustomers].[CompanyContactPersonPhone1] AS [CompanyContactPersonPhone1], 
+      [VwCustomers].[CompanyContactPersonName2] AS [CompanyContactPersonName2], 
+      [VwCustomers].[CompanyContactPersonPosition2] AS [CompanyContactPersonPosition2], 
+      [VwCustomers].[CompanyContactPersonEmail2] AS [CompanyContactPersonEmail2], 
+      [VwCustomers].[CompanyContactPersonPhone2] AS [CompanyContactPersonPhone2], 
+      [VwCustomers].[CF1] AS [CF1], 
+      [VwCustomers].[CF2] AS [CF2], 
+      [VwCustomers].[CF3] AS [CF3], 
+      [VwCustomers].[CF4] AS [CF4], 
+      [VwCustomers].[CF5] AS [CF5], 
+      [VwCustomers].[CF6] AS [CF6], 
+      [VwCustomers].[CF7] AS [CF7], 
+      [VwCustomers].[CF8] AS [CF8], 
+      [VwCustomers].[CF9] AS [CF9], 
+      [VwCustomers].[CF10] AS [CF10]
+      FROM [dbo].[VwCustomers] AS [VwCustomers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwDiscountProducts" EntityType="FuelCardDBModel.Store.VwDiscountProducts" store:Type="Views" store:Schema="dbo" store:Name="VwDiscountProducts">
+      <DefiningQuery>SELECT 
+      [VwDiscountProducts].[Product_id] AS [Product_id], 
+      [VwDiscountProducts].[Channel_id] AS [Channel_id], 
+      [VwDiscountProducts].[Discount_List_id] AS [Discount_List_id], 
+      [VwDiscountProducts].[Discount_Value] AS [Discount_Value], 
+      [VwDiscountProducts].[Discount_Currency] AS [Discount_Currency], 
+      [VwDiscountProducts].[Discount_Type] AS [Discount_Type], 
+      [VwDiscountProducts].[Product_Name] AS [Product_Name], 
+      [VwDiscountProducts].[Product_Description] AS [Product_Description], 
+      [VwDiscountProducts].[Product_Type] AS [Product_Type], 
+      [VwDiscountProducts].[Product_Price] AS [Product_Price], 
+      [VwDiscountProducts].[Product_currency] AS [Product_currency], 
+      [VwDiscountProducts].[id] AS [id], 
+      [VwDiscountProducts].[Channel_Name] AS [Channel_Name]
+      FROM [dbo].[VwDiscountProducts] AS [VwDiscountProducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwPriceListProducts" EntityType="FuelCardDBModel.Store.VwPriceListProducts" store:Type="Views" store:Schema="dbo" store:Name="VwPriceListProducts">
+      <DefiningQuery>SELECT 
+      [VwPriceListProducts].[Product_id] AS [Product_id], 
+      [VwPriceListProducts].[Price_List_id] AS [Price_List_id], 
+      [VwPriceListProducts].[id] AS [id], 
+      [VwPriceListProducts].[Product_Price] AS [Product_Price], 
+      [VwPriceListProducts].[IsActive] AS [IsActive], 
+      [VwPriceListProducts].[IsDeleted] AS [IsDeleted], 
+      [VwPriceListProducts].[DateCreated] AS [DateCreated], 
+      [VwPriceListProducts].[Product_Name] AS [Product_Name], 
+      [VwPriceListProducts].[Product_Description] AS [Product_Description], 
+      [VwPriceListProducts].[BuyingPrice] AS [BuyingPrice], 
+      [VwPriceListProducts].[Product_currency] AS [Product_currency], 
+      [VwPriceListProducts].[Product_Type] AS [Product_Type]
+      FROM [dbo].[VwPriceListProducts] AS [VwPriceListProducts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwProduct_ProductProperty" EntityType="FuelCardDBModel.Store.VwProduct_ProductProperty" store:Type="Views" store:Schema="dbo" store:Name="VwProduct_ProductProperty">
+      <DefiningQuery>SELECT 
+      [VwProduct_ProductProperty].[ProductProperty_id] AS [ProductProperty_id], 
+      [VwProduct_ProductProperty].[ProductProperty_Name] AS [ProductProperty_Name], 
+      [VwProduct_ProductProperty].[ProductProperty_Description] AS [ProductProperty_Description], 
+      [VwProduct_ProductProperty].[ProductProperty_DateCreated] AS [ProductProperty_DateCreated], 
+      [VwProduct_ProductProperty].[ProductProperty_IsActive] AS [ProductProperty_IsActive], 
+      [VwProduct_ProductProperty].[ProductProperty_IsDeleted] AS [ProductProperty_IsDeleted], 
+      [VwProduct_ProductProperty].[IsAddApproved] AS [IsAddApproved], 
+      [VwProduct_ProductProperty].[IsDelApproved] AS [IsDelApproved], 
+      [VwProduct_ProductProperty].[IsEditApproved] AS [IsEditApproved], 
+      [VwProduct_ProductProperty].[IsDeletedFlag] AS [IsDeletedFlag], 
+      [VwProduct_ProductProperty].[IsbeingDeleted] AS [IsbeingDeleted], 
+      [VwProduct_ProductProperty].[IsbeingEdited] AS [IsbeingEdited], 
+      [VwProduct_ProductProperty].[IsbeingAdded] AS [IsbeingAdded], 
+      [VwProduct_ProductProperty].[Lnk_Products_Properties_id] AS [Lnk_Products_Properties_id], 
+      [VwProduct_ProductProperty].[Product_id] AS [Product_id], 
+      [VwProduct_ProductProperty].[Product_Property_id] AS [Product_Property_id], 
+      [VwProduct_ProductProperty].[Product_Property_DateCreated] AS [Product_Property_DateCreated], 
+      [VwProduct_ProductProperty].[IsActive] AS [IsActive], 
+      [VwProduct_ProductProperty].[IsDeleted] AS [IsDeleted]
+      FROM [dbo].[VwProduct_ProductProperty] AS [VwProduct_ProductProperty]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwProducts_ProductTypes" EntityType="FuelCardDBModel.Store.VwProducts_ProductTypes" store:Type="Views" store:Schema="dbo" store:Name="VwProducts_ProductTypes">
+      <DefiningQuery>SELECT 
+      [VwProducts_ProductTypes].[Product_id] AS [Product_id], 
+      [VwProducts_ProductTypes].[Product_Name] AS [Product_Name], 
+      [VwProducts_ProductTypes].[Product_Description] AS [Product_Description], 
+      [VwProducts_ProductTypes].[Product_Type] AS [Product_Type], 
+      [VwProducts_ProductTypes].[Product_Price] AS [Product_Price], 
+      [VwProducts_ProductTypes].[Product_currency] AS [Product_currency], 
+      [VwProducts_ProductTypes].[Product_IsActive] AS [Product_IsActive], 
+      [VwProducts_ProductTypes].[Product_IsDeleted] AS [Product_IsDeleted], 
+      [VwProducts_ProductTypes].[Product_DateCreated] AS [Product_DateCreated], 
+      [VwProducts_ProductTypes].[ProductType_id] AS [ProductType_id], 
+      [VwProducts_ProductTypes].[ProductType_Name] AS [ProductType_Name], 
+      [VwProducts_ProductTypes].[ProductType_Description] AS [ProductType_Description], 
+      [VwProducts_ProductTypes].[ProductType_IsActive] AS [ProductType_IsActive], 
+      [VwProducts_ProductTypes].[ProductType_IsDeleted] AS [ProductType_IsDeleted], 
+      [VwProducts_ProductTypes].[ProductType_DateCreated] AS [ProductType_DateCreated], 
+      [VwProducts_ProductTypes].[IsAddApproved] AS [IsAddApproved], 
+      [VwProducts_ProductTypes].[IsDelApproved] AS [IsDelApproved], 
+      [VwProducts_ProductTypes].[IsEditApproved] AS [IsEditApproved], 
+      [VwProducts_ProductTypes].[IsDeletedFlag] AS [IsDeletedFlag], 
+      [VwProducts_ProductTypes].[CatName] AS [CatName]
+      FROM [dbo].[VwProducts_ProductTypes] AS [VwProducts_ProductTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwTax" EntityType="FuelCardDBModel.Store.VwTax" store:Type="Views" store:Schema="dbo" store:Name="VwTax">
+      <DefiningQuery>SELECT 
+      [VwTax].[TaxID] AS [TaxID], 
+      [VwTax].[TaxName] AS [TaxName], 
+      [VwTax].[TaxDescription] AS [TaxDescription], 
+      [VwTax].[IsActive] AS [IsActive], 
+      [VwTax].[IsDeleted] AS [IsDeleted], 
+      [VwTax].[DateCreated] AS [DateCreated], 
+      [VwTax].[CatName] AS [CatName], 
+      [VwTax].[CustCatName] AS [CustCatName], 
+      [VwTax].[TaxRateName] AS [TaxRateName]
+      FROM [dbo].[VwTax] AS [VwTax]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwTest" EntityType="FuelCardDBModel.Store.VwTest" store:Type="Views" store:Schema="dbo" store:Name="VwTest">
+      <DefiningQuery>SELECT 
+      [VwTest].[Credit_id] AS [Credit_id], 
+      [VwTest].[Cust_id] AS [Cust_id], 
+      [VwTest].[CreditLimit] AS [CreditLimit], 
+      [VwTest].[CreditLimit_Expiration] AS [CreditLimit_Expiration], 
+      [VwTest].[DateCreated] AS [DateCreated], 
+      [VwTest].[IsActive] AS [IsActive], 
+      [VwTest].[ModifiedBy] AS [ModifiedBy]
+      FROM [dbo].[VwTest] AS [VwTest]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwVehicle_VehicleModel" EntityType="FuelCardDBModel.Store.VwVehicle_VehicleModel" store:Type="Views" store:Schema="dbo" store:Name="VwVehicle_VehicleModel">
+      <DefiningQuery>SELECT 
+      [VwVehicle_VehicleModel].[Vehicle_Id] AS [Vehicle_Id], 
+      [VwVehicle_VehicleModel].[Vehicle_Make] AS [Vehicle_Make], 
+      [VwVehicle_VehicleModel].[VehicleIsActive] AS [VehicleIsActive], 
+      [VwVehicle_VehicleModel].[VehicleIsDeleted] AS [VehicleIsDeleted], 
+      [VwVehicle_VehicleModel].[VehicleDateCreated] AS [VehicleDateCreated], 
+      [VwVehicle_VehicleModel].[VehicleModel_Id] AS [VehicleModel_Id], 
+      [VwVehicle_VehicleModel].[VehicleModel_Name] AS [VehicleModel_Name], 
+      [VwVehicle_VehicleModel].[VehicleModelIsActive] AS [VehicleModelIsActive], 
+      [VwVehicle_VehicleModel].[VehicleModelIsDeleted] AS [VehicleModelIsDeleted], 
+      [VwVehicle_VehicleModel].[VehicleModelDateCreated] AS [VehicleModelDateCreated], 
+      [VwVehicle_VehicleModel].[VehicleId] AS [VehicleId], 
+      [VwVehicle_VehicleModel].[TankCapacity] AS [TankCapacity]
+      FROM [dbo].[VwVehicle_VehicleModel] AS [VwVehicle_VehicleModel]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccType" Type="varchar" MaxLength="50" />
+    <Property Name="AccDescription" Type="varchar" MaxLength="250" />
+    <Property Name="AccIsDeleted" Type="bit" />
+    <Property Name="AccDateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AccountType_Action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccTypeId" Type="bigint" />
+    <Property Name="ActionId" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AccoutingDocTypes">
+    <Key>
+      <PropertyRef Name="Doc_Type_id" />
+    </Key>
+    <Property Name="Doc_Type_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Doc_Type_Name" Type="varchar" MaxLength="20" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="actionitem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="actionitem_name" Type="varchar" MaxLength="255" />
+    <Property Name="ref_value" Type="float" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="baseitem" Type="bit" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ActionsTbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Action_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Action_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Action_IsActive" Type="bit" />
+    <Property Name="Action_IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="exclusive" Type="bit" />
+    <Property Name="conflicting_action" Type="bit" />
+    <Property Name="actionitem_id" Type="bigint" />
+    <Property Name="supplementary_action" Type="bit" />
+    <Property Name="arithmetictype" Type="bit" />
+    <Property Name="Action_IsSelected" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Activity_id" />
+    </Key>
+    <Property Name="Activity_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityType_id" Type="bigint" />
+    <Property Name="Activity_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activity_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Activity_IsActive" Type="bit" />
+    <Property Name="Activity_IsDeleted" Type="bit" />
+    <Property Name="Activity_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ActivityType">
+    <Key>
+      <PropertyRef Name="ActivityType_id" />
+    </Key>
+    <Property Name="ActivityType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityType_Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityType_IsActive" Type="bit" />
+    <Property Name="ActivityType_IsDeleted" Type="bit" />
+    <Property Name="ActivityType_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Approval">
+    <Key>
+      <PropertyRef Name="Table_id" />
+    </Key>
+    <Property Name="Table_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsApprovalReqAdd" Type="bit" />
+    <Property Name="IsApprovalReqEdit" Type="bit" />
+    <Property Name="IsApprovalReqDelete" Type="bit" />
+    <Property Name="FirstApprover" Type="bigint" />
+    <Property Name="SecondApprover" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.Audit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="AuditID" />
+    </Key>
+    <Property Name="AuditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="char" MaxLength="1" />
+    <Property Name="TableName" Type="varchar" MaxLength="128" />
+    <Property Name="PrimaryKeyField" Type="varchar" MaxLength="1000" />
+    <Property Name="PrimaryKeyValue" Type="varchar" MaxLength="1000" />
+    <Property Name="FieldName" Type="varchar" MaxLength="128" />
+    <Property Name="OldValue" Type="varchar(max)" />
+    <Property Name="NewValue" Type="varchar(max)" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="StaffId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Cards">
+    <Key>
+      <PropertyRef Name="Card_id" />
+    </Key>
+    <Property Name="Card_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Card_UID" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_SNO" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_Type" Type="int" />
+    <Property Name="Card_Owner" Type="bigint" />
+    <Property Name="Card_Owner_Employee" Type="bigint" />
+    <Property Name="Card_PIN" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_Balance" Type="decimal" Scale="2" />
+    <Property Name="Card_Points_Balance" Type="int" />
+    <Property Name="Card_OverDraftValue" Type="decimal" Scale="2" />
+    <Property Name="Card_PrepaidAmt" Type="decimal" Scale="2" />
+    <Property Name="Card_IsAssigned" Type="bit" />
+    <Property Name="Card_IsAssignedtoEmp" Type="bit" />
+    <Property Name="Card_IsActive" Type="bit" />
+    <Property Name="Card_IsDeleted" Type="bit" />
+    <Property Name="Card_DateAssigned" Type="datetime" />
+    <Property Name="Card_UploadDate" Type="datetime" />
+    <Property Name="Card_UpdateDate" Type="datetime" />
+    <Property Name="Card_CreditLimit" Type="decimal" Scale="2" />
+    <Property Name="Card_CreditLimit_Expiration" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CardTopup">
+    <Key>
+      <PropertyRef Name="Card_topup_id" />
+    </Key>
+    <Property Name="Card_topup_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Card_id" Type="bigint" />
+    <Property Name="Card_Amount" Type="decimal" Scale="2" />
+    <Property Name="Card_Channel" Type="bigint" />
+    <Property Name="Card_Modeofpayment" Type="nvarchar" MaxLength="50" />
+    <Property Name="Card_Reference" Type="nvarchar" MaxLength="50" />
+    <Property Name="Card_topupby" Type="bigint" />
+    <Property Name="Card_topupdate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CardUsageLimit">
+    <Key>
+      <PropertyRef Name="Card_UsageLimit_id" />
+    </Key>
+    <Property Name="Card_UsageLimit_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Card_UsageLimit_Card_id" Type="bigint" />
+    <Property Name="Card_UsageLimit_Product_id" Type="bigint" />
+    <Property Name="Card_UsageLimit_Value" Type="decimal" Scale="2" />
+    <Property Name="Card_UsageLimit_DateCreated" Type="datetime" />
+    <Property Name="Card_UsageLimit_Type" Type="bigint" />
+    <Property Name="Card_UsageLimit_IsOverall" Type="bit" />
+    <Property Name="Card_UsageLimit_IsActive" Type="bit" />
+    <Property Name="Card_UsageLimit_IsDeleted" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Channels">
+    <Key>
+      <PropertyRef Name="Channel_id" />
+    </Key>
+    <Property Name="Channel_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Channel_Type" Type="bigint" />
+    <Property Name="Channel_Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="Channel_Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Channel_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_IsDeleted" Type="bit" />
+    <Property Name="Channel_IsActive" Type="bit" />
+    <Property Name="Channel_DateCreated" Type="datetime" />
+    <Property Name="Channel_IsSelected" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ChannelTypes">
+    <Key>
+      <PropertyRef Name="ChannelType_id" />
+    </Key>
+    <Property Name="ChannelType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ChannelType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChannelType_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChannelType_IsActive" Type="bit" />
+    <Property Name="ChannelType_IsDeleted" Type="bit" />
+    <Property Name="ChannelType_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ChartofAccounts">
+    <Key>
+      <PropertyRef Name="ChartofAccount_id" />
+    </Key>
+    <Property Name="ChartofAccount_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Account_Name" Type="varchar" MaxLength="50" />
+    <Property Name="ChartofAccountsSubType_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ChartofAccountsSubTypes">
+    <Key>
+      <PropertyRef Name="ChartofAccountsSubType_id" />
+    </Key>
+    <Property Name="ChartofAccountsSubType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Subtype_Name" Type="varchar" MaxLength="50" />
+    <Property Name="ChartofAccountType_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ChartofAccountTypes">
+    <Key>
+      <PropertyRef Name="ChartofAccountType_id" />
+    </Key>
+    <Property Name="ChartofAccountType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountType_Name" Type="varchar" MaxLength="50" />
+    <Property Name="IsGLType" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CommunicationTemplates">
+    <Key>
+      <PropertyRef Name="Template_Id" />
+    </Key>
+    <Property Name="Template_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Template_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Template_Content" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Template_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="Template_Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Name="Company_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Company_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Company_PostalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="Company_PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="Company_Country" Type="varchar" MaxLength="50" />
+    <Property Name="Company_City" Type="varchar" MaxLength="50" />
+    <Property Name="Company_Phone1" Type="varchar" MaxLength="50" />
+    <Property Name="Company_Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="Company_Email" Type="varchar" MaxLength="50" />
+    <Property Name="Company_PIN" Type="varchar" MaxLength="50" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="Company_IsActive" Type="bit" />
+    <Property Name="Company_IsDeleted" Type="bit" />
+    <Property Name="Company_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="conflicting_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="action_id" Type="bigint" />
+    <Property Name="conflicting_action_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Currency_id" />
+    </Key>
+    <Property Name="Currency_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyName" Type="nvarchar" MaxLength="20" />
+    <Property Name="CurrencySymbol" Type="nvarchar" MaxLength="5" />
+    <Property Name="RatioToBase" Type="decimal" Scale="2" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_Account">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="AccountType_id" Type="bigint" />
+    <Property Name="Mask_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Mask" Type="varchar" MaxLength="50" />
+    <Property Name="CreditType" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Balance" Type="decimal" Scale="2" />
+    <Property Name="IsCollection" Type="bit" Nullable="false" />
+    <Property Name="Employee_id" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_AccountTopup">
+    <Key>
+      <PropertyRef Name="AccountTopup_id" />
+    </Key>
+    <Property Name="AccountTopup_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AccountNumber" Type="bigint" />
+    <Property Name="Amount" Type="decimal" Scale="2" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Modeofpayment" Type="nvarchar" MaxLength="50" />
+    <Property Name="ERPRef" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChequeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankAccountNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="50" />
+    <Property Name="Topupby" Type="bigint" />
+    <Property Name="Topupdate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Finance_Transaction_id" Type="bigint" />
+    <Property Name="DrawerBankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PayeeBankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchDeposited" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepositSlipNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_AccountUsageLimit">
+    <Key>
+      <PropertyRef Name="UsageLimit_id" />
+    </Key>
+    <Property Name="UsageLimit_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UsageLimit_AccountNumber" Type="bigint" />
+    <Property Name="UsageLimit_Product_id" Type="bigint" />
+    <Property Name="UsageLimit_Value" Type="decimal" Scale="2" />
+    <Property Name="UsageLimit_DateCreated" Type="datetime" />
+    <Property Name="UsageLimit_Type" Type="bigint" />
+    <Property Name="UsageLimit_IsOverall" Type="bit" />
+    <Property Name="UsageLimit_IsActive" Type="bit" />
+    <Property Name="UsageLimit_IsDeleted" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_AuditTrail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id" Type="bigint" />
+    <Property Name="Staff_Id" Type="bigint" />
+    <Property Name="Field_Name" Type="varchar" MaxLength="50" />
+    <Property Name="FieldValueBeforeChange" Type="varchar" MaxLength="250" />
+    <Property Name="FieldValueAfterChange" Type="varchar" MaxLength="250" />
+    <Property Name="DateofChange" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_PriceList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_Roles">
+    <Key>
+      <PropertyRef Name="Customer_RoleId" />
+    </Key>
+    <Property Name="Customer_RoleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_RoleDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="Role_IsActive" Type="bit" />
+    <Property Name="Role_IsDeleted" Type="bit" />
+    <Property Name="Role_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer_TaxCategory">
+    <Key>
+      <PropertyRef Name="CustCatID" />
+    </Key>
+    <Property Name="CustCatID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustCatName" Type="varchar" MaxLength="50" />
+    <Property Name="CustCatDescription" Type="varchar" MaxLength="250" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Customer_Vehicle">
+    <Key>
+      <PropertyRef Name="CustomerVehicleId" />
+    </Key>
+    <Property Name="CustomerVehicleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Id" Type="bigint" />
+    <Property Name="Vehicle_Id" Type="bigint" />
+    <Property Name="VehicleModel_Id" Type="bigint" />
+    <Property Name="VehicleRegNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TankCapacity" Type="decimal" Scale="2" />
+    <Property Name="DaystoFuel" Type="nvarchar" MaxLength="150" />
+    <Property Name="StartTime" Type="time" />
+    <Property Name="EndTime" Type="time" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="ProductID" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CustomerPermissions">
+    <Key>
+      <PropertyRef Name="Permission_Id" />
+    </Key>
+    <Property Name="Permission_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermissionDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="PermissionIsSelected" Type="bit" Nullable="false" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_OtherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_DoB" Type="date" />
+    <Property Name="Customer_Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="Customer_Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Customer_Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="Customer_Role" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsVerificationMailSent" Type="bit" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="VerificationMailDate" Type="datetime" />
+    <Property Name="PasswordResetLnkDate" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsBlocked" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="TotalEmp" Type="int" />
+    <Property Name="ReportingPassword" Type="nvarchar" MaxLength="250" />
+    <Property Name="Payment_Term_id" Type="bigint" />
+    <Property Name="AutoRedistributeFunds" Type="bit" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="Discount_List_id" Type="bigint" />
+    <Property Name="CustomerDesignation" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="CustomerTaxCategoryID" Type="bigint" />
+    <Property Name="Customer_PIN" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_IDNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_PostalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="Customer_PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_ContactNoHome" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_ContactNoOffice" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_Fax" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_LastName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_Email" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_BankName" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_BankBranch" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_AccountNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_AccountCurrency" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyIncorporationDate" Type="date" />
+    <Property Name="CompanyRegistrationNo" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPIN" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyVAT" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPostalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="CompanyPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyCountry" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyPhysicalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="CompanyPhysicalPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPhysicalAddressCountry" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyDirectorFirstName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorFirstName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorFirstName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPosition1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonEmail1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPhone1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPosition2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonEmail2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPhone2" Type="varchar" MaxLength="50" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerTypes">
+    <Key>
+      <PropertyRef Name="CustomerType_id" />
+    </Key>
+    <Property Name="CustomerType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerTypeDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsSelected" Type="bit" Nullable="false" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CustomTableFields">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomFieldId" Type="varchar" MaxLength="50" />
+    <Property Name="CustomFieldName" Type="varchar" MaxLength="50" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DiscountsList">
+    <Key>
+      <PropertyRef Name="DiscountList_id" />
+    </Key>
+    <Property Name="DiscountList_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DiscountList_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiscountList_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiscountList_IsActive" Type="bit" />
+    <Property Name="DiscountList_IsDeleted" Type="bit" />
+    <Property Name="DiscountList_DateCreated" Type="datetime" />
+    <Property Name="DiscountList_IsDefault" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_id" />
+    </Key>
+    <Property Name="Emp_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_Customer_id" Type="bigint" />
+    <Property Name="Emp_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_IsActive" Type="bit" />
+    <Property Name="Emp_IsDeleted" Type="bit" />
+    <Property Name="Emp_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="EventsTbl">
+    <Key>
+      <PropertyRef Name="Event_id" />
+    </Key>
+    <Property Name="Event_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Event_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Event_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Event_IsActive" Type="bit" />
+    <Property Name="Event_IsDeleted" Type="bit" />
+    <Property Name="Event_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Finance_Transaction">
+    <Key>
+      <PropertyRef Name="Finance_Transaction_id" />
+    </Key>
+    <Property Name="Finance_Transaction_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Finance_Trans_description" Type="varchar" MaxLength="50" />
+    <Property Name="Transaction_Code" Type="varchar" MaxLength="50" />
+    <Property Name="IsPosted" Type="bit" />
+    <Property Name="Transaction_DateCreated" Type="datetime" />
+    <Property Name="Doc_Type_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FormulaValueType">
+    <Key>
+      <PropertyRef Name="ValueId" />
+    </Key>
+    <Property Name="ValueId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Gadgets">
+    <Key>
+      <PropertyRef Name="Gadget_id" />
+    </Key>
+    <Property Name="Gadget_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Gadget_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gadget_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Gadget_IsActive" Type="bit" />
+    <Property Name="Gadget_IsDeleted" Type="bit" />
+    <Property Name="Gadget_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GeneralSettings">
+    <Key>
+      <PropertyRef Name="GenSet_id" />
+    </Key>
+    <Property Name="GenSet_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PostPaidExpValue" Type="int" />
+    <Property Name="PostPaidExpPeriod" Type="nvarchar" MaxLength="20" />
+    <Property Name="MinRedeemPoints" Type="int" />
+    <Property Name="BaseCurrency" Type="int" />
+    <Property Name="MaxTopupPerDay" Type="int" />
+    <Property Name="MaxPrepaidBalance" Type="int" />
+    <Property Name="DefaultUsageLimit" Type="int" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IndividualMultipleAccounts" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="CCEmail" Type="varchar" MaxLength="50" />
+    <Property Name="IsCCEmail" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GLTransactions">
+    <Key>
+      <PropertyRef Name="GlTrans_id" />
+    </Key>
+    <Property Name="GlTrans_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Finance_Transaction_id" Type="bigint" />
+    <Property Name="Amount" Type="bigint" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Memo" Type="varchar" MaxLength="50" />
+    <Property Name="GlTrans_DateCreated" Type="datetime" />
+    <Property Name="ChartofAccount_id" Type="bigint" />
+    <Property Name="Period_id" Type="bigint" />
+    <Property Name="GLTrans_Actual_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Customers_CustomerTypes">
+    <Key>
+      <PropertyRef Name="Lnk_Cust_CustType_id" />
+    </Key>
+    <Property Name="Lnk_Cust_CustType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="CustomerType_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_CustomerVehicle_Account">
+    <Key>
+      <PropertyRef Name="Lnk_id" />
+    </Key>
+    <Property Name="Lnk_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Lnk_CustomerVehicleId" Type="bigint" />
+    <Property Name="Lnk_AccountNumber" Type="bigint" />
+    <Property Name="Lnk_IsDeleted" Type="bit" />
+    <Property Name="Lnk_IsActive" Type="bit" />
+    <Property Name="Lnk_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Discount_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Discount_List_id" Type="bigint" />
+    <Property Name="Discount_Value" Type="decimal" Scale="2" />
+    <Property Name="Discount_Currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Discount_Type" Type="nvarchar" MaxLength="15" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Gadgets_Channels">
+    <Key>
+      <PropertyRef Name="Lnk_Gadgets_Channels_id" />
+    </Key>
+    <Property Name="Lnk_Gadgets_Channels_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Gadget_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Lnk_Gadget_IsActive" Type="bit" />
+    <Property Name="Lnk_Gadget_IsDeleted" Type="bit" />
+    <Property Name="Lnk_Gadget_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_PriceList_Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Channels">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Name="Lnk_Products_Channels_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="PriceSchedule_Id" Type="bigint" />
+    <Property Name="Scheduled_Price" Type="decimal" Scale="2" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Channels_Properties">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Ch_Properties_id" />
+    </Key>
+    <Property Name="Lnk_Products_Ch_Properties_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Product_Property_id" Type="bigint" />
+    <Property Name="Product_Property_Value" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Products_Properties">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Properties_id" />
+    </Key>
+    <Property Name="Lnk_Products_Properties_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Product_Property_id" Type="bigint" />
+    <Property Name="Product_Property_DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Lnk_Role_Permission">
+    <Key>
+      <PropertyRef Name="Lnk_Role_Permission_id" />
+    </Key>
+    <Property Name="Lnk_Role_Permission_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Role_id" Type="bigint" />
+    <Property Name="Permission_id" Type="bigint" />
+    <Property Name="Lnk_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="LnkCustomer_Role_Permission">
+    <Key>
+      <PropertyRef Name="Lnk_Role_Permission_id" />
+    </Key>
+    <Property Name="Lnk_Role_Permission_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Role_id" Type="bigint" />
+    <Property Name="Permission_id" Type="bigint" />
+    <Property Name="Lnk_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Loyalty_Program">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Loyalty_Program_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="time_period" Type="bigint" />
+    <Property Name="period_type" Type="bigint" />
+    <Property Name="date_created" Type="datetime" />
+    <Property Name="day" Type="bigint" />
+    <Property Name="start_time" Type="time" />
+    <Property Name="end_time" Type="time" />
+    <Property Name="action_id" Type="bigint" />
+    <Property Name="commprotocol_id" Type="bigint" />
+    <Property Name="tierlevel_id" Type="bigint" />
+    <Property Name="tierrule_id" Type="bigint" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="IsExclusive" Type="bit" />
+    <Property Name="IsDiscontinued" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Loyalty_Scheme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Loyalty_Scheme_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="loyaltyprogram_id" Type="bigint" />
+    <Property Name="commprotocol_id" Type="bigint" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="IsExclusive" Type="bit" />
+    <Property Name="IsDiscontinued" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MaskType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Mask_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Mask_IsDeleted" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="from_id" Type="bigint" />
+    <Property Name="customer_type" Type="varchar" MaxLength="50" />
+    <Property Name="message_subject" Type="varchar" MaxLength="50" />
+    <Property Name="message_body" Type="varchar(max)" />
+    <Property Name="message_date" Type="datetime" />
+    <Property Name="message_type" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MessageTypes">
+    <Key>
+      <PropertyRef Name="message_type_id" />
+    </Key>
+    <Property Name="message_type_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="message_type" Type="varchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Payment_Terms">
+    <Key>
+      <PropertyRef Name="PaymentTerm_id" />
+    </Key>
+    <Property Name="PaymentTerm_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTerm_Name" Type="varchar" MaxLength="50" />
+    <Property Name="DayInFollowingMonth" Type="int" />
+    <Property Name="DaysBeforeDue" Type="int" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="PaymentMode_id" />
+    </Key>
+    <Property Name="PaymentMode_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentMode_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Periods">
+    <Key>
+      <PropertyRef Name="Period_id" />
+    </Key>
+    <Property Name="Period_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastDate_In_Period" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="Permission_Id" />
+    </Key>
+    <Property Name="Permission_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermissionDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="PermissionIsSelected" Type="bit" Nullable="false" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PostpaidAccountCreditLimit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Credit_id" Type="bigint" />
+    <Property Name="AccountNumber" Type="bigint" />
+    <Property Name="Account_CreditLimit" Type="decimal" Scale="2" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PostpaidCustCreditLimits">
+    <Key>
+      <PropertyRef Name="Credit_id" />
+    </Key>
+    <Property Name="Credit_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Cust_id" Type="bigint" />
+    <Property Name="CreditLimit" Type="decimal" Scale="2" />
+    <Property Name="CreditLimit_Expiration" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PriceList">
+    <Key>
+      <PropertyRef Name="PriceList_id" />
+    </Key>
+    <Property Name="PriceList_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PriceList_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PriceList_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="PriceList_IsActive" Type="bit" />
+    <Property Name="PriceList_IsDeleted" Type="bit" />
+    <Property Name="PriceList_DateCreated" Type="datetime" />
+    <Property Name="PriceList_IsDefault" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProductProperties">
+    <Key>
+      <PropertyRef Name="ProductProperty_id" />
+    </Key>
+    <Property Name="ProductProperty_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductProperty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductProperty_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProductProperty_DateCreated" Type="datetime" />
+    <Property Name="ProductProperty_IsActive" Type="bit" />
+    <Property Name="ProductProperty_IsDeleted" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingDeleted" Type="bit" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="IsbeingAdded" Type="bit" />
+    <Property Name="IsSelected" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_Type" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingDeleted" Type="bit" />
+    <Property Name="IsbeingAdded" Type="bit" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="TaxCategoryID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProductTypes">
+    <Key>
+      <PropertyRef Name="ProductType_id" />
+    </Key>
+    <Property Name="ProductType_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductType_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProductType_IsActive" Type="bit" />
+    <Property Name="ProductType_IsDeleted" Type="bit" />
+    <Property Name="ProductType_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ProductType_IsDeletedFlag" Type="int" />
+    <Property Name="ProductType_IsbeingDeleted" Type="bit" />
+    <Property Name="ProductType_IsbeingEdited" Type="bit" />
+    <Property Name="ProductType_IsbeingAdded" Type="bit" />
+    <Property Name="IsAddApprovedFirstApvr" Type="bit" />
+    <Property Name="IsAddApprovedSecondApvr" Type="bit" />
+    <Property Name="IsDelApprovedFirstApvr" Type="bit" />
+    <Property Name="IsDelApprovedSecondApvr" Type="bit" />
+    <Property Name="IsEditApprovedFirstApvr" Type="bit" />
+    <Property Name="IsEditApprovedSecondApvr" Type="bit" />
+    <Property Name="ReasonEditFirstApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReasonEditSecondApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReasonDelFirstApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReasonDelSecondApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReasonAddFirstApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReasonAddSecondApvr" Type="nvarchar" MaxLength="500" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ReceiptSettings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+    <Property Name="FieldName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="IsPrintable" Type="bit" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="refvaluehistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="actionitem_id" Type="bigint" />
+    <Property Name="ref_value" Type="float" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Role_id" />
+    </Key>
+    <Property Name="Role_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="Role_IsActive" Type="bit" />
+    <Property Name="Role_IsDeleted" Type="bit" />
+    <Property Name="Role_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Schedule_Id" />
+    </Key>
+    <Property Name="Schedule_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Schedule_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Effective_Date" Type="datetime" />
+    <Property Name="Schedule_IsActive" Type="bit" />
+    <Property Name="Schedule_IsDeleted" Type="bit" />
+    <Property Name="Schedule_DateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Schedule_History">
+    <Key>
+      <PropertyRef Name="History_Id" />
+    </Key>
+    <Property Name="History_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Original_Price" Type="decimal" Scale="2" />
+    <Property Name="Scheduled_Price" Type="decimal" Scale="2" />
+    <Property Name="Scheduled_Date" Type="datetime" />
+    <Property Name="Product_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Channel_Name" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staff_id" />
+    </Key>
+    <Property Name="Staff_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Staff_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Staff_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Staff_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Staff_PIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Staff_Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Staff_TopupLimitType" Type="bigint" />
+    <Property Name="Staff_TopupLimitValue" Type="decimal" Scale="2" />
+    <Property Name="Staff_Channel_id" Type="bigint" />
+    <Property Name="Staff_Role" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="PasswordResetExpDate" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="supplementary_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="action_id" Type="bigint" />
+    <Property Name="supplementary_action_id" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Tax">
+    <Key>
+      <PropertyRef Name="TaxID" />
+    </Key>
+    <Property Name="TaxID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TaxName" Type="varchar" MaxLength="50" />
+    <Property Name="CatID" Type="bigint" />
+    <Property Name="TaxDescription" Type="varchar" MaxLength="250" />
+    <Property Name="TaxRateID" Type="bigint" />
+    <Property Name="CustCatID" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="TaxCategory">
+    <Key>
+      <PropertyRef Name="CatID" />
+    </Key>
+    <Property Name="CatID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CatName" Type="varchar" MaxLength="50" />
+    <Property Name="CatDescription" Type="varchar" MaxLength="250" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="TaxRate">
+    <Key>
+      <PropertyRef Name="TaxRateID" />
+    </Key>
+    <Property Name="TaxRateID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TaxRateName" Type="varchar" MaxLength="50" />
+    <Property Name="TaxRateValue" Type="float" />
+    <Property Name="TaxRateDescription" Type="varchar" MaxLength="250" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tierlevel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tierlevel_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="tierlevel_description" Type="nvarchar(max)" />
+    <Property Name="producttype_id" Type="bigint" />
+    <Property Name="activity_id" Type="bigint" />
+    <Property Name="event_id" Type="bigint" />
+    <Property Name="channel_id" Type="bigint" />
+    <Property Name="activitytype_id" Type="bigint" />
+    <Property Name="channeltype_id" Type="bigint" />
+    <Property Name="accounttype_id" Type="bigint" />
+    <Property Name="country_id" Type="bigint" />
+    <Property Name="date_created" Type="datetime" />
+    <Property Name="product_id" Type="bigint" />
+    <Property Name="tierlevel_IsActive" Type="bit" />
+    <Property Name="tierlevel_IsDelete" Type="bit" />
+    <Property Name="all_items" Type="bit" />
+    <Property Name="all_channels" Type="bit" />
+    <Property Name="all_activities" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Tierrule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tierrule_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="formula" Type="nvarchar(max)" />
+    <Property Name="tierrule_IsActive" Type="bit" />
+    <Property Name="tierrule_IsDeleted" Type="bit" />
+    <Property Name="date_created" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="ValueId" Type="bigint" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Tiertable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tierlevel_id" Type="bigint" />
+    <Property Name="tierrule_id" Type="bigint" />
+    <Property Name="loyaltyprogram_id" Type="bigint" />
+    <Property Name="date_created" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TimeDuration">
+    <Key>
+      <PropertyRef Name="TimeDuration_id" />
+    </Key>
+    <Property Name="TimeDuration_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehicle_Id" />
+    </Key>
+    <Property Name="Vehicle_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Vehicle_Make" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleIsActive" Type="bit" />
+    <Property Name="VehicleIsDeleted" Type="bit" />
+    <Property Name="VehicleDateCreated" Type="datetime" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="VehicleModel">
+    <Key>
+      <PropertyRef Name="VehicleModel_Id" />
+    </Key>
+    <Property Name="VehicleModel_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleModel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleModelIsActive" Type="bit" />
+    <Property Name="VehicleModelIsDeleted" Type="bit" />
+    <Property Name="VehicleModelDateCreated" Type="datetime" />
+    <Property Name="VehicleId" Type="bigint" />
+    <Property Name="TankCapacity" Type="decimal" Scale="2" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="WeekDays">
+    <Key>
+      <PropertyRef Name="Day_Id" />
+    </Key>
+    <Property Name="Day_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WeekdayName" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsSelected" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwAccUsageLimit_Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwAccUsageLimit_Products">
+    <Key>
+      <PropertyRef Name="TimeDuration_id" />
+      <PropertyRef Name="UsageLimit_id" />
+    </Key>
+    <Property Name="UsageLimit_Product_id" Type="bigint" />
+    <Property Name="TimeDuration_id" Type="bigint" Nullable="false" />
+    <Property Name="UsageLimit_id" Type="bigint" Nullable="false" />
+    <Property Name="UsageLimit_AccountNumber" Type="bigint" />
+    <Property Name="UsageLimit_Value" Type="decimal" Scale="2" />
+    <Property Name="UsageLimit_DateCreated" Type="datetime" />
+    <Property Name="UsageLimit_Type" Type="bigint" />
+    <Property Name="UsageLimit_IsOverall" Type="bit" />
+    <Property Name="UsageLimit_IsActive" Type="bit" />
+    <Property Name="UsageLimit_IsDeleted" Type="bit" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_Type" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="Value" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwActivity_ActivityType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwActivity_ActivityType">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Activity_id" />
+    </Key>
+    <Property Name="Expr1" Type="bigint" Nullable="false" />
+    <Property Name="ActivityType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityType_Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityType_IsActive" Type="bit" />
+    <Property Name="ActivityType_IsDeleted" Type="bit" />
+    <Property Name="ActivityType_DateCreated" Type="datetime" />
+    <Property Name="Activity_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activity_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Activity_IsActive" Type="bit" />
+    <Property Name="Activity_IsDeleted" Type="bit" />
+    <Property Name="Activity_DateCreated" Type="datetime" />
+    <Property Name="Activity_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCardsCustomers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCardsCustomers">
+    <Key>
+      <PropertyRef Name="Card_id" />
+    </Key>
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="Customer_FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_OtherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_DoB" Type="date" />
+    <Property Name="Customer_Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="Customer_Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Customer_Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="Customer_Role" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsVerificationMailSent" Type="bit" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="VerificationMailDate" Type="datetime" />
+    <Property Name="PasswordResetLnkDate" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Card_id" Type="bigint" Nullable="false" />
+    <Property Name="Card_UID" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_SNO" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_Type" Type="int" />
+    <Property Name="Card_Owner" Type="bigint" />
+    <Property Name="Card_Owner_Employee" Type="bigint" />
+    <Property Name="Card_Balance" Type="decimal" Scale="2" />
+    <Property Name="Card_Points_Balance" Type="int" />
+    <Property Name="Card_OverDraftValue" Type="decimal" Scale="2" />
+    <Property Name="Card_PrepaidAmt" Type="decimal" Scale="2" />
+    <Property Name="Card_IsAssigned" Type="bit" />
+    <Property Name="Card_IsActive" Type="bit" />
+    <Property Name="Card_IsDeleted" Type="bit" />
+    <Property Name="Card_DateAssigned" Type="datetime" />
+    <Property Name="Card_UploadDate" Type="datetime" />
+    <Property Name="Card_UpdateDate" Type="datetime" />
+    <Property Name="Card_PIN" Type="nvarchar" MaxLength="250" />
+    <Property Name="Card_IsAssignedtoEmp" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCardUsageLimit_Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCardUsageLimit_Products">
+    <Key>
+      <PropertyRef Name="Card_UsageLimit_id" />
+      <PropertyRef Name="TimeDuration_id" />
+    </Key>
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Card_UsageLimit_id" Type="bigint" Nullable="false" />
+    <Property Name="Card_UsageLimit_Card_id" Type="bigint" />
+    <Property Name="Card_UsageLimit_Product_id" Type="bigint" />
+    <Property Name="Card_UsageLimit_Value" Type="decimal" Scale="2" />
+    <Property Name="Card_UsageLimit_DateCreated" Type="datetime" />
+    <Property Name="Card_UsageLimit_Type" Type="bigint" />
+    <Property Name="Card_UsageLimit_IsOverall" Type="bit" />
+    <Property Name="Card_UsageLimit_IsActive" Type="bit" />
+    <Property Name="Card_UsageLimit_IsDeleted" Type="bit" />
+    <Property Name="Value" Type="nvarchar" MaxLength="20" />
+    <Property Name="TimeDuration_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwChannelGadgets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwChannelGadgets">
+    <Key>
+      <PropertyRef Name="Channel_id" />
+      <PropertyRef Name="Gadget_id" />
+      <PropertyRef Name="Lnk_Gadgets_Channels_id" />
+    </Key>
+    <Property Name="Channel_id" Type="bigint" Nullable="false" />
+    <Property Name="Gadget_id" Type="bigint" Nullable="false" />
+    <Property Name="Gadget_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lnk_Gadget_IsActive" Type="bit" />
+    <Property Name="Lnk_Gadget_IsDeleted" Type="bit" />
+    <Property Name="Lnk_Gadget_DateCreated" Type="datetime" />
+    <Property Name="Lnk_Gadgets_Channels_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwChannelProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwChannelProducts">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="Lnk_Products_Channels_id" Type="bigint" Nullable="false" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="PriceSchedule_Id" Type="bigint" />
+    <Property Name="Scheduled_Price" Type="decimal" Scale="2" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="Product_Type" Type="bigint" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwChannelProductSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwChannelProductSchedule">
+    <Key>
+      <PropertyRef Name="Lnk_Products_Channels_id" />
+    </Key>
+    <Property Name="Lnk_Products_Channels_id" Type="bigint" Nullable="false" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="PriceSchedule_Id" Type="bigint" />
+    <Property Name="Scheduled_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Schedule_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Effective_Date" Type="datetime" />
+    <Property Name="Schedule_IsActive" Type="bit" />
+    <Property Name="Schedule_IsDeleted" Type="bit" />
+    <Property Name="Schedule_DateCreated" Type="datetime" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="PriceList_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwChannels_ChannelTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwChannels_ChannelTypes">
+    <Key>
+      <PropertyRef Name="ChannelType_id" />
+      <PropertyRef Name="Channel_id" />
+    </Key>
+    <Property Name="ChannelType_id" Type="bigint" Nullable="false" />
+    <Property Name="ChannelType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChannelType_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChannelType_IsActive" Type="bit" />
+    <Property Name="ChannelType_IsDeleted" Type="bit" />
+    <Property Name="ChannelType_DateCreated" Type="datetime" />
+    <Property Name="Channel_id" Type="bigint" Nullable="false" />
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Channel_Type" Type="bigint" />
+    <Property Name="Channel_Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="Channel_Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Channel_City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Channel_IsDeleted" Type="bit" />
+    <Property Name="Channel_IsActive" Type="bit" />
+    <Property Name="Channel_DateCreated" Type="datetime" />
+    <Property Name="Channel_IsSelected" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCreditLimit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCreditLimit">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="AccountNumber" />
+      <PropertyRef Name="Customer_Name" />
+    </Key>
+    <Property Name="Customer_Name" Type="nvarchar" MaxLength="202" Nullable="false" />
+    <Property Name="Credit_id" Type="bigint" />
+    <Property Name="CreditLimit" Type="decimal" Scale="2" />
+    <Property Name="CreditLimit_Expiration" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreditType" Type="int" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="Cust_id" Type="bigint" />
+    <Property Name="Expr1" Type="bigint" Nullable="false" />
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+    <Property Name="CustomerDesignation" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCustomerAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCustomerAccount">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+      <PropertyRef Name="Customer_Name" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="AccountType_id" Type="bigint" />
+    <Property Name="Mask_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Mask" Type="varchar" MaxLength="50" />
+    <Property Name="CreditType" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Balance" Type="decimal" Scale="2" />
+    <Property Name="Customer_Name" Type="nvarchar" Nullable="false" MaxLength="152" />
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="AccType" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCustomerEmpAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCustomerEmpAccount">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="Customer_FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emp_id" Type="bigint" />
+    <Property Name="Emp_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+    <Property Name="Customer_id" Type="bigint" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwCustomers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCustomers">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Name" Type="nvarchar" MaxLength="202" />
+    <Property Name="Customer_OtherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_DoB" Type="date" />
+    <Property Name="Customer_Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Customer_Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="Customer_Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Customer_Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="Customer_Role" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsVerificationMailSent" Type="bit" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="VerificationMailDate" Type="datetime" />
+    <Property Name="PasswordResetLnkDate" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsBlocked" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="TotalEmp" Type="int" />
+    <Property Name="ReportingPassword" Type="nvarchar" MaxLength="250" />
+    <Property Name="Payment_Term_id" Type="bigint" />
+    <Property Name="AutoRedistributeFunds" Type="bit" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="Discount_List_id" Type="bigint" />
+    <Property Name="CustomerDesignation" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="bigint" />
+    <Property Name="CustomerTaxCategoryID" Type="bigint" />
+    <Property Name="Customer_PIN" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_IDNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_PostalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="Customer_PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_ContactNoHome" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_ContactNoOffice" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_Fax" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_LastName" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_Email" Type="varchar" MaxLength="50" />
+    <Property Name="NOK_Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_BankName" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_BankBranch" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_AccountNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Customer_AccountCurrency" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyIncorporationDate" Type="date" />
+    <Property Name="CompanyRegistrationNo" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPIN" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyVAT" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPostalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="CompanyPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyCountry" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyPhysicalAddress" Type="varchar" MaxLength="500" />
+    <Property Name="CompanyPhysicalPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyPhysicalAddressCountry" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyDirectorFirstName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorFirstName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorFirstName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorMiddleName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorLastName3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorEmail3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPhone3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorPIN3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyDirectorID3" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonName1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPosition1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonEmail1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPhone1" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonName2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPosition2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonEmail2" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyContactPersonPhone2" Type="varchar" MaxLength="50" />
+    <Property Name="CF1" Type="varchar" MaxLength="50" />
+    <Property Name="CF2" Type="varchar" MaxLength="50" />
+    <Property Name="CF3" Type="varchar" MaxLength="50" />
+    <Property Name="CF4" Type="varchar" MaxLength="50" />
+    <Property Name="CF5" Type="varchar" MaxLength="50" />
+    <Property Name="CF6" Type="varchar" MaxLength="50" />
+    <Property Name="CF7" Type="varchar" MaxLength="50" />
+    <Property Name="CF8" Type="varchar" MaxLength="50" />
+    <Property Name="CF9" Type="varchar" MaxLength="50" />
+    <Property Name="CF10" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwDiscountProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwDiscountProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Channel_id" Type="bigint" />
+    <Property Name="Discount_List_id" Type="bigint" />
+    <Property Name="Discount_Value" Type="decimal" Scale="2" />
+    <Property Name="Discount_Currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Discount_Type" Type="nvarchar" MaxLength="15" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_Type" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="Channel_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwPriceListProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwPriceListProducts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Price_List_id" Type="bigint" />
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="BuyingPrice" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_Type" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwProduct_ProductProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwProduct_ProductProperty">
+    <Key>
+      <PropertyRef Name="ProductProperty_id" />
+      <PropertyRef Name="Lnk_Products_Properties_id" />
+    </Key>
+    <Property Name="ProductProperty_id" Type="bigint" Nullable="false" />
+    <Property Name="ProductProperty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductProperty_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProductProperty_DateCreated" Type="datetime" />
+    <Property Name="ProductProperty_IsActive" Type="bit" />
+    <Property Name="ProductProperty_IsDeleted" Type="bit" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="IsbeingDeleted" Type="bit" />
+    <Property Name="IsbeingEdited" Type="bit" />
+    <Property Name="IsbeingAdded" Type="bit" />
+    <Property Name="Lnk_Products_Properties_id" Type="bigint" Nullable="false" />
+    <Property Name="Product_id" Type="bigint" />
+    <Property Name="Product_Property_id" Type="bigint" />
+    <Property Name="Product_Property_DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwProducts_ProductTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwProducts_ProductTypes">
+    <Key>
+      <PropertyRef Name="Product_id" />
+      <PropertyRef Name="ProductType_id" />
+    </Key>
+    <Property Name="Product_id" Type="bigint" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Product_Type" Type="bigint" />
+    <Property Name="Product_Price" Type="decimal" Scale="2" />
+    <Property Name="Product_currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="Product_IsActive" Type="bit" />
+    <Property Name="Product_IsDeleted" Type="bit" />
+    <Property Name="Product_DateCreated" Type="datetime" />
+    <Property Name="ProductType_id" Type="bigint" Nullable="false" />
+    <Property Name="ProductType_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductType_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProductType_IsActive" Type="bit" />
+    <Property Name="ProductType_IsDeleted" Type="bit" />
+    <Property Name="ProductType_DateCreated" Type="datetime" />
+    <Property Name="IsAddApproved" Type="bit" />
+    <Property Name="IsDelApproved" Type="bit" />
+    <Property Name="IsEditApproved" Type="bit" />
+    <Property Name="IsDeletedFlag" Type="int" />
+    <Property Name="CatName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwTax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwTax">
+    <Key>
+      <PropertyRef Name="TaxID" />
+    </Key>
+    <Property Name="TaxID" Type="bigint" Nullable="false" />
+    <Property Name="TaxName" Type="varchar" MaxLength="50" />
+    <Property Name="TaxDescription" Type="varchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="CatName" Type="varchar" MaxLength="50" />
+    <Property Name="CustCatName" Type="varchar" MaxLength="50" />
+    <Property Name="TaxRateName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwTest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwTest">
+    <Key>
+      <PropertyRef Name="Credit_id" />
+    </Key>
+    <Property Name="Credit_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Cust_id" Type="bigint" />
+    <Property Name="CreditLimit" Type="decimal" Scale="2" />
+    <Property Name="CreditLimit_Expiration" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ModifiedBy" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FuelCardDB.dbo.VwVehicle_VehicleModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwVehicle_VehicleModel">
+    <Key>
+      <PropertyRef Name="Vehicle_Id" />
+      <PropertyRef Name="VehicleModel_Id" />
+    </Key>
+    <Property Name="Vehicle_Id" Type="bigint" Nullable="false" />
+    <Property Name="Vehicle_Make" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleIsActive" Type="bit" />
+    <Property Name="VehicleIsDeleted" Type="bit" />
+    <Property Name="VehicleDateCreated" Type="datetime" />
+    <Property Name="VehicleModel_Id" Type="bigint" Nullable="false" />
+    <Property Name="VehicleModel_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleModelIsActive" Type="bit" />
+    <Property Name="VehicleModelIsDeleted" Type="bit" />
+    <Property Name="VehicleModelDateCreated" Type="datetime" />
+    <Property Name="VehicleId" Type="bigint" />
+    <Property Name="TankCapacity" Type="decimal" Scale="2" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "AddTaxCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model FuelCardSystemEntities.Models.TaxCategory
+@using FuelCardSystemMVC.Library
+@if (Model != null)
+{
+    if (Model.CatID > 0 && _AppContext.HasPermission(Parameters.Can_Edit_TaxCategory))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Add_TaxCategory))
+    {
+        flag = true;
+    }
+}
+else if (_AppContext.HasPermission(Parameters.Can_Add_TaxCategory))
+{
+    flag = true;
+}
+@if (flag == true)
+{  
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-briefcase"></i><span class="margin">@(Model != null ? (Model.CatID > 0 ? "Edit Tax Category" : "Add Tax Category") : "Add Tax Category")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("TaxCategoryList", "Admin")">Tax Category List</a></li>
+                <li class="active">@(Model != null ? (Model.CatID > 0 ? "Edit Tax Category" : "Add Tax Category") : "Add Tax Category")</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model != null ? (Model.CatID > 0 ? "Edit Tax Category" : "Add Tax Category") : "Add Tax Category")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("AddTaxCategory", "Admin", FormMethod.Post, new { @id = "AddTaxCategoryForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Tax Category Name</label>
+                            @Html.TextBoxFor(x => x.CatName, new { @placeholder = "Tax Category Name", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 83px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            @Html.TextAreaFor(x => x.CatDescription, new { @placeholder = "Description", @class = "form-control", @maxlength = 250 })
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(x => x.CatID)
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddTaxCategoryFormLoad();
+                $("#idTaxCategoryList").closest("li.treeview").addClass("active");
+                $("#idTaxCategoryList").closest("li").addClass("active");
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

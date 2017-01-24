@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "AddChannelType";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+
+@model FuelCardSystemEntities.Models.ChannelType
+@using FuelCardSystemMVC.Library
+@if (Model != null)
+{
+    if (Model.ChannelType_id > 0 && _AppContext.HasPermission(Parameters.Can_Edit_ChannelType))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Create_ChannelType))
+    {
+        flag = true;
+    }
+}
+else if (_AppContext.HasPermission(Parameters.Can_Create_ChannelType))
+{
+    flag = true;
+}
+@if (flag == true)
+{  
+    @section header{
+        <section class="content-header">
+            <h1><i class="fa fa-link"></i><span class="margin">@(Model.ChannelType_id > 0 ? "Edit Channel Type..." : "Add Channel Type...")</span><small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li><a href="@Url.Action("ChannelTypesList", "Admin")">List of Channel Types</a></li>
+                <li class="active">Add or Edit Channel Type</li>
+            </ol>
+        </section>
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@(Model.ChannelType_id > 0 ? "Edit Channel Type..." : "Add Channel Type...")</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>@* /.box-tools *@
+                </div>@* /.box-header *@
+                <div class="overlay" style="display: none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                @* form start *@
+                @using (Html.BeginForm("AddChannelType", "Admin", FormMethod.Post, new { @id = "AddChannelTypeForm", @role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="Item1_RatioToBase">Channel Type Name</label>
+                            @Html.TextBoxFor(x => x.ChannelType_Name, new { @placeholder = "Channel type", @class = "form-control", @maxlength = 50 })
+                        </div>
+                        <div class="" id="loading" style="display: none; position: absolute; top: 85px;">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="Item1_RatioToBase">Channel type description</label>
+                            @Html.TextAreaFor(x => x.ChannelType_Description, new { @placeholder = "Channel type description", @class = "form-control", @maxlength = 250 })
+                            @Html.HiddenFor(x => x.ChannelType_id)
+                        </div>
+                        @foreach (var item in (IEnumerable<FuelCardSystemEntities.Models.CustomTableFields>)ViewBag.tables)
+                        {
+                            if (item.CustomFieldId.Equals("CF1"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF1, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF2"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF2, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF3"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF3, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF4"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF4, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF5"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF5, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF6"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF6, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF7"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF7, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF8"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF8, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF9"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF9, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                            else if (item.CustomFieldId.Equals("CF10"))
+                            {
+                            <div class="form-group">
+                                <label for="">@item.CustomFieldName</label>
+                                @Html.TextBoxFor(x => x.CF10, new { @placeholder = @item.CustomFieldName, @class = "form-control", @maxlength = 50 })
+                            </div>
+                            }
+                        }
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>@* /.box-body *@
+                }
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                AddChannelTypeFormLoad();
+                $("#idChannelTypesList").closest("li.treeview").addClass("active");
+                $("#idChannelTypesList").closest("li").addClass("active");
+            });
+        </script>
+    }
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

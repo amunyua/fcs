@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ViewMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model FuelCardSystemEntities.Models.Message
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-phone-square"></i><span class="margin">Message...</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("SentMessages", "Admin")">Sent Messages</a></li>
+            <li class="active">Message</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-warning box-solid">
+@*            <div class="box-header with-border">
+                <h3 class="box-title"></h3>
+                <div class="box-tools pull-right">
+                    <button data-widget="collapse" class="btn btn-box-tool"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>*@
+            <div class="box-body">
+                @MvcHtmlString.Create(HttpUtility.HtmlDecode(Model.message_body))
+            </div>
+        </div>
+    </div>
+</div>
+

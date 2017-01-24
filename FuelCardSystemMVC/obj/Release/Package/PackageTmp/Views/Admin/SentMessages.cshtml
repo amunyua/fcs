@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "SentMessages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.Message>
+@using FuelCardSystemMVC.Library
+@using FuelCardSystemBAL
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-envelope"></i><span class="margin">Sent Messages...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Send_Message))
+        {
+            @Html.ActionLink("Send Message", "SendMessage", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">Sent Messages...</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="prodtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">From</th>
+                            <th style="text-align: center;">Subject</th>
+                            <th style="text-align: center;">Customer Type</th>
+                            <th style="text-align: center;">Date</th>
+                            <th style="text-align: center;">View Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@AdminBAL.GetStaffNameById(item.from_id)</td>
+                                <td style="text-align: center;">@item.message_subject</td>
+                                <td style="text-align: center;">@item.customer_type</td>
+                                <td style="text-align: center;">@item.message_date</td>
+                                <td style="text-align: center;">@Html.ActionLink("View","ViewMessage","Admin",new{id=item.id},new{@class="btn btn-sm btn-success"})</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#prodtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            $("#idSentmessages").closest("li.treeview").addClass("active");
+            $("#idSentmessages").closest("li").addClass("active");
+        });
+    </script>
+}
+

@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "ViewCustomerCardDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model FuelCardSystemEntities.Models.Cards
+@using FuelCardSystemMVC.Library
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-credit-card"></i><span class="margin">Card Details</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("ViewCustomerCards", "Admin", new { id = Model.Card_Owner })">List of Cards</a></li>
+            <li class="active">Card Details</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-list-alt"></i>
+                <h3 class="box-title">Full details...</h3>
+            </div>
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>Card Serial Number :</dt>
+                    <dd>@Model.Card_SNO</dd>
+                    <dt>Card UID :</dt>
+                    <dd>@Model.Card_UID</dd>
+                    <dt>Card PIN :</dt>
+                    <dd>@Model.Card_PIN</dd>
+                    <dt>Balance :</dt>
+                    <dd>@(Model.Card_Balance!=null?Model.Card_Balance:0)</dd>
+                    <dt>Points Balance :</dt>
+                    <dd>@(Model.Card_Points_Balance!=null?Model.Card_Points_Balance:0)</dd>
+                    <dt>Card Type :</dt>
+                    <dd>@(Model.Card_Type==0?"Prepaid":"Postpaid")</dd>
+                    @* <dt>Overdraft Limit :</dt>
+                    <dd>@Model.Card_OverDraftValue</dd>
+                    <dt>Prepaid Limit :</dt>
+                    <dd>@Model.Card_PrepaidAmt</dd>*@
+                    <dt>Date Uploaded :</dt>
+                    <dd>@Model.Card_UploadDate</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#manageCustomers").addClass("active");
+            $("#idCustList").closest("li").addClass("active");
+        });
+    </script>
+}

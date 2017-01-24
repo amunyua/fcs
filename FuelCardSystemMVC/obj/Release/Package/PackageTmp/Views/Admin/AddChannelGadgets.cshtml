@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "AddChannelGadgets";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model FuelCardSystemEntities.Models.Lnk_Gadgets_Channels
+@using FuelCardSystemMVC.Library
+@if (Model != null)
+{
+    if (Model.Lnk_Gadgets_Channels_id > 0 && _AppContext.HasPermission(Parameters.Can_Edit_TerminalGadgets))
+    {
+        flag = true;
+    }
+    else if (_AppContext.HasPermission(Parameters.Can_Create_TerminalGadgets))
+    {
+        flag = true;
+    }
+}
+else if(_AppContext.HasPermission(Parameters.Can_Create_TerminalGadgets))
+{
+    flag = true;
+}
+@if (flag==true)
+{  
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-link"></i><span class="margin">@(Model.Lnk_Gadgets_Channels_id > 0 ? "Edit Channel Gadget..." : "Add Channel Gadget...")</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Url.Action("GadgetsChannelList", "Admin")">Channel Gadgets List</a></li>
+            <li class="active">Add or Edit Channel Gadget</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">@(Model.Lnk_Gadgets_Channels_id > 0 ? "Edit Channel Gadget..." : "Add Channel Gadget...")</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>@* /.box-tools *@
+            </div>@* /.box-header *@
+            <div class="overlay" style="display: none">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            @* form start *@
+            @using (Html.BeginForm("AddChannelGadgets", "Admin", FormMethod.Post, new { @id = "AddChannelGadgetsForm", @role = "form" }))
+            {
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="">Channel</label>
+                        @Html.DropDownListFor(x => x.Channel_id, (SelectList)ViewBag.Channels, "Select Channel...", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="">Gadget</label>
+                        @Html.DropDownListFor(x => x.Gadget_id, (SelectList)ViewBag.Gadgets, "Select Gadget...", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.Lnk_Gadgets_Channels_id)
+                        <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>@* /.box-body *@
+            }
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Product_id").change(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/GetProductPrice",
+                    data: "{s:'" + $("#Product_id").val() + "'}", // passing the parameter 
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        var jsonObj = result.data;
+                        $("#Product_Price").val(jsonObj[0].Product_Price);
+                        $("#Product_currency").val(jsonObj[0].Product_currency);
+                    }
+                });
+            });
+
+            AddChannelGadgetsFormLoad();
+
+            $("#idGadgetsChannelList").closest("li.treeview").addClass("active");
+            $("#idGadgetsChannelList").closest("li").addClass("active");
+        });
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

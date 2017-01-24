@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+}
+@model FuelCardSystemEntities.Models.ProductType
+<dl class="dl-horizontal">
+    <dt>Product Type :</dt><dd>@Model.ProductType_Name</dd>
+    <dt>Other Name :</dt><dd>@Model.ProductType_Description</dd>
+    <dt>Is Active :</dt><dd>@(Model.ProductType_IsActive.Equals(true) ? "Active" : "InActive")
+    <dt>Is Deleted :</dt><dd>@(Model.ProductType_IsDeleted.Equals(true) ? "Deleted" : "Not Deleted")</dd>
+</dl>

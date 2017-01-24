@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "CustomerTypesList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model IEnumerable<FuelCardSystemEntities.Models.CustomerType>
+@using FuelCardSystemMVC.Library
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-users"></i><span class="margin">List of Customer Types...</span><small></small></h1>
+        @if (_AppContext.HasPermission(Parameters.Can_Create_Customer_Type))
+        {
+            @Html.ActionLink("Add Customer Type", "AddCustomerTypes", "Admin", new { }, new { @class = "btn btn-primary btn-sm pull-right pad margin" })
+        }
+    </section>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid box-info">
+            <div class="box-header">
+                <h3 class="box-title">List of Customer Types</h3>
+            </div>
+            @*/.box-header*@
+            <div class="box-body">
+                <table id="custtypesTbl" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Customer Type</th>
+                            <th style="text-align: center;">Description</th>
+                            @if (_AppContext.HasPermission(Parameters.Can_Delete_Customer_Type))
+                            {
+                                <th style="text-align: center;">Is Active</th>
+                                <th style="text-align: center;">Is Deleted</th>
+                            }
+                            @if (_AppContext.HasPermission(Parameters.Can_Edit_Customer_Type))
+                            {
+                                <th style="text-align: center; width: 15%">Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align: center;">@item.Customer_Type</td>
+                                <td style="text-align: center;">@item.CustomerTypeDescription</td>
+                                @if (_AppContext.HasPermission(Parameters.Can_Delete_Customer_Type))
+                                {
+                                    <td style="text-align: center;">@Html.ActionLink((item.IsActive.Equals(true) ? "Active" : "InActive"), "CustomerTypesList", "Admin", new { id = item.CustomerType_id, status = "active" }, new { @class = (item.IsActive.Equals(true) ? "btn btn-success btn-sm" : "btn btn-danger btn-sm") })</td>
+                                    <td style="text-align: center;">@Html.ActionLink((item.IsDeleted.Equals(true) ? "Deleted" : "Not Deleted"), "CustomerTypesList", "Admin", new { id = item.CustomerType_id, status = "delete" }, new { @class = (item.IsDeleted.Equals(true) ? "btn btn-danger btn-sm" : "btn btn-success btn-sm"), onClick = (item.IsDeleted.Equals(true) ? "" : "return confirm('Are you sure you want to delete " + (item.Customer_Type) + "?')") })</td>
+                                }
+                                @if (_AppContext.HasPermission(Parameters.Can_Edit_Customer_Type))
+                                {
+                                    <td style="text-align: center;">
+                                        @Html.ActionLink("Edit", "AddCustomerTypes", "Admin", new { id = item.CustomerType_id }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @* /.box-body *@
+        </div>
+    </div>
+</div>
+@{
+    var message = Html.Raw(TempData["Msg"]);
+}
+
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#custtypesTbl").dataTable({
+                "aaSorting": []
+            });
+            var msg = '@message';
+            if (msg) {
+                ShowMsg();
+            }
+            $("#manageCustomers").addClass("active");
+            $("#idCustType").closest("li").addClass("active");
+        });
+        function ShowMsg() {
+            $("#msg").show().delay(1000).fadeOut(1000);
+        }
+    </script>
+}

@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "AssignAccounts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    bool flag = false;
+}
+@model FuelCardSystemEntities.Models.Customer_Account
+@using FuelCardSystemMVC.Library
+
+@if (_AppContext.HasPermission(Parameters.Can_Assign_AccountsToCustomerEmployeeDept))
+{    
+<link href="~/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+@section header{
+    <section class="content-header">
+        <h1><i class="fa fa-credit-card"></i><span class="margin">Assign Account to @(ViewBag.custname != null ? ViewBag.custname : "...")</span><small></small></h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i>Home</a></li>
+            @if (Model.AccountNumber > 0)
+            {
+                <li><a href="@Url.Action("CustomerAccountDetails", "Admin", new { @id = Model.Customer_id })">Accounts List</a></li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("CustomersList", "Admin")">Customer List</a></li>
+            }
+            <li class="active">Assign Account</li>
+        </ol>
+    </section>
+}
+<div class="row">
+    @if (TempData["msg"] != null)
+    {
+        if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Success)
+        {
+        <div class="col-sm-12">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-warning">
+                    <h4><i class="icon fa fa-check"></i>Account changes saved successfully, but you can't make it collection account because collection account already exists.</h4>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success">
+                    <h4><i class="icon fa fa-check"></i>Account saved successfully.</h4>
+                </div>
+            }
+        </div>
+        }
+        else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.Error)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <h4><i class="icon fa fa-ban"></i>Error occured.</h4>
+            </div>
+        </div>
+        }
+        else if ((_AppContext.Messages)TempData["msg"] == _AppContext.Messages.limitexceed)
+        {
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <h4><i class="icon fa fa-ban"></i>You can not assign more than one account to this customer.</h4>
+            </div>
+        </div>
+        }
+    }
+    <div class="col-sm-12">
+        <div class="box box-solid box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title"></h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>@* /.box-tools *@
+            </div>@* /.box-header *@
+            <div class="overlay" style="display: none">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            @* form start *@
+            @using (Html.BeginForm("AssignAccounts", "Admin", FormMethod.Post, new { @id = "AssignAccountsForm", @role = "form" }))
+            {
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Account Type</label>
+                        @Html.DropDownListFor(x => x.AccountType_id, (SelectList)ViewBag.acctypes, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mask Type</label>
+                        @Html.DropDownListFor(x => x.Mask_Type, (SelectList)ViewBag.masktypes, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mask</label>
+                        @Html.TextBoxFor(x => x.Mask, new { @class = "form-control" })
+                    </div>
+                    <div class="" id="loading" style="display: none; position: absolute; top: 231px;">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                    @if (Model.AccountNumber > 0 && Model.CreditType == 1)
+                    {
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label>Credit Type</label>
+                            <div class="radio">
+                                @if (Model.AccountNumber == 0)
+                                {
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CreditType, "0", new { id = "CreditType1" })Prepaid
+                                </label>
+
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CreditType, "1", new { id = "CreditType2" })Postpaid
+                                </label>
+                                }
+                                <label id="iscoltn">
+                                    @Html.CheckBoxFor(x => x.IsCollection) Is Collection
+                                </label>
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.Customer_id)
+                        @Html.HiddenFor(x => x.AccountNumber)
+                        <button type="submit" class="btn btn-primary col-md-2 col-md-offset-5" onclick="DisableButton(this);" ondblclick="DisableButton(this);">Save</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>@* /.box-body *@
+            }
+        </div>
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Content/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <script src="~/Content/plugins/input-mask/jquery.inputmask.phone.extensions.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CardsTbl").dataTable({
+                "aaSorting": [],
+                "aoColumnDefs": [{ "bSortable": false, "aTargets": [0] }],
+                //"iDisplayLength": -1,
+                "aLengthMenu": [[10, 20, 30, 40, 100, -1], [10, 20, 30, 40, 100, "All"]]
+            });
+            AssignAccountsFormLoad();
+
+            $(".alert").delay(2000).fadeOut(1000);
+            $("#manageCustomers").addClass("active");
+            $("#idCustList").closest("li").addClass("active");
+        });
+    </script>
+}
+}
+else
+{
+    <div class="alert alert-danger alert-dismissable">
+        <h4><i class="icon fa fa-ban"></i>Unauthorized Access!</h4>
+        You have no permission to do this action.    
+    </div>
+}

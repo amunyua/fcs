@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a985ee8b6df8494bbc5e4053c4344cde" Name="Diagram1" ZoomLevel="83" SnapToGrid="false" ShowGrid="false">
+        <EntityTypeShape EntityType="FuelCardDBModel.Activity" Width="1.5" PointX="0.80812757773224431" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CardTopup" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CardUsageLimit" Width="2.25" PointX="5.1486625502668906" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Country" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Currency" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CustomerType" Width="1.5" PointX="12.363683116935361" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Employee" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Gadget" Width="1.5" PointX="14.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Customers_CustomerTypes" Width="1.5" PointX="13.939300402135121" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Gadgets_Channels" Width="1.5" PointX="12.357510283334234" PointY="3.9300411517334348" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Products_Channels" Width="1.5" PointX="17.737179743467713" PointY="5.0833332722003615" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Role_Permission" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Loyalty_Scheme" Width="1.5" PointX="18.819958829870068" PointY="0.50565843693319634" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Permission" Width="1.5" PointX="13.958847733067344" PointY="2.22942387573192" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ProductProperty" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Role" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Tierlevel" Width="1.4999999999999991" PointX="7.1826923235633666" PointY="17.163461663666567" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Tierrule" Width="1.5" PointX="2.4155406221758273" PointY="16.80461707775077" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Tiertable" Width="1.5" PointX="20.42129627960318" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.TimeDuration" Width="1.5" PointX="15.573045265067126" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Products_Channels_Properties" Width="1.5" PointX="14.875" PointY="5.75" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Products_Properties" Width="1.5" PointX="8.875" PointY="16" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwProduct_ProductProperty" Width="1.5" PointX="11.25" PointY="18" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwProducts_ProductTypes" Width="1.5" PointX="23.707304515468813" PointY="0.5" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwChannels_ChannelTypes" Width="2.125" PointX="11" PointY="13.625" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwChannelProducts" Width="1.5" PointX="14" PointY="14.25" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwChannelGadgets" Width="1.5" PointX="16.375" PointY="8" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_Roles" Width="1.5" PointX="22.007716032803156" PointY="0.5" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CustomerPermissions" Width="1.5" PointX="4.625" PointY="7.125" />
+        <EntityTypeShape EntityType="FuelCardDBModel.LnkCustomer_Role_Permission" Width="1.5" PointX="6.4980914306352346" PointY="10.889418532554721" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Cards" Width="1.5" PointX="4.6615991308461551" PointY="17.160472978959561" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCardsCustomers" Width="1.5" PointX="16.5" PointY="11.875" />
+        <EntityTypeShape EntityType="FuelCardDBModel.PaymentMode" Width="1.5" PointX="2.496621624887033" PointY="20.474662146379337" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCardUsageLimit_Products" Width="1.5" PointX="2.9944833400633573" PointY="3.8997747022191875" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ActivityType" Width="1.5" PointX="15.553497924936657" PointY="2.2021604936000432" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwActivity_ActivityType" Width="1.5" PointX="3.8317905794045846" PointY="13.251897371025708" />
+        <EntityTypeShape EntityType="FuelCardDBModel.EventsTbl" Width="1.5" PointX="3.551440329066696" PointY="0.5" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Loyalty_Program" Width="1.5" PointX="8.79205707870054" PointY="20.544043088585159" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CommunicationTemplates" Width="1.5" PointX="5.7896778237957864" PointY="25.832978811968573" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Approval" Width="1.5" PointX="2.2109053473338021" PointY="24.244855968932981" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_Vehicle" Width="1.5" PointX="0.5" PointY="20.424897111468166" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Vehicle" Width="1.5" PointX="10.305555548401364" PointY="22.748971188267646" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VehicleModel" Width="1.5" PointX="7.7695448937684048" PointY="6.4665763557267262" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwVehicle_VehicleModel" Width="1.5" PointX="5.3916777080817511" PointY="20.025167668250003" />
+        <EntityTypeShape EntityType="FuelCardDBModel.WeekDays" Width="1.5" PointX="5.4651188205299519" PointY="11.557009836452552" />
+        <EntityTypeShape EntityType="FuelCardDBModel.actionitem" Width="1.5" PointX="11.826116803952546" PointY="23.960247676801053" />
+        <EntityTypeShape EntityType="FuelCardDBModel.conflicting_action" Width="1.5" PointX="8.9964045141806839" PointY="13.867591879268918" />
+        <EntityTypeShape EntityType="FuelCardDBModel.refvaluehistory" Width="1.5" PointX="7.8742389492104943" PointY="27.813047422009078" />
+        <EntityTypeShape EntityType="FuelCardDBModel.supplementary_action" Width="1.5" PointX="2.0380658409338457" PointY="5.0910493875990692" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ActionsTbl" Width="1.5" PointX="4.77532523161514" PointY="29.948191015957011" />
+        <EntityTypeShape EntityType="FuelCardDBModel.AccountType" Width="1.5" PointX="11.035428212506432" PointY="10.21902157842136" />
+        <EntityTypeShape EntityType="FuelCardDBModel.AccountType_Action" Width="1.5" PointX="9.2999579987022827" PointY="18.960175210125826" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_Account" Width="1.5" PointX="5.0243724626602475" PointY="11.183460881553339" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_AccountTopup" Width="1.5" PointX="4.9404271659163888" PointY="31.145198925931567" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_AccountUsageLimit" Width="1.5" PointX="4.87185550894209" PointY="5.192236276898643" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_CustomerVehicle_Account" Width="1.5" PointX="2.33115214031709" PointY="31.185421749570139" />
+        <EntityTypeShape EntityType="FuelCardDBModel.MaskType" Width="1.5" PointX="6.2856017976466578" PointY="22.641181017570748" />
+        <EntityTypeShape EntityType="FuelCardDBModel.PostpaidAccountCreditLimit" Width="1.5" PointX="2.7956674298251363" PointY="23.999916326254567" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwAccUsageLimit_Products" Width="1.5" PointX="11.484879333286024" PointY="9.4107695414734867" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwTest" Width="1.5" PointX="5.9843197306545077" PointY="3.2118302151615872" />
+        <EntityTypeShape EntityType="FuelCardDBModel.PostpaidCustCreditLimits" Width="1.5" PointX="7.9350385814602671" PointY="12.81020293236254" />
+        <EntityTypeShape EntityType="FuelCardDBModel.FormulaValueType" Width="1.5" PointX="9.7815532375972509" PointY="1.3168700641565352" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Schedule" Width="1.5" PointX="0.990991026547694" PointY="9.5056306386127485" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwChannelProductSchedule" Width="1.5" PointX="0.2579970081606866" PointY="8.9725201767741325" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Schedule_History" Width="1.5" PointX="3.1783240079778827" PointY="29.230844675205109" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ChartofAccountsSubTypes" Width="1.5" PointX="9.6602346942109225" PointY="27.840316666215806" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ChartofAccounts" Width="1.5" PointX="11.792452717103275" PointY="6.3329271405622958" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ChartofAccountTypes" Width="1.5" PointX="5.3708101107602984" PointY="9.36104023892481" />
+        <EntityTypeShape EntityType="FuelCardDBModel.GLTransactions" Width="1.5" PointX="5.5509696759055229" PointY="21.451110924338508" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Periods" Width="1.5" PointX="2.183232917535693" PointY="24.712625157419883" />
+        <EntityTypeShape EntityType="FuelCardDBModel.AccoutingDocTypes" Width="1.5" PointX="2.692034746842475" PointY="8.532729063431141" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Finance_Transaction" Width="1.5" PointX="3.50877259462549" PointY="15.888459585555111" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_PriceList_Product" Width="1.5" PointX="9.0314817563777243" PointY="0.47255776844572173" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Payment_Terms" Width="1.5" PointX="3.2096677940383866" PointY="14.034882715919466" />
+        <EntityTypeShape EntityType="FuelCardDBModel.PriceList" Width="1.5" PointX="5.6597786758373392" PointY="15.519269771650093" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwPriceListProducts" Width="1.5" PointX="6.5159519587252062" PointY="13.673439047147259" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_PriceList" Width="1.5" PointX="0.302516481048668" PointY="11.776537945389999" />
+        <EntityTypeShape EntityType="FuelCardDBModel.MessageTypes" Width="1.5" PointX="1.3125618031772608" PointY="4.0854653735111768" />
+        <EntityTypeShape EntityType="FuelCardDBModel.CustomTableFields" Width="1.5" PointX="9.0089514073957471" PointY="5.6626429435157419" />
+        <EntityTypeShape EntityType="FuelCardDBModel.DiscountsList" Width="1.5" PointX="10.234900568721304" PointY="26.008721468042918" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Lnk_Discount_Product" Width="1.5" PointX="0.026109443989633326" PointY="15.304973132584697" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwDiscountProducts" Width="1.5" PointX="11.977076813567932" PointY="26.370290723801727" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_AuditTrail" Width="1.5" PointX="10.262800655450114" PointY="3.61260871757409" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Audit" Width="1.5" PointX="2.9255615709934206" PointY="21.402344832849849" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer_TaxCategory" Width="1.5" PointX="1.2998259148093994" PointY="14.512979067169585" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Tax" Width="1.5" PointX="6.2482002425231968" PointY="15.4605664533845" />
+        <EntityTypeShape EntityType="FuelCardDBModel.TaxCategory" Width="1.5" PointX="5.5797082044089716" PointY="10.699209695076203" />
+        <EntityTypeShape EntityType="FuelCardDBModel.TaxRate" Width="1.5" PointX="2.1850836752844431" PointY="12.179597979495116" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwTax" Width="1.5" PointX="6.1138783162990009" PointY="11.923818444797684" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCustomerAccount" Width="1.5" PointX="4.2980160342054514" PointY="18.398070969804223" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCustomerEmpAccount" Width="1.5" PointX="3.0771199646764993" PointY="14.215380958381752" />
+        <EntityTypeShape EntityType="FuelCardDBModel.GeneralSetting" Width="1.5" PointX="5.1560530109126361" PointY="30.222311585313786" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Message" Width="1.5" PointX="5.2757989695648657" PointY="26.403974500672881" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ChannelType" Width="1.5" PointX="5.9303326578486395" PointY="3.872253151551007" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ProductType" Width="1.5" PointX="5.7127695259231928" PointY="18.979866200582993" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Staff" Width="1.5" PointX="6.1730581066445716" PointY="14.919134713206038" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Product" Width="1.5" PointX="3.0495474483117215" PointY="14.585157416102085" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCreditLimit" Width="1.5" PointX="0.920774778779957" PointY="11.549794902815387" />
+        <EntityTypeShape EntityType="FuelCardDBModel.ReceiptSettings" Width="1.5" PointX="2.6603181560804687" PointY="9.36424439091433" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Channel" Width="1.5" PointX="11.508512310454861" PointY="25.217365500152749" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Company" Width="1.5" PointX="4.764120901359302" PointY="1.0187352453445715" />
+        <EntityTypeShape EntityType="FuelCardDBModel.Customer" Width="1.5" PointX="2.6860020340820783" PointY="17.581757389745562" />
+        <EntityTypeShape EntityType="FuelCardDBModel.VwCustomers" Width="1.5" PointX="2.5901448459318583" PointY="11.564501737972956" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

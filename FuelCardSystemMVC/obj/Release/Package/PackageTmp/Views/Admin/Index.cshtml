@@ -1,0 +1,313 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/plugins/morris/morris.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="@Url.Action("CustomersList", "Admin")">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="">NEW MEMBERS</span>
+                    <span class="info-box-number">@(ViewBag.Customes != null ? ViewBag.Customes : "0")</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="@Url.Action("StaffList", "Admin")">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="">NEW STAFF</span>
+                    <span class="info-box-number">@(ViewBag.Staff != null ? ViewBag.Staff : "0")</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="@Url.Action("ProductsList", "Admin")">
+            <div class="info-box">
+                <span class="info-box-icon bg-teal"><i class="ion ion-bag"></i></span>
+                <div class="info-box-content">
+                    <span class="">New Products</span>
+                    <span class="info-box-number">@(ViewBag.Products != null ? ViewBag.Products : "0")</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="@Url.Action("GadgetsList", "Admin")">
+            <div class="info-box">
+                <span class="info-box-icon bg-olive"><i class="ion ion-ios-game-controller-b-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="">New Gadgets</span>
+                    <span class="info-box-number">@(ViewBag.Gadgets != null ? ViewBag.Gadgets : "0")</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid bg-teal-gradient">
+            <div class="box-header bg-aqua-gradient">
+                <h3 class="box-title">Monthly Top-ups (Last 6 months)</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="line-chart" style="height: 300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("GenSettings", "Admin")">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4>General Settings</h4>
+                    <p>You can make overall settings from here.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-cogs"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("RolePermissionsList", "Admin")">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4>Manage Roles</h4>
+                    <p>You can manage roles in this section (Add Role or Edit Role).</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("CurrencyConversionRates", "Admin")">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4>Currency Rates</h4>
+                    <p>You can manage currency rates in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("GadgetsList", "Admin")">
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h4>Manage Gadgets</h4>
+                    <p>You can manage gadgets in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-wrench"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("ProductsList", "Admin")">
+            <div class="small-box bg-olive">
+                <div class="inner">
+                    <h4>Manage Products</h4>
+                    <p>You can manage products in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-cubes"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("ChannelsList", "Admin")">
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h4>Manage Channels</h4>
+                    <p>You can manage channels in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-link"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("CustomersList", "Admin")">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4>Manage Customers</h4>
+                    <p>You can manage customers in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("StaffList", "Admin")">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4>Manage Staff Members</h4>
+                    <p>You can manage staff members in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("ListofCards", "Admin")">
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h4>Manage Cards</h4>
+                    <p>You can manage cards in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-credit-card"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <a href="@Url.Action("LoyaltyProgramsList", "Admin")">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4>Manage Loyalty Programs</h4>
+                    <p>You can manage Loyalty Programs in this section.</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-calculator"></i>
+                </div>
+                <p class="small-box-footer">
+                    Click to edit <i class="fa fa-arrow-circle-right"></i>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>*@
+@section scripts{
+    <script src="~/Content/plugins/morris/morris.min.js"></script>
+    <script src="~/Content/plugins/morris/raphael-min.js"></script>
+    <script type="text/javascript">
+        var result = "";
+        $(function () {
+            $("#idDashboard").closest("li").addClass("active");
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': '/Admin/TopupGraphData',
+                'dataType': "json",
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    //console.log(result);
+                    //console.log(data.query[0].Amount);
+                    for (var i = 0; i < data.query.length; i++) {
+                        if (data.query[i].TopupMonth == 1) {
+                            data.query[i].TopupMonth = "Jan";
+                        }
+                        else if (data.query[i].TopupMonth == 2) {
+                            data.query[i].TopupMonth = "Feb";
+                        }
+                        else if (data.query[i].TopupMonth == 3) {
+                            data.query[i].TopupMonth = "Mar";
+                        }
+                        else if (data.query[i].TopupMonth == 4) {
+                            data.query[i].TopupMonth = "Apr";
+                        }
+                        else if (data.query[i].TopupMonth == 5) {
+                            data.query[i].TopupMonth = "May";
+                        }
+                        else if (data.query[i].TopupMonth == 6) {
+                            data.query[i].TopupMonth = "Jun";
+                        }
+                        else if (data.query[i].TopupMonth == 7) {
+                            data.query[i].TopupMonth = "Jul";
+                        }
+                        else if (data.query[i].TopupMonth == 8) {
+                            data.query[i].TopupMonth = "Aug";
+                        }
+                        else if (data.query[i].TopupMonth == 9) {
+                            data.query[i].TopupMonth = "Sep";
+                        }
+                        else if (data.query[i].TopupMonth == 10) {
+                            data.query[i].TopupMonth = "Oct";
+                        }
+                        else if (data.query[i].TopupMonth == 11) {
+                            data.query[i].TopupMonth = "Nov";
+                        }
+                        else if (data.query[i].TopupMonth == 12) {
+                            data.query[i].TopupMonth = "Dec";
+                        }
+                    }
+                    result = data;
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+        });
+            // LINE CHART
+            var line = new Morris.Line({
+                element: 'line-chart',
+                resize: true,
+                data: result.query,
+                xkey: 'TopupMonth',
+                parseTime: false,
+                ykeys: ['Amount'],
+                labels: ['Topup Amount'],
+                lineColors: ['#efefef'],
+                lineWidth: 2,
+                hideHover: 'auto',
+                gridTextColor: "#fff",
+                gridStrokeWidth: 0.4,
+                pointSize: 4,
+                pointStrokeColors: ["#efefef"],
+                gridLineColor: "#efefef",
+                //gridTextFamily: "Open Sans",
+                //gridTextSize: 14
+            });
+        });
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@model FuelCardSystemMVC.Models.Menu
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Menu</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ParentId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ParentId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MenuName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MenuName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.url)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.url)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sequence)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Icon)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Icon)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MenuId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<FuelCardSystemMVC.Models.Menu>
+
+@{
+    Layout = "~/Views/Shared/_DtLayout.cshtml";
+    ViewBag.Title = "System Menu";
+   
+   }
+    @section PageTitle{
+        Manage Menu
+        }
+    @section BreadCrumbs{
+            <li><a href="#"><i class="fa fa-dashboard"></i> System Settings</a></li>
+<li class="active">Manage Menu</li>
+        }
+@section TableHeader{
+        All Menus
+    }
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="pull-right">
+    <a data-toggle="modal" href="#create-client-account-mod" id="" class="btn btn-success btn-sm header-btn hidden-mobile">
+        <i class="fa fa-plus"></i> Create Account
+    </a>
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ParentId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MenuName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.url)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sequence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Icon)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MenuName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.url)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Icon)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MenuId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MenuId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MenuId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*modals*@
+    <div class="modal fade" id="create-client-account-mod" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Menu</h4>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->

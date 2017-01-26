@@ -20,6 +20,9 @@ namespace FuelCardSystemMVC
                 "~/Content/dist/js/app.js",
                 "~/Content/dist/js/CommonJS.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                       "~/Scripts/modernizr-*"));
+
             bundles.Add(new ScriptBundle("~/bundles/custscript").Include(
                 //"~/Content/plugins/jQuery/jQuery-2.1.3.js",
                 "~/Content/plugins/jQuery/jquery-1.9.1.js",
